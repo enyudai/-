@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # デバイス追加:前田
 gem 'devise'
+# enumの導入・ユウ
+gem "enum_help"
