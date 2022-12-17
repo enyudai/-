@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <%= image_tag @item.get_image %>
+    </div>
+    <div class="col-4">
+      <span><strong><%= @item.name %></strong></span>
+      <p><%= @item.body %></p>
+      <P><strong>￥<%= (@item.price * 1.1).floor %></strong>(税込)</P>
+      <%= form_with model: CartItem.new, url: cart_items_path do |f| %>
+        <%= f.select :volume, *[1..10] %>
+        <%= f.submit 'カートに入れる' %>
+      <% end 
+    </div>
+  </div>
+</div>
