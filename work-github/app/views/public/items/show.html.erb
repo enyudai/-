@@ -13,7 +13,7 @@
       <%= form_with model: CartItem.new, url: cart_items_path do |f| %>
         <%= f.select :volume, *[1..10] %>
         <%= f.submit 'カートに入れる' %>
-      <% end 
+      <% end %>
     </div>
   </div>
 </div>
