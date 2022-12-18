@@ -23,12 +23,14 @@
         
          <div class="form-group">
         　<%= f.radio_button :delivery_method, Order.delivery_methods.key(0) %>
-        　<%= f.label :delivery_method_user_address, Order.delivery_methods_i18n[:user_address] %>
+        　<%= f.label :delivery_method_user_address, Order.delivery_methods_i18n[:user_address] %><br>
+        　<%= @a.address %>
          </div>
         　
         　<div class="form-group">
         　<%= f.radio_button :delivery_method, Order.delivery_methods.key(1) %>
         　<%= f.label :delivery_method_registered_address, Order.delivery_methods_i18n[:registered_address] %>
+        　<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :name) %>
         　</div>
         　
           <div class="form-group">

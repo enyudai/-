@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ja:
  enums:
   order:
@@ -8,12 +7,9 @@ ja:
    delivery_method:
     user_address: "ご自身の住所"
     registered_address: "登録先住所から選択"
-    new_address: "新しいお届け"
+    new_address: "新しいお届け先"
  
-=======
----
-ja:
-  activerecord:
+   activerecord:
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -194,4 +190,3 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
->>>>>>> origin/develop

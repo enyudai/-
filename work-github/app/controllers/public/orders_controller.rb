@@ -6,7 +6,8 @@ class Public::OrdersController < ApplicationController
     def show
     end
     
-    def edit
+    def new
+      @a = current_customer
     end
     
 end
