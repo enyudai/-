@@ -1,2 +1,19 @@
-<h1>Public::Deliveries#edit</h1>
-<p>Find me in app/views/public/deliveries/edit.html.erb</p>
+<h1>配送先編集</h1>
+
+<table style="margin-bottom:40px">
+     <%= form_with model: @delivery, url: deliveries_path(@delivery.id), method: :patch do |f| %>
+      <tr>
+       <td >郵便番号(ハイフンなし)　　</td>
+       <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
+       <td colspan="1"></td>
+      </tr>
+      <tr>
+       <td>住所</td>
+       <td><%= f.text_field :address, size: "45x20", placeholder: "東京都渋谷区代々木神園町0-0" %></td>
+      </tr>
+      <tr>
+        <td>宛名</td>
+        <td><%= f.text_field :name, placeholder: "令和道子" %></td>
+        <td class="text-right"><%= f.submit '変更内容を保存', class:"btn btn-success" %></td>
+      </tr>
+     <% end %>
