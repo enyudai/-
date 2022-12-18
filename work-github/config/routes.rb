@@ -30,5 +30,10 @@ end
     resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
   end
+  
+  namespace :admin do
+    resources :items, only: [:new, :index, :show, :create, :edit, :update]
+  end
+
 
 end
