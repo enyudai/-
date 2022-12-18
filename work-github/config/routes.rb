@@ -20,14 +20,13 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
-<<<<<<< HEAD
+
 
  get 'customers/my_page' => 'customers#my_page'
  
  resources :orders, only: [:index, :show, :new]
  
 
-=======
  get 'homes/top'
  get 'homes/about'
  get 'customers/my_page' => 'customers#my_page'
@@ -39,7 +38,7 @@ end
 
  namespace :admin do
   get 'homes/top'
->>>>>>> origin/develop
+
   resources :customers, only: [:edit, :update]
   get 'customers/my_page' => 'customers#my_page'
 

@@ -1,16 +1,19 @@
 <div class='container'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-md-8'>
       
       <h1>注文情報入力</h1>
        
        <h2>支払い方法</h2>
+       
          <%= form_with model: Order do |f| %>
           <div class="form-group">
            <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
            <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
          </div>
+         <% end %>
          
+        <%= form_with model: Order do |f| %>
           <div class="form-group">
            <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
            <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
@@ -20,25 +23,44 @@
         <h2>お届け先</h2>
         
         <%= form_with model: Order do |f| %>
-        
-         <div class="form-group">
+         <div class="col">
         　<%= f.radio_button :delivery_method, Order.delivery_methods.key(0) %>
         　<%= f.label :delivery_method_user_address, Order.delivery_methods_i18n[:user_address] %><br>
         　<%= @a.address %>
          </div>
+         <% end %>
         　
-        　<div class="form-group">
+        　<%= form_with model: Order do |f| %>
+        　<div class="col">
         　<%= f.radio_button :delivery_method, Order.delivery_methods.key(1) %>
-        　<%= f.label :delivery_method_registered_address, Order.delivery_methods_i18n[:registered_address] %>
-        　<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :name) %>
+        　<%= f.label :delivery_method_registered_address, Order.delivery_methods_i18n[:registered_address] %><br>
+        　<%= f.select :address_id, options_from_collection_for_select(Delivery.all, :id, :address_display) %>
         　</div>
+        　<% end %>
         　
-          <div class="form-group">
+         <%= form_with model: Order do |f| %>
+        <div class="col-auto">
         　<%= f.radio_button :delivery_method, Order.delivery_methods.key(2) %>
-        　<%= f.label :delivery_method_new_address, Order.delivery_methods_i18n[:new_address] %>
-        　</div>
+        　<%= f.label :delivery_method_new_address, Order.delivery_methods_i18n[:new_address] %><br>
         　
-        <% end %>
+        　<table class= "table">
+        　<tr>
+           <th> <%= f.label :title, "郵便番号(ハイフンなし)" %></th>  
+        　 <th><%= f.text_field :title, placeholder:"0000000" %></th>
+          </tr>
+          
+         <tr>
+           <td><%= f.label :title, "住所"%></td>
+           <td><%= f.text_field :title, placeholder:"東京都渋谷代々木神園町0-0", size: "45x20" %></td>
+         </tr>
+        　
+        　<tr>
+           <td><%= f.label :title, "宛名"%></td>
+           <td><%= f.text_field :title, placeholder:"令和道子", size: "45x20" %></td>
+         </tr>
+        　</table>
+        </div>
+         <% end %>
         
         
     </div>
