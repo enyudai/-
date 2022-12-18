@@ -1,0 +1,52 @@
+<div class="container px-5 px-sm-0">
+ <div class= "row">
+  <div class="col-md-10 offset-md-1">
+    <h3>配送先登録/一覧</h3>
+    <table style="margin-bottom:40px">
+     <%= form_with model: @delivery do |f| %>
+      <tr>
+       <td >郵便番号(ハイフンなし)　　</td>
+       <td><%= f.text_field :string, placeholder: "0000000" %></td>
+       <td colspan="1"></td>
+      </tr>
+      <tr>
+       <td>住所</td>
+       <td><%= f.text_field :string, size: "45x20", placeholder: "東京都渋谷区代々木神園町0-0" %></td>
+      </tr>
+      <tr>
+        <td>宛名</td>
+        <td><%= f.text_field :string, placeholder: "令和道子" %></td>
+        <td class="text-right"><%= f.submit '新規登録', class:"btn btn-success" %></td>
+      </tr>
+     <% end %>
+    </table>
+
+    <table border="1">
+     <thead>
+      <tr>
+       <th>郵便番号</th>
+       <th>住所</th>
+       <th>宛名</th>
+       <th colspan="1"></th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <th>0000000　</th>
+       <th>東京都渋谷区代々木神園町0-0　</th>
+       <th>令和道子　</th>
+       <th>　編集する　削除する　</th> <%#= f.submit '編集する', class:"btn btn-success" %> <%# f.submit '削除する', class:"btn btn-danger" %>
+      </tr>
+      <% @deliveries.each do |delivery| %>
+      <tr>
+       <th><%= delivery.postal_code %>　</th>
+       <th><%= delivery.address %>　</th>
+       <th><%= delivery.name %>　</th>
+       <th>　編集する　削除する　</th> <%#= f.submit '編集する', class:"btn btn-success" %> <%# f.submit '削除する', class:"btn btn-danger" %>
+      </tr>
+      <% end %>
+     </tbody>
+    </table>
+  </div>
+ </div>
+</div>
