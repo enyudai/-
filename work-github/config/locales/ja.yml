@@ -4,10 +4,8 @@ ja:
    payment_method:
     credit_card: "クレジットカード"
     transfer: "銀行振込"
-   reception_status:
-    waiting: "入金待ち"
-    check: "入金確認"
-    making: "制作中"
-    prepare: "発送準備中"
-    shiped: "発送済み"
-    
+   delivery_method:
+    user_address: "ご自身の住所"
+    registered_address: "登録先住所から選択"
+    new_address: "新しいお届け"
+ 
