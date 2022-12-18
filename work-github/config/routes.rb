@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  
+
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -29,6 +29,8 @@ end
 
  namespace :admin do
   get 'homes/top'
+  resources :customers, only: [:edit, :update]
+  get 'customers/my_page' => 'customers#my_page'
 end
 
 
