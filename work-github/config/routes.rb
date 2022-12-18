@@ -16,15 +16,15 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
-<<<<<<< HEAD
+
  get 'customers/my_page' => 'customers#my_page'
  
  resources :orders, only: [:index, :show, :new]
  
-=======
+
   resources :customers, only: [:edit, :update]
   get 'customers/my_page' => 'customers#my_page'
->>>>>>> origin/develop
+
 end
 
 
