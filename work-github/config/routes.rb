@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
- get 'customers/my_page' => 'customers#my_page'
+  resources :customers, only: [:edit, :update]
+  get 'customers/my_page' => 'customers#my_page'
 end
 
 
