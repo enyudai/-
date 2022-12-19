@@ -1,9 +1,10 @@
 <h1>配送先編集</h1>
 
+
+     <%= form_with model: @delivery, url: delivery_path(@delivery), method: :patch, local: true do |f| %>
 <table style="margin-bottom:40px">
-     <%= form_with model: @delivery do |f| %>
       <tr>
-       <td >郵便番号(ハイフンなし)　　</td>
+       <td >郵便番号(ハイフンなし)    </td>
        <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
        <td colspan="1"></td>
       </tr>
@@ -16,4 +17,5 @@
         <td><%= f.text_field :name, placeholder: "令和道子" %></td>
         <td class="text-right"><%= f.submit '変更内容を保存', class:"btn btn-success" %></td>
       </tr>
+</table>
      <% end %>
