@@ -34,4 +34,8 @@ class Public::DeliveriesController < ApplicationController
   def delivery_params
     params.require(:delivery).permit(:postal_code, :address, :name)
   end
+
+  #def update_params
+  #  params.permit(:postal_code, :address, :name)
+  #end
 end
