@@ -18,8 +18,13 @@ class Public::CustomersController < ApplicationController
     end
   end
   
-  def change
-    
+  def withdrawal
+    @customer = Customer.find(params[:id])
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @customer.update(withdrawal_flag: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to homes_about_path
   end
   
   private
