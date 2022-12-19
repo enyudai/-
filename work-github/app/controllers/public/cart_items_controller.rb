@@ -1,0 +1,28 @@
+class Public::CartItemsController < ApplicationController
+
+  def index
+    @cart_items = CartItem.all
+  end
+
+  def create
+    @cart_item = CartItem.new
+    @cart_item.save
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  def destroy_all
+  end
+
+
+  private
+
+  def cart_item_params
+      params.require(:cart_item).permit(:item_id, :customer_id, :image, :name, :body, :price, :volume)
+  end
+
+end
