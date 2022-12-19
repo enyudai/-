@@ -23,7 +23,6 @@ scope module: :public do
  get 'homes/top'
  get 'homes/about'
  get 'customers/my_page' => 'customers#my_page'
-
  post 'deliveries' => 'deliveries#create'
  get 'deliveries/index'
  get 'deliveries/edit'

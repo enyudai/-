@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h3>ショッピングカート</h3>
-    <table> 
+    <table>
       <thead>
         <th>商品名</th>
         <th>単価(税込)</th>
@@ -10,14 +10,19 @@
         <th></th>
       </thead>
       <tbody>
-      <% インスタンス変数.each do |cart_item| %>
+      <% @cart_items.each do |cart_item| %>
           <tr>
-              <td><%= (cart_item.item.price * 1.1).floor %></td>
-              <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
-              <% @合計金額 +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
+              <td><%= image_tag cart_item.item.get_image, size: "30x30" %><%= cart_item.item.name %></td>
+              <td><%= cart_item.item.with_tax_price %></td>
+              <td><%= cart_item.volume %></td>
+              <td><%= cart_item.subtotal %></td>
+              <td></td>
           </tr>
       <% end %>
       </tbody>
+      <tr>
+        <td>合計金額<%= @cart_items.subtotal %></td>
+      </tr>
     </table>
   </div>
 </div>
