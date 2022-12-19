@@ -17,8 +17,8 @@
       <%= f.text_area :body, placeholder:"ここに説明文を記述します", size: "30x5" %>
     </div>
     <div class="col">
-      <%#.collection_select :genre_id, Genre.all, :id, :genre_name %>
-      <%= f.select :genre_id, [['ジャンル(仮)', 1]] %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+      <%#= f.select :genre_id, [['ジャンル(仮)', 1]] %>
     </div>
     <div class="col">
       <%= f.label :price, "税抜き価格" %>
