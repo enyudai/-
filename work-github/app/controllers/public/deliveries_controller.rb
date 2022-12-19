@@ -20,7 +20,7 @@ class Public::DeliveriesController < ApplicationController
   def update
     @delivery = Delivery.find(params[:id])
     @delivery.update(delivery_params)
-    redirect_to"/deliveries"
+    redirect_to deliveries_path(@delivery)
   end
 
   def destroy

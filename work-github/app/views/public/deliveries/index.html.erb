@@ -36,7 +36,7 @@
          <th><%= delivery.postal_code %>　</th>
          <th><%= delivery.address %>　</th>
          <th><%= delivery.name %>　</th>
-         <th>　<%= link_to "編集する", edit_delivery_path(@deliveries), class:"btn btn-success" %> <%= link_to '削除する', delivery_path(@deliveries), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>  </th>
+         <th>　<%= link_to "編集する", edit_delivery_path(delivery.id), class:"btn btn-success" %> <%= link_to '削除する', delivery_path(delivery), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>  </th>
         </tr>
       <% end %>
      </tbody>
