@@ -28,8 +28,12 @@ class Public::OrdersController < ApplicationController
        elsif params[:order][:delivery_method] == "2"
          @delivery = current_customer.deliveries.new
          @delivery.address = params[:order][:address]
+         @delivery.postal_code = params[:order][:postal_code]
+         @delivery.name = params[:order][:name]
          @delivery.save
          @order.address = @delivery.address
+         @order.postal_code = @delivery.postal_code
+         @order.name = @delivery.name
        end
        
      end

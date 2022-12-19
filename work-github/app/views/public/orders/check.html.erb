@@ -7,8 +7,12 @@
        <table class='table'>
           
          <tr>
-           <th><%= f.label :title, "支払い方法" %></th>
-           <th><%= @order %></th>
+           <h2>支払い情報</h2>
+           <th>
+              <%= @order.address %>
+              <%= @order.postal_code %>
+              <%= @order.name %>
+           </th>
          </tr>
          
        </table>
