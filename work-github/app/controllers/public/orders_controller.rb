@@ -7,22 +7,40 @@ class Public::OrdersController < ApplicationController
     def show
     end
     
-    def new
-    @order = Order.new(order_params)
-    binding.pry
-    @address = Delivery.find(params[:order][:address_id])
-    @order.postal_code = @address.postal_code
-    @order.address = @address.address
-    @order.name = @address.name
-    end
-    def check
-      
-    end
+     def new
+       @order = Order.new
+     end
+     
+     def check
+       @order = Order.new(order_params)
+       
+       if params[:order][:delivery_method] == "0"
+          @order.postal_code = current_customer.postal_code
+          @order.address = current_customer.address
+          @order.name = current_customer.first_name + current_customer.last_name
+  
+       elsif params[:order][:delivery_method] == "1"
+         @delivery = Delivery.find(params[:order][:delivery_id])
+         @order.postal_code = @delivery.postal_code
+         @order.address = @delivery.address
+         @order.name = @delivery.name
+         
+       elsif params[:order][:delivery_method] == "2"
+         @delivery = current_customer.deliveries.new
+         @delivery.address = params[:order][:address]
+         @delivery.save
+         @order.address = @delivery.address
+       end
+       
+     end
+    
+      def create
+      end
     
     private
     
-    def order_params
-      params.require(:order).permit(:payment_method, :postal_code, :address, :name)
-    end
+     def order_params
+      params.require(:order).permit(:payment, :postal_code, :address, :name)
+     end
     
 end

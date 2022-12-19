@@ -24,7 +24,7 @@ scope module: :public do
 
  get 'customers/my_page' => 'customers#my_page'
  
- resources :orders, only: [:index, :show, :new]
+ resources :orders, only: [:index, :show, :new, :create]
  post 'orders/check' => 'orders#check'
 
  get 'homes/top'

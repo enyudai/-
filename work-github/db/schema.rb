@@ -47,7 +47,8 @@ ActiveRecord::Schema.define(version: 2022_12_18_050719) do
   create_table "deliveries", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "customer_id", null: false
+    t.integer "deliveries_id", null: false
+    t.integer "customers_id", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
     t.string "name", null: false
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2022_12_18_050719) do
   create_table "order_details", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "order_detail_id", null: false
     t.integer "order_id", null: false
     t.integer "item_id", null: false
     t.integer "price", null: false
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_12_18_050719) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer "payment", null: false
     t.integer "customer_id", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
