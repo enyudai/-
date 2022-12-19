@@ -33,6 +33,16 @@ scope module: :public do
   get 'deliveries/index'
   get 'deliveries/edit'
  
+
+ get 'homes/top'
+ get 'homes/about'
+ get 'customers/my_page' => 'customers#my_page'
+ resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
+# post 'deliveries' => 'deliveries#create'
+# get 'deliveries/index'
+# get 'deliveries/edit'
+
+
 end
 
  namespace :admin do
