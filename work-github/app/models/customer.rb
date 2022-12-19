@@ -6,5 +6,5 @@ class Customer < ApplicationRecord
   
   has_many :orders, dependent: :destroy
   
-  
+  has_many :deliveries, dependent: :destroy
 end
