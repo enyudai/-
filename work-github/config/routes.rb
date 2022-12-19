@@ -20,12 +20,17 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
- get 'homes/top'
- get 'homes/about'
- get 'customers/my_page' => 'customers#my_page'
- post 'deliveries' => 'deliveries#create'
- get 'deliveries/index'
- get 'deliveries/edit'
+  resources :customers, only: [:update]
+  patch 'customers/change' => 'customers#change'
+  get 'customers/information/edit' => 'customers#edit', as: "customers_edit"
+  get 'customers/withdrawal' => 'customers#withdrawal'
+  
+  get 'homes/top'
+  get 'homes/about'
+  get 'customers/my_page' => 'customers#my_page'
+  post 'deliveries' => 'deliveries#create'
+  get 'deliveries/index'
+  get 'deliveries/edit'
  
 end
 

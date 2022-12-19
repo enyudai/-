@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-4'>
       
-      <li>
+      <li><!--一時的にログアウトボタン作成-->
         <%= link_to destroy_customer_session_path, method: :delete,class: "btn btn-success" do %>
           Log out
         <% end %>
@@ -12,7 +12,7 @@
       <table>
         <tr>
           <td><h4 class="col">登録情報</h4></td>
-          <td><%= link_to customers_my_page_path, class: 'col btn btn-success' do %>編集する<% end %></td>
+          <td><%= link_to customers_edit_path(@customer.id), class: 'col btn btn-success' do %>編集する<% end %></td>
         </tr>
       </table>
       <div></div>
