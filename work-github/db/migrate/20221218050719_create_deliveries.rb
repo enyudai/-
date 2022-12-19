@@ -3,7 +3,10 @@ class CreateDeliveries < ActiveRecord::Migration[6.1]
     create_table :deliveries do |t|
 
       t.timestamps
+<<<<<<< HEAD
       
+=======
+>>>>>>> origin/develop
       t.integer :customer_id, null: false
       t.string :postal_code, null: false
       t.string :address, null: false
