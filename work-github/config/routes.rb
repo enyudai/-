@@ -37,6 +37,7 @@ end
   resources :customers, only: [:edit, :update]
   get 'customers/my_page' => 'customers#my_page'
   resources :items, only: [:new, :index, :show, :create, :edit, :update]
+  resources :genres, only: [:index, :create, :edit, :update]
 end
 
 

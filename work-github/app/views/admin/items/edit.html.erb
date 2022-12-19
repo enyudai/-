@@ -3,7 +3,7 @@
     <h3>商品編集</h3>
   </div>
   <div class="row">
-    <%= form_with model: @item, url: admin_items_path, method: :patch do |f| %>
+    <%= form_with model: @item, url: admin_item_path(@item), method: :patch do |f| %>
     <div class="col">
       <%= f.label :image, "商品画像" %>
       <%= f.file_field :image, accept: "image/*" %>

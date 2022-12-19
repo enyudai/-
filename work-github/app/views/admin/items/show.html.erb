@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <td>ジャンル</td>
-          <td><%= @item.genre.name %></td>
+          <td><%#= @item.genre.name %></td>
         </tr>
         <tr>
           <td>税込価格<br>(税抜価格)</td>
@@ -26,13 +26,15 @@
         </tr>
         <tr>
           <td>販売ステータス</td>
-          <% if sale_status == true %>
-            <td>販売中</td>
+          <% if @item.sale_status == true %>
+          <td>販売中</td>
           <% else %>
-            <td>販売停止中</td>
+          <td>販売停止中</td>
           <% end %>
         </tr>
-        <tr><%= link_to edit_admin_path(@item.id), "編集中" %></tr>
+        <tr>
+          <td><%= link_to "編集する", edit_admin_item_path(@item) %></td>
+        </tr>
       </table>
     </div>
   </div>

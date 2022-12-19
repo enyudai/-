@@ -18,8 +18,8 @@
             <td><%= item.id %></td>
             <td><%= item.name %></td>
             <td><%= item.price %></td>
-            <td><%= item.genre.name %></td>
-            <% if sale_status == true %>
+            <td><%#= item.genre.name %></td>
+            <% if item.sale_status == true %>
               <td>販売中</td>
             <% else %>
               <td>販売停止中</td>
