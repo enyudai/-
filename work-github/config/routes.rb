@@ -22,8 +22,9 @@ Rails.application.routes.draw do
 scope module: :public do
   resources :customers, only: [:update]
   patch 'customers/change' => 'customers#change'
-  get 'customers/information/edit' => 'customers#edit', as: "customers_edit"
+  get 'customers/information/edit' => 'customers#edit'
   get 'customers/withdrawal' => 'customers#withdrawal'
+  patch 'customers/change' => 'customers#change'
   
   get 'homes/top'
   get 'homes/about'

@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  before_action :ensure_correct_user, only: [:update, :edit]
+  
   
   def my_page
     @customer = current_customer
@@ -27,7 +27,6 @@ class Public::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:email, :family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :address, :phone_number)
   end
-  
   
   def change_customer
     @book = Book.find(params[:id])
