@@ -30,10 +30,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    #CartItem.destroy_all
-    #cart_item = CartItem.all
     current_customer.cart_items.destroy_all
-    #cart_item.destroy
     redirect_to cart_items_path
   end
 
