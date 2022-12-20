@@ -1,7 +1,7 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-4'>
-      
+
       <li><!--一時的にログアウトボタン作成-->
         <%= link_to destroy_customer_session_path, method: :delete,class: "btn btn-success" do %>
           Log out
@@ -29,7 +29,7 @@
       <table>
         <tr>
           <td><h4 class="col">配送先</h4></td>
-          <td><%= link_to customers_my_page_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
+          <td><%= link_to deliveries_index_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
         <tr>
         <tr>
           <td><h4 class="col">注文履歴</h4></td>
