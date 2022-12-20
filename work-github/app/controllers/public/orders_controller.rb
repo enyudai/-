@@ -13,6 +13,8 @@ class Public::OrdersController < ApplicationController
      
      def check
        @order = Order.new(order_params)
+       @price_all = 0
+       @order.postage = 800
        
        if params[:order][:delivery_method] == "0"
           @order.postal_code = current_customer.postal_code
@@ -39,6 +41,7 @@ class Public::OrdersController < ApplicationController
      end
     
       def create
+       
       end
     
      def complete

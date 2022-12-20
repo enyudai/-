@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
-<<<<<<< HEAD
+
 
 
 
@@ -30,9 +30,9 @@ scope module: :public do
  get  'orders/complete' => 'orders#complete'
  resources :orders, only: [:index, :show, :new, :create]
  
-=======
+
   patch 'customers/change' => 'customers#change', as: 'change'
->>>>>>> origin/develop
+
   resources :customers, only: [:update]
   patch 'customers/change' => 'customers#change'
   get 'customers/information/edit' => 'customers#edit'

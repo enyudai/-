@@ -1,8 +1,24 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-8'>
+        
       <h1>注文情報確認</h1>
        <table class='table'>
+           <%  current_customer.cart_items.each do |cart_item| %>
+           <tr>
+              <td><%= image_tag cart_item.item.get_image, size: "30x30" %><%= cart_item.item.name %></td>
+              <td><%= cart_item.item.with_tax_price %></td>
+              <td><%= cart_item.volume %></td>
+              <td><%= cart_item.subtotal %>
+               <% @price_all += cart_item.subtotal %>
+              </td>
+          </tr>
+           <% end %>
+            <tr>
+                <td><%= @order.postage %></td>
+                <td><%=  @price_all %></td>
+                <td><%= @order.postage +  @price_all %></td>
+            </tr>
        </table>
       
        <table class='table'>
@@ -24,7 +40,7 @@
        </table>
        
        <% form_with model: @order, url: orders_path, method: :post do |f| %>
-       <%= f.hidden_field :create, :value =>  %>
+       <%= f.hidden_field :price, :value => @order.postage +  @price_all  %>
        <% end %>
        
        <%= link_to "注文を確定する", orders_complete_path, class: 'btn btn-success' %>
