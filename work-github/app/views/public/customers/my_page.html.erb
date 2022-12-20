@@ -2,23 +2,28 @@
   <div class='row'>
     <div class='col-md-4'>
       
+      <li><!--一時的にログアウトボタン作成-->
+        <%= link_to destroy_customer_session_path, method: :delete,class: "btn btn-success" do %>
+          Log out
+        <% end %>
+      </li>
       
       
       <table>
         <tr>
           <td><h4 class="col">登録情報</h4></td>
-          <td><%= link_to customers_my_page_path, class: 'col btn btn-success' do %>編集する<% end %></td>
+          <td><%= link_to customers_information_edit_path, class: 'col btn btn-success' do %>編集する<% end %></td>
         </tr>
       </table>
       <div></div>
 
       <table class="table">
-        <tr><th class="border bg-light">氏名</th><td class="border">testtesttesttesttesttesttesttest</td></tr>
-        <tr><th class="col border bg-light">カナ</th><td class="col border">test</td></tr>
-        <tr><th class="col border bg-light">郵便番号</th><td class="col border">test</td></tr>
-        <tr><th class="col border bg-light">住所</th><td class="col border">test</td></tr>
-        <tr><th class="col border bg-light">電話番号</th><td class="col border">test</td></tr>
-        <tr><th class="col border bg-light">メールアドレス</th><td class="col border">test</td></tr>
+        <tr><th class="border bg-light">氏名</th><td class="border"><%= @customer.first_name %><%= @customer.family_name %></td></tr>
+        <tr><th class="col border bg-light">カナ</th><td class="col border"><%= @customer.first_name_kana %><%= @customer.family_name %></td></tr>
+        <tr><th class="col border bg-light">郵便番号</th><td class="col border"><%= @customer.postal_code %></td></tr>
+        <tr><th class="col border bg-light">住所</th><td class="col border"><%= @customer.address %></td></tr>
+        <tr><th class="col border bg-light">電話番号</th><td class="col border"><%= @customer.phone_number %></td></tr>
+        <tr><th class="col border bg-light">メールアドレス</th><td class="col border"><%= @customer.email %></td></tr>
       </table>
       
       <table>
