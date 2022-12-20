@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
+<<<<<<< HEAD
 
 
  get 'customers/my_page' => 'customers#my_page'
@@ -27,6 +28,23 @@ scope module: :public do
  resources :orders, only: [:index, :show, :new, :create]
  post 'orders/check' => 'orders#check'
  get  'orders/complete' => 'orders#complete'
+=======
+  resources :customers, only: [:update]
+  patch 'customers/change' => 'customers#change'
+  get 'customers/information/edit' => 'customers#edit'
+  
+  #退会機能
+  get 'customers/withdrawal' => 'customers#withdrawal'
+  patch 'customers/change' => 'customers#change', as: 'change'
+  
+  get 'homes/top'
+  get 'homes/about'
+  get 'customers/my_page' => 'customers#my_page'
+  post 'deliveries' => 'deliveries#create'
+  get 'deliveries/index'
+  get 'deliveries/edit'
+ 
+>>>>>>> origin/develop
 
  get 'homes/top'
  get 'homes/about'
@@ -35,6 +53,7 @@ scope module: :public do
 # post 'deliveries' => 'deliveries#create'
 # get 'deliveries/index'
 # get 'deliveries/edit'
+
 
 end
 
