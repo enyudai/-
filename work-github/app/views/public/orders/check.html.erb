@@ -8,14 +8,22 @@
           
          <tr>
            <h2>支払い情報</h2>
+             <% if @order.payment == Order.payments.key(0) %>
+            <th>クレジットカード</th>
+             <% else %>
+            <th>銀行振り込み</th>
+             <% end %>
+           
+           <h2>お届け先</h2>
            <th>
-              <%= @order.address %>
               <%= @order.postal_code %>
+              <%= @order.address %>
               <%= @order.name %>
            </th>
          </tr>
          
        </table>
+       <%= link_to '注文を確定する',   orders_complete_path %>
     </div>
   </div>
 </div>

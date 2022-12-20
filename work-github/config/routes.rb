@@ -26,6 +26,7 @@ scope module: :public do
  
  resources :orders, only: [:index, :show, :new, :create]
  post 'orders/check' => 'orders#check'
+ get  'orders/complete' => 'orders#complete'
 
  get 'homes/top'
  get 'homes/about'
