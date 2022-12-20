@@ -9,43 +9,48 @@
       <div>キャンディ</div>
       </div>
     </div>
-    <div class="col-md-8 offset-md-1">
-      <div style="position: relative;">
+    <div class="col-md-9 offset-md-1">
+      <div style="position: relative; margin-bottom:20px">
        <%#= image_tag "/assets/asia.jpg", size: "600x300" %>
         <img src="https://cdn.create.vista.com/api/media/medium/418050536/stock-photo-classic-american-cake-brownie-chocolate?token=" alt="font-cursive" border="0" width="600" height="330">
-        <div style="position:absolute; color:white; top:10%; left:30%;">
+        <div style="position:absolute; color:white; top:10%; left:25%;">
           ようこそ、ながのCAKEへ！<br>
           このサイトは、ケーキ販売のECサイトになります。<br>
           会員ではない方も商品の閲覧はできますが、<br>
           購入には会員登録が必要になります。
         </div>
       </div>
-   　　 <h2>新着商品</h2>
-       <table>
+      <h3>新着商品</h3>
+    </div>
+
+
+    <!--   <table>
          <thead>
            <tr>
-             <th><%= image_tag "/assets/asia.jpg", size: "180x100" %></th>
-             <th><%= image_tag "/assets/asia.jpg", size: "180x100" %></th>
-             <th><%= image_tag "/assets/asia.jpg", size: "180x100" %></th>
-             <th><%= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+             <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+             <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+             <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+             <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
            </tr>
          </thead>
-         <tbody>
-           <tr>
-             <td>商品名</td>
-             <td>商品名</td>
-             <td>商品名</td>
-             <td>商品名</td>
-           </tr>
-           <tr>
-             <td>¥0,000</td>
-             <td>¥0,000</td>
-             <td>¥0,000</td>
-             <td>¥0,000</td>
-           </tr>
-         </tbody>
-       </table>
-       <div class="text-right"><%= link_to "全ての商品を見る >", homes_top_path %></div> <!--items_path -->
-    </div>
-  </div>
+         <tbody>  -->
+
+
+
+         <div class="col-md-3">
+         </div>
+
+          <% @items.each do |item| %>
+            <div class="col-md-2">
+              <div><%= image_tag "/assets/asia.jpg", size: "180x100" %></div>
+              <div><%= item.name %></div>
+              <div>¥<%= item.price %></div>
+            </div>
+          <% end %>
+          <div class="col-md-12">
+            <p class="text-right">
+            <%= link_to "全ての商品を見る >", items_path %>
+          </p>
+          </div>
+ </div>
 </div>
