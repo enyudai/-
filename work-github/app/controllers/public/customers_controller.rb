@@ -23,7 +23,10 @@ class Public::CustomersController < ApplicationController
   end
   
   def change
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    # id取得必須
+    @customer = current_customer
+    
+    # withdrawal_flagカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(withdrawal_flag: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
@@ -33,13 +36,6 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:email, :family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :address, :phone_number)
-  end
-  
-  def change_customer
-    @book = Book.find(params[:id])
-    unless @book.user == current_user
-      redirect_to books_path
-    end
+    params.require(:customer).permit(:email, :family_name, :first_name, :family_name_kana, :first_name_kana, :postal_code, :address, :phone_number, :withdrawal_flag)
   end
 end
