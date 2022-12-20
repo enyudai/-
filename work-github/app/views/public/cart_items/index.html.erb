@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <h3>ショッピングカート</h3>
-    <table>
+    <%= link_to "カートを空にする", destroy_all_path(@cart_items), method: :delete %>
+  </div>
+  <div class="row">
+    <div class="col">
+    <table class="table">
       <thead>
         <th>商品名</th>
         <th>単価(税込)</th>
@@ -16,13 +20,19 @@
               <td><%= cart_item.item.with_tax_price %></td>
               <td><%= cart_item.volume %></td>
               <td><%= cart_item.subtotal %></td>
-              <td></td>
+              <% @price_all += cart_item.subtotal %>
+              <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete %></td>
           </tr>
       <% end %>
       </tbody>
       <tr>
-        <td>合計金額<%= @cart_items.subtotal %></td>
+        <td><%= link_to "買い物を続ける", items_path %></td>
+      </tr>
+      <tr>
+        <td>合計金額</td>
+        <td><%= @price_all %></td>
       </tr>
     </table>
+    </div>
   </div>
 </div>
