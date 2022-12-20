@@ -1,0 +1,27 @@
+<div class="container">
+ <div class="row">
+   <div class='col-md-12'>
+     <table class="table table-hover table-inverse">
+      <thead>
+       <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+       </tr>
+      </thead>
+      
+      <tbody>
+        <% @customer.each do |customer| %>
+          <tr>
+            <tb><%= customer.id %></tb>
+            <tb><%= customer.first_name %><%= customer.family_name%></tb>
+            <tb><%= customer.email %></tb>
+            <tb><%= customer.withdrawal_flag %></tb>
+          </tr>
+        <%end%>
+      </tbody>
+     </table>
+    </div>
+  </div>
+</div>

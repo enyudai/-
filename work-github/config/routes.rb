@@ -57,7 +57,7 @@ end
 
  namespace :admin do
   get 'homes/top'
-  resources :customers, only: [:edit, :update]
+  resources :customers, only: [:index, :show, :edit, :update]
   get 'customers/my_page' => 'customers#my_page'
   resources :items, only: [:new, :index, :show, :create, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
