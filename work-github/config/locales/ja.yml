@@ -1,29 +1,21 @@
 ja:
  enums:
-  order:
-<<<<<<< HEAD
-   payment:
-=======
   order_detail:
    production_status:
-   payment:
     wrong: "着手不可"
-    waiting: "製作待ち"
-    making: "製作中"
+    waiting: "制作待ち"
+    making: "制作中"
     completed: "製作完了"
->>>>>>> origin/develop
+  order:
+   payment:
     credit_card: "クレジットカード"
     transfer: "銀行振込"
    delivery_method:
     user_address: "ご自身の住所"
     registered_address: "登録先住所から選択"
     new_address: "新しいお届け先"
-<<<<<<< HEAD
  
    activerecord:
-=======
-  activerecord:
->>>>>>> origin/develop
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

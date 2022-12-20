@@ -4,8 +4,8 @@
       <h1>注文情報確認</h1>
        <table class='table'>
        </table>
+      
        <table class='table'>
-          
          <tr>
            <th>支払い情報</th>
              <% if @order.payment == Order.payments.key(0) %>
@@ -21,8 +21,12 @@
               <%= @order.name %>
            </td>
          </tr>
-         
        </table>
+       
+       <% form_with model: @order, url: orders_path, method: :post do |f| %>
+       <%= f.hidden_field :create, :value =>  %>
+       <% end %>
+       
        <%= link_to "注文を確定する", orders_complete_path, class: 'btn btn-success' %>
     </div>
   </div>
