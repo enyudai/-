@@ -26,7 +26,7 @@ scope module: :public do
   
   #退会機能
   get 'customers/withdrawal' => 'customers#withdrawal'
-  patch 'customers/change' => 'customers#change'
+  patch 'customers/change' => 'customers#change', as: 'change'
   
   get 'homes/top'
   get 'homes/about'

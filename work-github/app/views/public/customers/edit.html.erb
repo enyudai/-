@@ -1,6 +1,7 @@
+<%= form_with model:@customer, local:true, method: :put do |f| %>
+
 <div class="container">
   <div class="row">
-    <%= form_with model:@customer, local:true do |f| %>
       <div class="field m-2">
         <%= f.label :名前 %><span>(姓)</span>
         <%= f.text_field :family_name, autofocus: true %>
@@ -41,10 +42,11 @@
       <div class="col">
         <%= f.submit "編集内容を保存", class: 'col-sm-5 btn btn-success' %>
       </div>
-      <div class="col-sm-2">
-        <%= link_to customers_withdrawal_path, class: 'col btn btn-danger' do %>退会する<% end %>
-      </div>
     </div>
-    
-  <%end%>
+  </div>
+<%end%>
+
+
+<div class="col-sm-2">
+  <%= link_to customers_withdrawal_path, class: 'col btn btn-danger' do %>退会する<% end %>
 </div>

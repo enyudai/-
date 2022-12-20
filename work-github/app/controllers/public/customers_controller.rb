@@ -20,11 +20,14 @@ class Public::CustomersController < ApplicationController
   
   def withdrawal
     @customer = current_customer
+  end
+  
+  def change
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(withdrawal_flag: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
-    redirect_to homes_about_path
+    redirect_to homes_top_path
   end
   
   private
