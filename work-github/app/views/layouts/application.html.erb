@@ -47,6 +47,32 @@
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
+
+                      <%
+=begin
+          %>
+            <% elsif admin_signed_in? %>
+                      <%
+=end %>
+            <li class="nav-item">
+              <%#= link_to '商品一覧', items_path, class: 'nav-link text-dark' %>
+            </li>
+
+            <li class="nav-item">
+              <%#= link_to '会員一覧', items_path, class: 'nav-link text-dark' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to '注文履歴一覧', customers_my_page_path(current_customer.id) %>
+            </li>
+
+            <li class="nav-item">
+              <%#= link_to 'ジャンル一覧', cart_items_path(current_customer.id), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
+
                     <%
 =begin
           %>
@@ -77,7 +103,7 @@
         </div>
       </nav>
     </header>
-    
+
     <main class="mb-auto">
     <%= yield %>
     </main>
