@@ -39,6 +39,14 @@ scope module: :public do
  get 'homes/top'
  get 'homes/about'
  get 'customers/my_page' => 'customers#my_page'
+ post 'deliveries' => 'deliveries#create'
+ get 'deliveries/index'
+ get 'deliveries/edit'
+ resources :items, only: [:show, :index]
+ delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
+ resources :cart_items, only: [:index, :create, :update, :destroy]
+ 
+
  resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
 # post 'deliveries' => 'deliveries#create'
 # get 'deliveries/index'
@@ -51,6 +59,8 @@ end
   get 'homes/top'
   resources :customers, only: [:edit, :update]
   get 'customers/my_page' => 'customers#my_page'
+  resources :items, only: [:new, :index, :show, :create, :edit, :update]
+  resources :genres, only: [:index, :create, :edit, :update]
 end
 
 
