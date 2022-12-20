@@ -20,6 +20,22 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
+  resources :customers, only: [:update]
+  patch 'customers/change' => 'customers#change'
+  get 'customers/information/edit' => 'customers#edit'
+  
+  #退会機能
+  get 'customers/withdrawal' => 'customers#withdrawal'
+  patch 'customers/change' => 'customers#change', as: 'change'
+  
+  get 'homes/top'
+  get 'homes/about'
+  get 'customers/my_page' => 'customers#my_page'
+  post 'deliveries' => 'deliveries#create'
+  get 'deliveries/index'
+  get 'deliveries/edit'
+ 
+
  get 'homes/top'
  get 'homes/about'
  get 'customers/my_page' => 'customers#my_page'
