@@ -5,12 +5,91 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm" style="margin-bottom:40px">
+      <div class="container pt-1 pb-1", style="background-color:#CD853F">
+        <div class="text-center text-white">全国配送お承ります</div>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light">
+
+        <div class="container" style="margin-bottom:10px">
+          <img src="https://fontmeme.com/permalink/221219/f1e17244a8fad011f7e1024380d2bc03.png" alt="font-cursive" border="0">
+          <!--<a class="navbar-brand p-3" href="/"><i class="fa-sharp fa-solid fa-cake-candles"></i></a> -->
+          <!-- ハンバーガーメニューの記述ここから -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navb arNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <%
+=begin
+          %>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'マイページ', customers_my_page_path(current_customer.id), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '商品一覧', items_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'カート', cart_items_path(current_customer.id), class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <%= link_to 'About', homes_about_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '商品一覧', items_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_custmer_registration_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_custmer_session_path, class: 'nav-link text-dark' %>
+            </li>
+            <% end %>
+            </ul>
+          </div> <!--ハンバーガーメニューの記述ここまで -->
+          <%
+=end %>
+
+        </div>
+      </nav>
+    </header>
+    <main class="mb-auto">
     <%= yield %>
+    </main>
+    <footer class="bg-dark text-white pt-3 pb-2">
+      <div class="container">
+        <div class="row no-gutters">
+
+          <div class="col-md-8">
+
+            <ul class="p-0 list-unstyled">
+             <!-- <li>
+                <a href="" title="About" class="text-white-50">会社概要</a>
+              </li> -->
+              <!--<div class="text-center"> -->
+                <img src="https://fontmeme.com/permalink/221220/6a0c3693105781b9d4cb458b465f45b2.png" alt="font-cursive" border="0">
+              </div>
+              <!--<img src="https://fontmeme.com/permalink/221219/79790c6d85018d6401b3aa30862f97b5.png" alt="font-cursive" border="0"> -->
+              <!--<li>
+                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
