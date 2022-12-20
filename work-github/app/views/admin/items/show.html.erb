@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <h3>商品詳細</h3>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <%= image_tag @item.get_image, size: "100x100" %>
+    </div>
+    <div class="col-7">
+      <table class="table">
+        <tr>
+          <td>商品名</td>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <td>商品説明</td>
+          <td><%= @item.body %></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td><%= @item.genre.genre_name %></td>
+        </tr>
+        <tr>
+          <td>税込価格<br>(税抜価格)</td>
+          <td><%= (@item.price * 1.1).floor %>(<%= @item.price %>)</td>
+        </tr>
+        <tr>
+          <td>販売ステータス</td>
+          <% if @item.sale_status == true %>
+          <td>販売中</td>
+          <% else %>
+          <td>販売停止中</td>
+          <% end %>
+        </tr>
+        <tr>
+          <td><%= link_to "編集する", edit_admin_item_path(@item) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

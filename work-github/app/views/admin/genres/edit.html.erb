@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <h3>ジャンル編集</h3>
+    <div class="col">
+    <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch, local: true do |f| %>
+      <table>
+      <tr>
+        <th>
+          <%= f.label :genre_name, "ジャンル名" %>
+          <%= f.text_field :genre_name, placeholder:"ジャンル名" %>
+        </th>
+        <th>
+          <%= f.submit "変更を保存" %>
+        </th>
+      </tr>
+    </table>
+    <% end %>
+    </div>
+  </div>
+</div>
