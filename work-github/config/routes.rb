@@ -20,15 +20,15 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
-<<<<<<< HEAD
+
 
 
  get 'customers/my_page' => 'customers#my_page'
  
- resources :orders, only: [:index, :show, :new, :create]
  post 'orders/check' => 'orders#check'
  get  'orders/complete' => 'orders#complete'
-=======
+ resources :orders, only: [:index, :show, :new, :create]
+ 
   resources :customers, only: [:update]
   patch 'customers/change' => 'customers#change'
   get 'customers/information/edit' => 'customers#edit'
@@ -44,7 +44,7 @@ scope module: :public do
   get 'deliveries/index'
   get 'deliveries/edit'
  
->>>>>>> origin/develop
+
 
  get 'homes/top'
  get 'homes/about'
