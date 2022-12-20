@@ -19,7 +19,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def withdrawal
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(withdrawal_flag: true)
     reset_session
