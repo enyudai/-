@@ -6,6 +6,9 @@ class Order < ApplicationRecord
   
   has_many :order_details, dependent: :destroy
   belongs_to :customer
+  
   #admin側
+  #受注ステータス (0==>入金待ち,  1==>入金確認、2==>製作中, 3==>発送準備中 , 4==>発送済み)
+  enum reception_status: { payment_waiting: 0, payment_confirmation: 1, in_production: 2, preparing_delivery: 3, delivered: 4  }
   
 end
