@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+      <table class="table table-borderless">
+        <tr>
+          <th class="nowrap col-3">会員ID</th>
+          <td class="font-weight-bold"><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <th class="nowrap">氏名</th>
+          <td class="font-weight-bold"><%= @customer.family_name %><%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <th class="nowrap">フリガナ</th>
+          <td class="font-weight-bold"><%= @customer.family_name_kana %><%= @customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <th class="nowrap">郵便番号</th>
+          <td class="font-weight-bold"><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="nowrap">住所</th>
+          <td class="font-weight-bold"><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th class="nowrap">電話番号</th>
+          <td class="font-weight-bold"><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <th class="nowrap">メールアドレス</th>
+          <td class="font-weight-bold"><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <th class="nowrap">会員ステータス</th>
+          <td><% if @customer.withdrawal_flag == !true %>
+                <span class="text-success font-weight-bold">有効<span>
+              <%else%>
+                <span class="text-secondary font-weight-bold">無効</span>
+              <%end%>
+          </td>
+        </tr>
+      </table>
+      <div class="row">
+        <%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %>
+        <%= link_to "注文履歴一覧を見る", admin_customer_path, class: "btn btn-primary" %>
+      <div>
+  </div>
+</div>
