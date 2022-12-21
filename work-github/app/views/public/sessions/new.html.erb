@@ -11,7 +11,7 @@
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="row field m-2" >
           <label class="col-form-label col-sm-3" for="layoutExam3-name">メールアドレス</label>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Wild@Bravo.com"  %>
         </div>
       
         <div class="row field m-2" >

@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <div class="col-lg-6">
       <table class="table table-borderless">
         <tr>
           <th class="nowrap col-3">会員ID</th>
@@ -38,10 +39,12 @@
               <%end%>
           </td>
         </tr>
+        <tr>
+          <th></th>
+          <td><%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %></td>
+          <td><%= link_to "注文履歴一覧を見る", admin_customer_path, class: "btn btn-primary" %></td>
+        </tr>
       </table>
-      <div class="row">
-        <><%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success col" %>
-        <%= link_to "注文履歴一覧を見る", admin_customer_path, class: "btn btn-primary col" %>
-      <div>
+    </div>
   </div>
 </div>
