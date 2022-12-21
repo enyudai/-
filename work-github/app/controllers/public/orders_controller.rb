@@ -41,7 +41,12 @@ class Public::OrdersController < ApplicationController
      end
     
       def create
-       
+       @order.payment.save
+       @order.postal_code.save
+       @order.address.save
+       @order.name.save
+       @order.price = Order.find(params[:order][:price])
+       @order.price.save
       end
     
      def complete

@@ -10,6 +10,10 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.save
     redirect_to cart_items_path
+    current_customer.cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      
+    end 
   end
 
   def update
