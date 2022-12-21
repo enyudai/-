@@ -42,8 +42,12 @@
 
           <% @items.each do |item| %>
             <div class="col-md-2">
-              <div><%= image_tag "/assets/asia.jpg", size: "180x100" %></div>
-              <div><%= item.name %></div>
+              <div><%= image_tag "/assets/asia.jpg", size: "180x100" %>
+                <%#= link_to item_path(item.id) do %>
+               <%#= image_tag item.image.get_image(180, 100)%>
+              <%# end %></div>
+              <%#= link_to image_tag "item.image", item_path(item.id), size: "180x100" %>
+              <div><%= link_to item.name, item_path(item.id), class: 'text-dark' %></div>
               <div>¥<%= item.price %></div>
             </div>
           <% end %>
