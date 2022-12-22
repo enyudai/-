@@ -18,7 +18,7 @@
           </div>
 
 
-         <h2>お届け先</h2>
+         <p class="font-weight-bold">お届け先</p>
 
 
          <div class="col">
@@ -42,9 +42,9 @@
 
           <table class= "table">
           <tr>
-            <th> <%= f.label :postal_code, "郵便番号(ハイフンなし)" %></th>
-           <th><%= f.text_field :postal_code, placeholder:"0000000" %></th>
-           </tr>
+            <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+            <td><%= f.text_field :postal_code, placeholder:"0000000" %></td>
+          </tr>
 
           <tr>
             <td><%= f.label :address, "住所"%></td>
@@ -57,7 +57,7 @@
           </tr>
           </table>
          </div>
-        <%= f.submit "確認画面へ進む" %>
+        <p class="text-center"><%= f.submit "確認画面へ進む", class:"btn btn-primary" %></a>
        <% end %>
 
     </div>
