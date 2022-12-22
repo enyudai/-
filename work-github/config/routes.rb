@@ -20,7 +20,19 @@ Rails.application.routes.draw do
 
 
 scope module: :public do
+
+
+
+
+ get 'customers/my_page' => 'customers#my_page'
+ 
+ post 'orders/check' => 'orders#check'
+ get  'orders/complete' => 'orders#complete'
+ resources :orders, only: [:index, :show, :new, :create]
+ 
+
   patch 'customers/change' => 'customers#change', as: 'change'
+
   resources :customers, only: [:update]
   patch 'customers/change' => 'customers#change'
   get 'customers/information/edit' => 'customers#edit'
@@ -35,6 +47,7 @@ scope module: :public do
   get 'deliveries/index'
   get 'deliveries/edit'
  
+
 
  get 'homes/top'
  get 'homes/about'
@@ -57,11 +70,21 @@ end
 
  namespace :admin do
   get 'homes/top'
+
+
+  resources :customers, only: [:edit, :update]
+  get 'customers/my_page' => 'customers#my_page'
+
+  resources :orders, only: [:show]
+
+
   
   resources :customers, only: [:index, :show, :edit, :update]
   
+
   resources :items, only: [:new, :index, :show, :create, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
+
 end
 
 

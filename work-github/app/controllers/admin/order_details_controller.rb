@@ -7,11 +7,13 @@ class Admin::OrderDetailsController < ApplicationController
     is_updated = true
     if @order_detail.update(order_detail_params)
       @order.update(reception_status: 2) if @order_detail.production_status == "making"
+      
       @order_details.each do |order_detail|
         if order_detail.production_status != "completed"
           is_updated = false
         end
       end
+      
       @order.update(reception_status: 3) if is_updated
     end
     redirect_to admin_order_path(@order)
