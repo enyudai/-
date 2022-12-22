@@ -8,17 +8,17 @@
     </div>
   </div>
   
-  
-    <div class="d-flex justify-content-center">
+  <div class="row d-flex justify-content-center">
+    <div class="">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
-        
-        <div class="field m-2">
-          <%= f.label :名前 %><span>(姓)</span>
-          <%= f.text_field :family_name, autofocus: true, placeholder: "令和" %>
-          <%= f.label :"(名)" %>
-          <%= f.text_field :first_name, autofocus: true, placeholder:"道子" %>
-        </div>
+        <table>
+        <tr>
+          <td><%= f.label :名前 %><span>(姓)</span></td>
+          <td><%= f.text_field :family_name, autofocus: true, placeholder: "令和" %></td>
+          <td><%= f.label :"(名)" %></td>
+          <td><%= f.text_field :first_name, autofocus: true, placeholder:"道子" %></td>
+        </tr>
         
         <div class="field m-2">
           <%= f.label :フリガナ %>
@@ -63,7 +63,7 @@
         </div>
       <% end %>
     </div>
-    
+  </div>
     <div class="">
       <h4 class="col-md-8 offset-md-2">既に登録済みの方は</h4>
     </div>
@@ -71,5 +71,4 @@
       <span class="col-md-8 offset-md-2"><%= render "public/shared/links" %></span>
     </div>
     
-  </div>
 </div>
