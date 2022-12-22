@@ -15,6 +15,7 @@ class Public::CartItemsController < ApplicationController
       @cart_item.save
     end
     redirect_to cart_items_path
+    
   end
 
   def update
