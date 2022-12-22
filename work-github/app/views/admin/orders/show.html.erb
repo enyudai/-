@@ -2,15 +2,42 @@
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
   		<h2>注文履歴詳細</h2>
-  		<table class='table'>
-  		  <tr>
-          <td>購入者: <%= %></td>
-          <td>注文日: <%= %></td>
-          <td>配送先: <%= %></td>
-          <td>支払方法: <%= %></td> 
-          <td>注文ステータス: <%= %></td>
-          <td></td>
+  		<table class='table table-hover table-inverse'>
+  		  <thead>
+  		    <tr>
+          <th>購入者</th>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>支払方法</th> 
+          <th>注文ステータス</th>
+          <th></th>
+          <th>商品合計</th>
+          <th>送料</th>
+          <th>請求金額合計</th>
         </tr>
+  		  </thead>
+  		  <tbody>
+  		    <tr>
+  		      <td><%= @order.name %></td>
+  		      <td><%= @order.created_at %></td>
+  		      <td>
+  		        <%= @order.postal_code  %>
+              <%= @order.address %>
+              <%= @order.name %>
+  		      </td>
+  		      <td><%= @order.payment %></td>
+  		       <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
+  		        <td>
+  		           <%= f.select :reception_status, Order.reception_status.keys.map {|k| [I18n.t("enums.reception_status.#{k}"), k]} %>
+  		           <%= f.submit "更新" %>
+  		        </td>
+  		      <% end %>
+  		      <td></td>
+  		      <td></td>
+  		      <td></td>
+  		      <td></td>
+  		    </tr>
+  		  </tbody>
       </table>
     </div>
   </div>
