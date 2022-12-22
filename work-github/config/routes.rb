@@ -75,9 +75,9 @@ end
   resources :customers, only: [:edit, :update]
   get 'customers/my_page' => 'customers#my_page'
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :update]
 
-
+  resources :order_details, only: [:update]
   
   resources :customers, only: [:index, :show, :edit, :update]
   
