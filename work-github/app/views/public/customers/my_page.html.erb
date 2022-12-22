@@ -15,27 +15,27 @@
           <td><%= link_to customers_information_edit_path, class: 'col btn btn-success' do %>編集する<% end %></td>
         </tr>
       </table>
-      <div></div>
-
-      <table class="table">
-        <tr><th class="border bg-light">氏名</th><td class="border"><%= @customer.first_name %><%= @customer.family_name %></td></tr>
-        <tr><th class="col border bg-light">カナ</th><td class="col border"><%= @customer.first_name_kana %><%= @customer.family_name %></td></tr>
-        <tr><th class="col border bg-light">郵便番号</th><td class="col border"><%= @customer.postal_code %></td></tr>
-        <tr><th class="col border bg-light">住所</th><td class="col border"><%= @customer.address %></td></tr>
-        <tr><th class="col border bg-light">電話番号</th><td class="col border"><%= @customer.phone_number %></td></tr>
-        <tr><th class="col border bg-light">メールアドレス</th><td class="col border"><%= @customer.email %></td></tr>
-      </table>
-      
-      <table>
-        <tr>
-          <td><h4 class="col">配送先</h4></td>
-          <td><%= link_to deliveries_index_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
-        <tr>
-        <tr>
-          <td><h4 class="col">注文履歴</h4></td>
-          <td><%= link_to customers_my_page_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
-        </tr>
-      </table>
     </div>
+  </div>
+  <div class="row">
+    <table class="table">
+      <tr><th class="border bg-light">氏名</th><td class="border"><%= @customer.first_name %> <%= @customer.family_name %></td></tr>
+      <tr><th class="col-md-2 border bg-light">カナ</th><td class="col-lg-6 border"><%= @customer.first_name_kana %> <%= @customer.family_name_kana %></td></tr>
+      <tr><th class="col-md-2 border bg-light">郵便番号</th><td class="col-lg-6 border"><%= @customer.postal_code %></td></tr>
+      <tr><th class="col-md-2 border bg-light">住所</th><td class="col-lg-6 border"><%= @customer.address %></td></tr>
+      <tr><th class="col-md-2 border bg-light">電話番号</th><td class="col-lg-6 border"><%= @customer.phone_number %></td></tr>
+      <tr><th class="col-md-2 border bg-light">メールアドレス</th><td class="col-lg-6 border"><%= @customer.email %></td></tr>
+    </table>
+    
+    <table>
+      <tr>
+        <td><h4 class="col">配送先</h4></td>
+        <td><%= link_to deliveries_index_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
+      <tr>
+      <tr>
+        <td><h4 class="col">注文履歴</h4></td>
+        <td><%= link_to customers_my_page_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
+      </tr>
+    </table>
   </div>
 </div>
