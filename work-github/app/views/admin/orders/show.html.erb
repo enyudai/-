@@ -43,20 +43,20 @@
           </tr>
         </thead>
         <tbody>
-          <% @order.order_details.each do |order| %>
+          <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td><%= order.item.name %></td>
-            <td><%= order.item.with_tax_price %></td>
-            <td><%= order.volume %></td>
-            <td><%= order.subtotal %></td>
-            <%= form_with model: @order_detail, url: admin_order_detail_path(order.id) , method: :patch, local: true do |f| %>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.with_tax_price %></td>
+            <td><%= order_detail.volume %></td>
+            <td><%= order_detail.subtotal %></td>
             <td>
-              <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [t("enums.production_status.#{k}"), k]} %>
-  		        <%= f.submit "更新" %>
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id) , method: :patch, local: true do |f| %>
+                <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [t("enums.production_status.#{k}"), k]} %>
+  		          <%= f.submit "更新" %>
+  		        <% end %>
   		      </td>
-            <% end %>
           </tr>
-          <% @price_all += order.subtotal %>
+          <% @price_all += order_detail.subtotal %>
           <% end %>
         </tbody>
       </table>  
