@@ -1,5 +1,6 @@
 class Admin::HomesController < ApplicationController
   def top
-    @order_detail = 
+    @volume = 0
+    @order = Order.all
   end
 end

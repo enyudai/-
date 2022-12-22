@@ -12,11 +12,14 @@
          </tr>
        </thead>
        <tbody>
-         <% @order_detail.each do|order_detail| %>
+         <% @order.each do|order| %>
            <tr>
-             <td><%= link_to l order_detail.created_at, admin_orders_path(order_detail.id), format: :short, class: 'text-dark' %></td>
-             <td><%= order_detail.id.name %></td>
-             <td><%= order_detail.volume %></td>
+             <td><%= link_to order.created_at, admin_orders_path(order.id), format: :short, class: 'text-dark' %></td>
+             <td><%= order.id.name %></td>
+             <% order.order_detail.each do |order_detail| %>
+              <% @volume += order_detail.volume %>
+             <% end %>
+             <td><%= @volume %></td>
              <% if @order.reception_status == 0 %>
                <td>入金待ち</td>
              <% elsif @order.reception_status == 1 %>
