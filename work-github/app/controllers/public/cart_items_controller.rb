@@ -1,14 +1,19 @@
 class Public::CartItemsController < ApplicationController
 
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_customer.cart_items.all
     @price_all = 0
   end
 
   def create
-
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.save
+    if CartItem.find_by(item_id: params[:cart_item][:item_id]).present?
+      @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
+      new_volume = @cart_item.volume + params[:cart_item][:volume].to_i
+      @cart_item.update_attribute(:volume, new_volume)
+    else
+      @cart_item = CartItem.new(cart_item_params)
+      @cart_item.save
+    end
     redirect_to cart_items_path
     
   end
@@ -26,10 +31,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
-    #CartItem.destroy_all
-    #cart_item = CartItem.all
     current_customer.cart_items.destroy_all
-    #cart_item.destroy
     redirect_to cart_items_path
   end
 
