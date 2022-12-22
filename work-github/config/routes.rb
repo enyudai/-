@@ -70,18 +70,18 @@ end
 
  namespace :admin do
   get 'homes/top'
-<<<<<<< HEAD
+
 
   resources :customers, only: [:edit, :update]
   get 'customers/my_page' => 'customers#my_page'
 
   resources :orders, only: [:show]
 
-=======
+
   
   resources :customers, only: [:index, :show, :edit, :update]
   
->>>>>>> origin/develop
+
   resources :items, only: [:new, :index, :show, :create, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
 
