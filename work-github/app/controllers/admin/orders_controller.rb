@@ -2,6 +2,7 @@ class Admin::OrdersController < ApplicationController
   
   def show
       @order = Order.find(params[:id])
+      @price_all = 0
   end
   
   def update
