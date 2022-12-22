@@ -1,18 +1,18 @@
 ja:
   enums:
-#   order_detail:
-#     production_status:
-#       wrong: "着手不可"
-#       waiting: "制作待ち"
-#       making: "制作中"
-#       completed: "製作完了"
+    order_detail:
+      production_status:
+        wrong: "着手不可"
+        waiting: "制作待ち"
+        making: "制作中"
+        completed: "製作完了"
     order:
-#     reception_status:
-#       payment_waiting: "入金待ち"
-#       payment_confirmation: "入金確認"
-#       in_production: "制作中"
-#       preparing_delivery: "発送準備中"
-#       delivered: "発送済み"
+      reception_status:
+        payment_waiting: "入金待ち"
+        payment_confirmation: "入金確認"
+        in_production: "制作中"
+        preparing_delivery: "発送準備中"
+        delivered: "発送済み"
       payment:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
