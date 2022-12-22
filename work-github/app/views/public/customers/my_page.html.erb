@@ -7,9 +7,7 @@
           Log out
         <% end %>
       </li>
-      
-      
-      <table>
+      <table class="mb-3">
         <tr>
           <td><h4 class="col">登録情報</h4></td>
           <td><%= link_to customers_information_edit_path, class: 'col btn btn-success' do %>編集する<% end %></td>
@@ -17,6 +15,7 @@
       </table>
     </div>
   </div>
+  
   <div class="row">
     <table class="table">
       <tr><th class="border bg-light">氏名</th><td class="border"><%= @customer.first_name %> <%= @customer.family_name %></td></tr>
@@ -34,7 +33,7 @@
       <tr>
       <tr>
         <td><h4 class="col">注文履歴</h4></td>
-        <td><%= link_to customers_my_page_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
+        <td><%= link_to orders_path, class: 'btn btn-primary' do %>一覧を見る<% end %></td>
       </tr>
     </table>
   </div>
