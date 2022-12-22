@@ -1,9 +1,14 @@
 <div class="container px-5 px-sm-0">
  <div class= "row">
   <div class="col-md-10 offset-md-1">
+<<<<<<< HEAD
+    <h3>配送先登録/一覧</h3>
+=======
     <span style="background-color:#f4f4f4">  配送先登録 / 一覧  </span>
     <table style="margin-bottom:40px">
+>>>>>>> origin/develop
      <%= form_with model: @delivery, url: deliveries_path, method: :post do |f| %>
+    <table style="margin-bottom:40px">
       <tr>
        <td >郵便番号(ハイフンなし)    </td>
        <td><%= f.text_field :postal_code, placeholder: "0000000" %></td>
@@ -38,9 +43,9 @@
          <th><%= delivery.name %>　</th>
          <th>　<%= link_to "編集する", edit_delivery_path(delivery.id), class: "btn btn-success" %>　<%= link_to '削除する', delivery_path(delivery.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>　</th>
         </tr>
+        </tbody>
+        </table>
       <% end %>
-     </tbody>
-    </table>
   </div>
  </div>
 </div>
