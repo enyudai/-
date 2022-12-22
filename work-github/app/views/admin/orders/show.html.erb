@@ -49,11 +49,22 @@
             <td><%= order.item.with_tax_price %></td>
             <td><%= order.volume %></td>
             <td><%= order.subtotal %></td>
+            <%= form_with model: @order_detail, url: admin_order_detail_path(order.id) , method: :patch, local: true do |f| %>
+            <td>
+              <%= f.select :production_status, OrderDetail.production_statuses.keys.map {|k| [t("enums.production_status.#{k}"), k]} %>
+  		        <%= f.submit "更新" %>
+  		      </td>
+            <% end %>
           </tr>
+          <% @price_all += order.subtotal %>
           <% end %>
         </tbody>
       </table>  
-        
+      <table class='table table-hover table-inverse'>
+        <td>商品合計: <%= @price_all %></td>
+        <td>送料: <%= @order.postage %></td>
+        <td>請求金額合計: <%= @order.postage + @price_all %></td>
+      </table>
     </div>
   </div>
 </div>
