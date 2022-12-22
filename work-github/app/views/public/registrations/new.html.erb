@@ -8,62 +8,64 @@
     </div>
   </div>
   
-  
-    <div class="d-flex justify-content-center">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
         
-        <div class="field m-2">
-          <%= f.label :名前 %><span>(姓)</span>
-          <%= f.text_field :family_name, autofocus: true, placeholder: "令和" %>
-          <%= f.label :"(名)" %>
-          <%= f.text_field :first_name, autofocus: true, placeholder:"道子" %>
-        </div>
+        <table class="d-flex justify-content-between">
+          <tr>
+            <td class="col"><%= f.label :名前 %></td>
+            <td class="col"><%= f.text_field :family_name, autofocus: true, placeholder: "令和(姓)" %></td>
+            <td class="col"><%= f.text_field :first_name, autofocus: true, placeholder:"道子(名)" %></td>
+          </tr>
         
-        <div class="field m-2">
-          <%= f.label :フリガナ %>
-          <%= f.label :"(セイ)" %>
-          <%= f.text_field :family_name_kana, autofocus: true, placeholder:"レイワ" %>
-          <%= f.label :"(メイ)" %>
-          <%= f.text_field :first_name_kana, autofocus: true, placeholder:"ミチコ" %>
-        </div>
-      
-        <div class="field m-2">
-          <%= f.label :メールアドレス %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Wild@Bravo.com" %>
-        </div>
-      
-        <div class="field m-2">
-          <%= f.label :郵便番号 %><span>(ハイフンなし)</span>
-          <%= f.text_field :postal_code, autofocus: true, placeholder:"0000000" %>
-        </div>
         
-        <div class="field m-2">
-          <%= f.label :住所 %>
-          <%= f.text_field :address, autofocus: true, placeholder:"東京都渋谷区代々木神園町0-0" %>
-        </div>
-        
-        <div class="field m-2">
-          <%= f.label :電話番号 %><span>(ハイフンなし)</span>
-          <%= f.text_field :phone_number, autofocus: true, placeholder:"00000000000" %>
-        </div>
+          <tr>
+            <td class="col"><%= f.label :フリガナ %></td>
+            <td class="col"><%= f.text_field :family_name_kana, autofocus: true, placeholder:"レイワ" %></td>
+            <td class="col"><%= f.text_field :first_name_kana, autofocus: true, placeholder:"ミチコ" %></td>
+        </tr>
       
-        <div class="field m-2">
-          <%= f.label :パスワード %><span>(6文字以上)</span>
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+        <tr>
+          <td class="col"><%= f.label :メールアドレス %></td>
+          <td class="col"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Wild@Bravo.com" %></td>
+        </tr>
       
-        <div class="field m-2">
-          <%= f.label :"パスワード(確認)" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
+        <tr>
+          <td class="col"><%= f.label :郵便番号 %><span>(ハイフンなし)</span></td>
+          <td class="col"><%= f.text_field :postal_code, autofocus: true, placeholder:"0000000" %></td>
+        </tr>
         
-        <div class="actions">
-          <%= f.submit "新規登録", class: "btn btn-success mb-3" %>
-        </div>
+        <tr>
+          <td class="col"><%= f.label :住所 %></td>
+          <td class="col"><%= f.text_field :address, autofocus: true, placeholder:"東京都渋谷区代々木神園町0-0" %></td>
+        </tr>
+        
+        <tr>
+          <td class="col"><%= f.label :電話番号 %><span>(ハイフンなし)</span></td>
+          <td class="col"><%= f.text_field :phone_number, autofocus: true, placeholder:"00000000000" %></td>
+        </tr>
+      
+        <tr>
+          <td class="col"><%= f.label :パスワード %><span>(6文字以上)</span></td>
+          <td class="col"><%= f.password_field :password, autocomplete: "new-password" %></td>
+        </tr>
+      
+        <tr>
+          <td class="col"><%= f.label :"パスワード(確認)" %></td>
+          <td class="col"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+        </tr>
+        
+        <tr>
+          <td class="col  mt-3 "></td>
+          <td class="col"><%= f.submit "新規登録", class: "btn btn-success mb-3" %></td>
+        </tr>
+        
+        </table>
       <% end %>
     </div>
-    
+  </div>
     <div class="">
       <h4 class="col-md-8 offset-md-2">既に登録済みの方は</h4>
     </div>
@@ -71,5 +73,4 @@
       <span class="col-md-8 offset-md-2"><%= render "public/shared/links" %></span>
     </div>
     
-  </div>
 </div>
