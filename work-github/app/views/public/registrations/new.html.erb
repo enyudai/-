@@ -4,47 +4,48 @@
       <div>
         <%= flash[:notice] %>
       </div>
-
       <h4 class="m-3">新規会員登録</h4>
     </div>
-    <div class="col-md-8 offset-md-1">
-
+  </div>
+  
+  
+    <div class="d-flex justify-content-center">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
         
         <div class="field m-2">
           <%= f.label :名前 %><span>(姓)</span>
-          <%= f.text_field :family_name, autofocus: true %>
+          <%= f.text_field :family_name, autofocus: true, placeholder: "令和" %>
           <%= f.label :"(名)" %>
-          <%= f.text_field :first_name, autofocus: true %>
+          <%= f.text_field :first_name, autofocus: true, placeholder:"道子" %>
         </div>
         
         <div class="field m-2">
           <%= f.label :フリガナ %>
           <%= f.label :"(セイ)" %>
-          <%= f.text_field :family_name_kana, autofocus: true %>
+          <%= f.text_field :family_name_kana, autofocus: true, placeholder:"レイワ" %>
           <%= f.label :"(メイ)" %>
-          <%= f.text_field :first_name_kana, autofocus: true %>
+          <%= f.text_field :first_name_kana, autofocus: true, placeholder:"ミチコ" %>
         </div>
       
         <div class="field m-2">
           <%= f.label :メールアドレス %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Wild@Bravo.com" %>
         </div>
       
         <div class="field m-2">
           <%= f.label :郵便番号 %><span>(ハイフンなし)</span>
-          <%= f.text_field :postal_code, autofocus: true %>
+          <%= f.text_field :postal_code, autofocus: true, placeholder:"0000000" %>
         </div>
         
         <div class="field m-2">
           <%= f.label :住所 %>
-          <%= f.text_field :address, autofocus: true %>
+          <%= f.text_field :address, autofocus: true, placeholder:"東京都渋谷区代々木神園町0-0" %>
         </div>
         
         <div class="field m-2">
           <%= f.label :電話番号 %><span>(ハイフンなし)</span>
-          <%= f.text_field :phone_number, autofocus: true %>
+          <%= f.text_field :phone_number, autofocus: true, placeholder:"00000000000" %>
         </div>
       
         <div class="field m-2">
@@ -57,22 +58,18 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
         
-        
-        
-        
-        
-        
-        
-        
-        
-      
         <div class="actions">
-          <%= f.submit "新規登録", class: "btn btn-success" %>
+          <%= f.submit "新規登録", class: "btn btn-success mb-3" %>
         </div>
       <% end %>
-      
-      <h4>既に登録済みの方は</h4>
-      <%= render "public/shared/links" %>
     </div>
+    
+    <div class="">
+      <h4 class="col-md-8 offset-md-2">既に登録済みの方は</h4>
+    </div>
+    <div class="">
+      <span class="col-md-8 offset-md-2"><%= render "public/shared/links" %></span>
+    </div>
+    
   </div>
 </div>

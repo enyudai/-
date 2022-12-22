@@ -1,0 +1,42 @@
+<li><!--一時的にログアウトボタン作成-->
+  <%= link_to destroy_admin_session_path, method: :delete,class: "btn btn-success" do %>
+    Log out
+  <% end %>
+</li>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9 mx-auto">
+      <h5>会員一覧</h5>
+    </div>
+  </div>
+  <div class="row ">
+   <div class='col-lg-8 mx-auto'>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customer.each do |customer| %>
+            <tr>
+              <th><%= customer.id %></th>
+              <th><%= link_to admin_customer_path(customer.id), class: "text-body" do %><%= customer.first_name %><%= customer.family_name%><%end%></th>
+              <th><%= customer.email %></th>
+              <th><% if customer.withdrawal_flag == !true %>
+                  <span class="text-success">有効</span>
+                <%else%>
+                  <span class="text-secondary">退会</span>
+                <%end%>
+              </th>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
