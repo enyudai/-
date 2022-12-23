@@ -22,6 +22,7 @@ ja:
         registered_address: "登録先住所から選択"
         new_address: "新しいお届け先"
 
+
     activerecord:
       errors:
         messages:
@@ -203,4 +204,5 @@ ja:
         long: "%Y/%m/%d %H:%M"
         short: "%m/%d %H:%M"
       pm: 午後
+
 

@@ -1,48 +1,54 @@
 <div class="container">
-  <div class="row">
-    <h3>ショッピングカート</h3>
-    <%= link_to "カートを空にする", destroy_all_path, method: :delete %>
+  <div class="row mb-3">
+    <div class="col-10 ">
+      <h3>ショッピングカート</h3>
+    </div>
+    <div class="col-2">
+      <%= link_to "カートを空にする", destroy_all_path, method: :delete, class:"btn btn-danger justify-content-end" %>
+    </div>
   </div>
   <div class="row">
-    <div class="col">
-    <table class="table">
-      <thead>
-        <th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
+    <table class="table table-bordered border-dark">
+      <thead class="bg-light">
+        <th style="width: 40%">商品名</th>
+        <th style="width: 15%">単価(税込)</th>
+        <th style="width: 15%">数量</th>
+        <th style="width: 15%">小計</th>
+        <th style="width: 15%"></th>
       </thead>
       <tbody>
       <% @cart_items.each do |cart_item| %>
           <tr>
-              <td><%= image_tag cart_item.item.get_image, size: "30x30" %><%= cart_item.item.name %></td>
+              <td><%= image_tag cart_item.item.get_image, size: "60x50" %>　　<%= cart_item.item.name %></td>
               <td><%= cart_item.item.with_tax_price %></td>
               <td>
                 <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
                   <%= f.select :volume, *[1..10] %>
-                  <%= f.submit '変更' %>
+                  <%= f.submit '変更', class:"btn btn-success" %>
                 <% end %>
               </td>
               <td><%= cart_item.subtotal %></td>
               <% @price_all += cart_item.subtotal %>
-              <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete %></td>
+              <td><%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class:"btn btn-danger" %></td>
           </tr>
       <% end %>
       </tbody>
-      <tr>
-        <td><%= link_to "買い物を続ける", items_path %></td>
-      </tr>
-      <tr>
-        <td>合計金額</td>
-        <td><%= @price_all %></td>
-      </tr>
     </table>
-    </div>
   </div>
   <div class="row">
-    <div class="col">
-      <%= link_to "情報入力へ進む", new_order_path %>
+    <div class="col-8 my-3">
+      <%= link_to "買い物を続ける", items_path, class:"btn btn-primary" %>
+    </div>
+    <div class="col-2 my-3 border border-dark bg-light">
+        <p>合計金額</p>
+    </div>
+    <div class="col-2 my-3 border border-dark align-middle">
+        <p class="font-weight-bold align-middle"><%= @price_all %></p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <%= link_to "情報入力へ進む", new_order_path, class:"btn btn-success px-4" %>
     </div>
   </div>
 </div>
