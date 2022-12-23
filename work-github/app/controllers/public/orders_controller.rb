@@ -25,7 +25,9 @@ class Public::OrdersController < ApplicationController
        if params[:order][:delivery_method] == "0"
           @order.postal_code = current_customer.postal_code
           @order.address = current_customer.address
+
           @order.name = current_customer.first_name + current_customer.family_name
+
 
        elsif params[:order][:delivery_method] == "1"
          @delivery = Delivery.find(params[:order][:delivery_id])
