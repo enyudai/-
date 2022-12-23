@@ -41,9 +41,9 @@
          </thead>
          <tbody>
             <tr>
-              <td><%= @order.price %></td>
+              <td><%= @order.price - @order.postage %></td>
               <td><%= @order.postage %></td>
-              <td><%= @order.postage + @order.price%></td>
+              <td><%= @order.price%></td>
             </tr>
          </tbody>
          </table>
@@ -59,12 +59,14 @@
            </tr>
          </thead>
         <tbody>
+          <% @order_details.each do |order_detail| %>
             <tr>
-              <td><%= @order_detail.item.name %></td>
-              <td><%= @order_detail.item.with_tax_price %></td>
-              <td><%= @order_detail.volume %></td>
-              <td><%= @order_detail.subtotal %></td>
+              <td><%= order_detail.item.name %></td>
+              <td><%= order_detail.item.with_tax_price %></td>
+              <td><%= order_detail.volume %></td>
+              <td><%= order_detail.subtotal %></td>
             </tr>
+          <% end %>
         </tbody>
       </table>
          

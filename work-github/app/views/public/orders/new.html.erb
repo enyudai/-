@@ -33,7 +33,7 @@
          <div class="col">
           <%= f.radio_button :delivery_method, 1 %>
           <%= f.label :delivery_method_registered_address, Order.delivery_methods_i18n[:registered_address] %>
-          <%= f.select :delivery_id, options_from_collection_for_select(Delivery.all, :id, :address_display) %>
+          <%= f.select :delivery_id, options_from_collection_for_select(current_customer.deliveries.all, :id, :address_display) %>
          </div>
 
 

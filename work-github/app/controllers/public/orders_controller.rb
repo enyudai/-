@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
 
     def show
       @order = Order.find(params[:id])
-      @order_detail = OrderDetail.find(params[:id])
+      @order_details = @order.order_details
     end
 
      def new
@@ -27,10 +27,9 @@ class Public::OrdersController < ApplicationController
           @order.address = current_customer.address
 
           @order.name = current_customer.first_name + current_customer.family_name
-
   
 
-
+         # @order.name = current_customer.first_name + current_customer.last_name
 
 
        elsif params[:order][:delivery_method] == "1"
