@@ -1,5 +1,5 @@
 <div class='container'>
-  
+
   <div class='row'>
     <div class="col">
       <div class="text-center mb-5">
@@ -7,7 +7,7 @@
       </div>
     </div>
   </div>
-    
+
   <div class="row">
     <div class="col text-center mb-5">
       <div>退会すると、会員登録情報や<br>
@@ -16,12 +16,12 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col text-center">
       <%= link_to '退会しない', customers_my_page_path, class: "px-5 mr-3 btn btn-sm btn-primary" %>
       <%= link_to '退会する', change_path, method: :patch, data: { confirm: '本当に消しますか？' }, class: "px-5 ml-3 btn btn-sm btn-danger"%>
     </div>
   </div>
-  
+
 </div>
