@@ -29,9 +29,14 @@
 　  　　  　<table>
 　  　　  　  <thead>
 　  　　  　    <tr>
-                  <th><%= link_to item_path(item) do %>
-                        <%= image_tag item.get_image, size: "180x110" %>
+                  <th><% if item.sale_status == true %>
+                        <%= link_to item_path(item) do %>
+                          <%= image_tag item.get_image, size: "180x110" %>
+                        <% end %>
+                      <% else %>
+                        <%= image_tag 'sold_out.jpeg', size: "180x110" %>
                       <% end %>
+
                   </th>
                 </tr>
               </thead>
