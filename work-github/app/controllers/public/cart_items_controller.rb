@@ -6,7 +6,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    if CartItem.find_by(item_id: params[:cart_item][:item_id]).present?
+    if CartItem.find_by(item_id: params[:cart_item][:item_id], customer_id: params[:cart_item][:customer_id]).present?
       @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
       new_volume = @cart_item.volume + params[:cart_item][:volume].to_i
       @cart_item.update_attribute(:volume, new_volume)
