@@ -15,9 +15,7 @@ class Admin::OrderDetailsController < ApplicationController
           is_updated = false
         end
       end
-
       
-
       @order.update(reception_status: "preparing_delivery") if is_updated
     end
     redirect_to admin_order_path(@order)

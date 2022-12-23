@@ -59,14 +59,14 @@
            </tr>
          </thead>
         <tbody>
-            <% @order_details.each do |order_detail| %>
+          <% @order_details.each do |order_detail| %>
             <tr>
               <td><%= order_detail.item.name %></td>
               <td><%= order_detail.item.with_tax_price %></td>
               <td><%= order_detail.volume %></td>
               <td><%= order_detail.subtotal %></td>
             </tr>
-            <% end %>
+          <% end %>
         </tbody>
       </table>
 
