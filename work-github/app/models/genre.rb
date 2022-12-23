@@ -4,9 +4,9 @@ class Genre < ApplicationRecord
 
   def self.looks(search, word)
     if search == "perfect_match"
-      @jenre = Jenre.where("genre_name LIKE?", "#{word}")
+      @genre = Genre.where("genre_name LIKE?", "#{word}")
     else
-      @jenre = Jenre.all
+      @genre = Genre.all
     end
   end
 

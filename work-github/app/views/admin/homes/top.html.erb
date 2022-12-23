@@ -21,17 +21,18 @@
                 <% @volume += order_detail.volume %>
                <% end %>
                <td><%= @volume %></td>
-               <% if order.reception_status == 0 %>
-                 <td>入金待ち</td>
-               <% elsif order.reception_status == 1 %>
-                 <td>入金確認</td>
-               <% elsif order.reception_status == 2 %>
-                 <td>製作中</td>
-               <% elsif order.reception_status == 3 %>
-                 <td>発送準備中</td>
-               <% else order.reception_status == 4 %>
-                 <td>発送済み</td>
-               <% end %>
+               <td><%= order.reception_status_i18n %></td>
+       <!--   <%# if order.reception_status == 0 %>
+                #<td>入金待ち</td>
+              <%# elsif order.reception_status == 1 %>
+                #<td>入金確認</td>
+              <%# elsif order.reception_status == 2 %>
+                #<td>製作中</td>
+              <%# elsif order.reception_status == 3 %>
+                #<td>発送準備中</td>
+              <%# else order.reception_status == 4 %>
+                #<td>発送済み</td>
+              <%# end %>  -->
                <% @volume -= @volume %>
              </tr>
            <% end %>
