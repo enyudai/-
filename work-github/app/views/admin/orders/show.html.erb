@@ -24,7 +24,7 @@
   		      <td><%= @order.payment %></td>
   		       <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
   		        <td>
-  		           <%= f.select :reception_status, Order.reception_statuses.keys.map {|k| [t("enums.reception_status.#{k}"), k]} %>
+  		           <%= f.select :reception_status, Order.reception_statuses_i18n.keys.map {|k| [I18n.t("enums.reception_status.#{k}"), k]} %>
   		           <%= f.submit "更新" %>
   		        </td>
   		      <% end %>
