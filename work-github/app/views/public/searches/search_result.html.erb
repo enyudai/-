@@ -1,0 +1,24 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがUserの時 -->
+  <% if @range == "Item" %>
+    <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= link_to item.name, item_path(item) do %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+    <tbody>
+      <% @jenres.each do |jenre| %>
+        <tr>
+          <td><%= jenre.jenre_name %></td>
+          <td><%#=  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

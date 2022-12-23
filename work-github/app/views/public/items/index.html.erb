@@ -29,9 +29,14 @@
 　  　　  　<table>
 　  　　  　  <thead>
 　  　　  　    <tr>
-                  <th><%= link_to item_path(item) do %>
-                        <%= image_tag item.get_image, size: "180x110" %>
+                  <th><% if item.sale_status == true %>
+                        <%= link_to item_path(item) do %>
+                          <%= image_tag item.get_image, size: "180x110" %>
+                        <% end %>
+                      <% else %>
+                        <%= image_tag 'sold_out.jpeg', size: "180x110" %>
                       <% end %>
+
                   </th>
                 </tr>
               </thead>
@@ -50,7 +55,15 @@
     </div>
       <div class="col-md-2">
       </div>
-
-
   </div>
+
+        <div class="row" style="margin-top:40px">
+          <div class="col-md-6 offset-md-3 py-2">
+            <div class="text-center">
+              <div class="pagination justify-content-center">
+               <%= paginate @items %>
+              </div>
+            </div>
+          </div>
+        </div>
 </div>
