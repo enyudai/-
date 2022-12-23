@@ -1,50 +1,116 @@
 <%= form_with model:@customer, local:true, method: :put do |f| %>
 <div class="container">
   <div class="row">
-      <div class="field m-2">
-        <%= f.label :名前 %><span>(姓)</span>
-        <%= f.text_field :family_name, autofocus: true %>
-        <%= f.label :"(名)" %>
-        <%= f.text_field :first_name, autofocus: true %>
-      </div>
-      
-      <div class="field m-2">
-        <%= f.label :フリガナ %>
-        <%= f.label :"(セイ)" %>
-        <%= f.text_field :family_name_kana, autofocus: true %>
-        <%= f.label :"(メイ)" %>
-        <%= f.text_field :first_name_kana, autofocus: true %>
-      </div>
-      
-      <div class="field m-2">
-        <%= f.label :郵便番号 %><span>(ハイフンなし)</span>
-        <%= f.text_field :postal_code, autofocus: true %>
-      </div>
-      
-      <div class="field m-2">
-        <%= f.label :住所 %>
-        <%= f.text_field :address, autofocus: true %>
-      </div>
-      
-      <div class="field m-2">
-        <%= f.label :電話番号 %><span>(ハイフンなし)</span>
-        <%= f.text_field :phone_number, autofocus: true %>
-      </div>
-      
-      <div class="field m-2">
-        <%= f.label :メールアドレス %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+    <div class="col-1">
+      <div></div>
     </div>
-    
-    <div class="row">
-      <div class="col">
-        <%= f.submit "編集内容を保存", class: 'col-sm-5 btn btn-success' %>
-      </div>
-      
-      <div class="col-sm-2">
-        <%= link_to customers_withdrawal_path, class: 'col btn btn-danger' do %>退会する<% end %>
-      </div>
+    <div class="col-2">
+      <h5>会員情報集</h5>
     </div>
   </div>
+  
+  <div class="row my-2">
+    <div class="col-2">
+      <div><%= f.label :氏名 %></div>
+    </div>
+    <div class="col-2">
+      <div><%= f.text_field :family_name, autofocus: true %></div>
+    </div>
+    <div class="col-1">
+      <div></div>
+    </div>
+    <div class="col-2">
+      <div><%= f.text_field :first_name, autofocus: true %></div>
+    </div>
+    <div class="col-2">
+      <div></div>
+    </div>
+    <div class="col-2">
+      <div></div>
+    </div>
+  </div>
+
+  <div class="row my-2">
+    <div class="col-2">
+      <div><%= f.label :フリガナ %></div>
+    </div>
+    <div class="col-2">
+      <div><%= f.text_field :family_name_kana, autofocus: true %></div>
+    </div>
+    <div class="col-1">
+      <div></div>
+    </div>
+    <div class="col-2">
+      <div><%= f.text_field :first_name_kana, autofocus: true %></div>
+    </div>
+    <div class="col-2">
+      <div></div>
+    </div>
+    <div class="col-2">
+      <div></div>
+    </div>
+  </div>
+      
+      
+  <div class="row my-2">
+    <div class="col-2">
+      <div><%= f.label :郵便番号 %></div>
+    </div>
+    <div class="col-2">
+      <div><%= f.text_field :postal_code, autofocus: true %></div>
+    </div>
+    <div class="col-1">
+      <div></div>
+    </div>
+    <div class="col-2">
+      <div></div>
+    </div>
+    <div class="col-2">
+      <div></div>
+    </div>
+    <div class="col-2">
+      <div></div>
+    </div>
+  </div>
+  
+  <div class="row my-2">
+    <div class="col-2">
+      <div><%= f.label :住所 %></div>
+    </div>
+    <div class="col-9">
+      <div><%= f.text_field :address, autofocus: true, class: ""  %></div>
+    </div>
+  </div>
+  
+  
+  <div class="row my-2">
+    <div class="col-2">
+      <div><%= f.label :電話番号 %></div>
+    </div>
+    <div class="col-10">
+      <div><%= f.text_field :phone_number, autofocus: true %></div>
+    </div>
+  </div>
+  
+  <div class="row my-2">
+    <div class="col-2">
+      <div><%= f.label :メールアドレス %></div>
+    </div>
+    <div class="col-10">
+      <div><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+    </div>
+  </div>
+    
+  <div class="row mt-3">
+    <div class="col-2">
+      <div></div>
+    </div>
+    <div class="col-4">
+      <div><%= f.submit "編集内容を保存", class: 'px-5 btn btn-success' %></div>
+    </div>
+    <div class="col-6">
+      <div><%= link_to customers_withdrawal_path, class: 'btn btn-danger' do %>退会する<% end %></div>
+    </div>
+  </div>
+</div>
 <%end%>
