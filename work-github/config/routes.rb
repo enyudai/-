@@ -25,28 +25,28 @@ scope module: :public do
 
 
  get 'customers/my_page' => 'customers#my_page'
- 
+
  post 'orders/check' => 'orders#check'
  get  'orders/complete' => 'orders#complete'
  resources :orders, only: [:index, :show, :new, :create]
- 
+
 
   patch 'customers/change' => 'customers#change', as: 'change'
 
   resources :customers, only: [:update]
   patch 'customers/change' => 'customers#change'
   get 'customers/information/edit' => 'customers#edit'
-  
+
   #退会機能
   get 'customers/withdrawal' => 'customers#withdrawal'
-  
+
   get 'homes/top'
   get 'homes/about'
   get 'customers/my_page' => 'customers#my_page'
   post 'deliveries' => 'deliveries#create'
   get 'deliveries/index'
   get 'deliveries/edit'
- 
+
 
 
  get 'homes/top'
@@ -58,13 +58,13 @@ scope module: :public do
  resources :items, only: [:show, :index]
  delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
  resources :cart_items, only: [:index, :create, :update, :destroy]
- 
+
 
  resources :deliveries, only: [:index, :create, :edit, :update, :destroy]
 # post 'deliveries' => 'deliveries#create'
 # get 'deliveries/index'
 # get 'deliveries/edit'
-
+ get "search" => "searches#search"
 
 end
 
@@ -78,12 +78,13 @@ end
   resources :orders, only: [:show, :update]
 
   resources :order_details, only: [:update]
-  
+
   resources :customers, only: [:index, :show, :edit, :update]
-  
+
 
   resources :items, only: [:new, :index, :show, :create, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
+  get "search" => "searches#search"
 
 end
 

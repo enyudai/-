@@ -27,9 +27,10 @@ class Public::OrdersController < ApplicationController
           @order.address = current_customer.address
 
           @order.name = current_customer.first_name + current_customer.family_name
+
   
 
-         # @order.name = current_customer.first_name + current_customer.last_name
+
 
 
        elsif params[:order][:delivery_method] == "1"
@@ -72,5 +73,6 @@ class Public::OrdersController < ApplicationController
      def order_params
       params.require(:order).permit(:payment, :postal_code, :address, :name, :price, :postage, :customer_id)
      end
+
 
 end

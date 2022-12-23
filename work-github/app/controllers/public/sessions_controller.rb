@@ -59,7 +59,7 @@ class Public::SessionsController < Devise::SessionsController
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @customer.valid_password?(params[:customer][:password]) && !@customer.withdrawal_flag
     else
-      flash[:notice] = "既に退会されています。再度ご登録を行ってください。"
+      #flash[:notice] = "既に退会されています。再度ご登録を行ってください。"
       redirect_to "/customers/sign_up"
     end
   end
