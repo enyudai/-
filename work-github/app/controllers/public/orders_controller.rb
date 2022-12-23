@@ -28,6 +28,10 @@ class Public::OrdersController < ApplicationController
 
           @order.name = current_customer.first_name + current_customer.family_name
 
+  
+
+
+
 
        elsif params[:order][:delivery_method] == "1"
          @delivery = Delivery.find(params[:order][:delivery_id])
