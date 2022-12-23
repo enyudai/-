@@ -24,6 +24,8 @@
          <div class="col">
           <%= f.radio_button :delivery_method, 0 %>
           <%= f.label :delivery_method_user_address, Order.delivery_methods_i18n[:user_address] %>
+          <%= current_customer.postal_code %>
+          <%= current_customer.address %>
          </div>
 
 
