@@ -27,9 +27,16 @@ class Public::OrdersController < ApplicationController
           @order.address = current_customer.address
 
           @order.name = current_customer.first_name + current_customer.family_name
+<<<<<<< HEAD
   
 
          # @order.name = current_customer.first_name + current_customer.last_name
+=======
+
+  
+
+
+>>>>>>> origin/develop
 
 
        elsif params[:order][:delivery_method] == "1"

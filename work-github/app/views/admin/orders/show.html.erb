@@ -1,5 +1,9 @@
 <div class='container'>
   <div class='row'>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
     <h1>注文履歴詳細</h1>
   </div>
   
@@ -19,14 +23,26 @@
 <table  cellpadding="6" cellspacing="0" width="600" height="150">
          <thead>
            <tr style="background-color:#f4f4f4">
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
             <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
             <th>制作ステータス</th>
+<<<<<<< HEAD
            </tr>
          </thead>
          <tbody>
+=======
+
+           </tr>
+         </thead>
+         <tbody>
+
+>>>>>>> origin/develop
           <% @order.order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
@@ -34,6 +50,10 @@
             <td><%= order_detail.volume %></td>
             <td><%= order_detail.subtotal %></td>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
             <td>
               <%= form_with model: [:admin, order_detail], method: :patch, local: true do |f| %>
                 <%= f.select :production_status, OrderDetail.production_statuses_i18n.keys.map {|k| [I18n.t("enums.production_status.#{k}"), k]} %>
@@ -44,11 +64,19 @@
           <% @price_all += order_detail.subtotal %>
           <% end %>
         </tbody>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
        </table>
 <div class="d-flex flex-row-reverse bd-highlight">       
     <div class="d-flex flex-column bd-highlight mb-3">
       <div class="p-2 bd-highlight">商品合計 <%= @price_all %></div>
       <div class="p-2 bd-highlight">送料 <%= @order.postage %></div>
       <div class="p-2 bd-highlight">請求金額合計:<%= @order.postage + @price_all %></div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/develop
     </div>
 </div>
