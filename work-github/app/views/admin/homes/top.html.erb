@@ -1,42 +1,52 @@
 <div class="container" >
   <div class='row'>
     <div class="col-md-8 offset-md-2">
-        <span style="background-color:#f4f4f4">　注文履歴一覧　</span>
-     <table class="table table-hover table-inverse" style="margin-top:15px">
-       <thead>
-         <tr bgcolor="#f4f4f4">
-           <th scope="col">購入日時</th>
-           <th scope="col">購入者</th>
-           <th scope="col">注文個数</th>
-           <th scope="col">注文ステータス</th>
-         </tr>
-       </thead>
-       <tbody>
-         <% @order.each do|order| %>
-           <tr>
-             <td><%= order.created_at %></td>  <%#= link_to order.created_at, admin_orders_path(order.id), format: :short, class: 'text-dark' %>
-             <td><%= order.name %></td>
-             <% order.order_details.each do |order_detail| %>
-              <% @volume += order_detail.volume %>
-             <% end %>
-             <td><%= @volume %></td>
-             <% if order.reception_status == 0 %>
-               <td>入金待ち</td>
-             <% elsif order.reception_status == 1 %>
-               <td>入金確認</td>
-             <% elsif order.reception_status == 2 %>
-               <td>製作中</td>
-             <% elsif order.reception_status == 3 %>
-               <td>発送準備中</td>
-             <% else order.reception_status == 4 %>
-               <td>発送済み</td>
-             <% end %>
-             <% @volume -= @volume %>
+      <% if @order.exists? %>
+          <span style="background-color:#f4f4f4">　注文履歴一覧　</span>
+       <table class="table table-hover table-inverse" style="margin-top:15px">
+         <thead>
+           <tr bgcolor="#f4f4f4">
+             <th scope="col">購入日時</th>
+             <th scope="col">購入者</th>
+             <th scope="col">注文個数</th>
+             <th scope="col">注文ステータス</th>
            </tr>
-         <% end %>
+         </thead>
+         <tbody>
+           <% @order.each do|order| %>
+             <tr>
+               <td><%= link_to order.created_at, admin_order_path(order.id), class: 'text-dark' %></td> <!--format: :short, -->
+               <td><%= order.name %></td>
+               <% order.order_details.each do |order_detail| %>
+                <% @volume += order_detail.volume %>
+               <% end %>
+               <td><%= @volume %></td>
+               <% if order.reception_status == 0 %>
+                 <td>入金待ち</td>
+               <% elsif order.reception_status == 1 %>
+                 <td>入金確認</td>
+               <% elsif order.reception_status == 2 %>
+                 <td>製作中</td>
+               <% elsif order.reception_status == 3 %>
+                 <td>発送準備中</td>
+               <% else order.reception_status == 4 %>
+                 <td>発送済み</td>
+               <% end %>
+               <% @volume -= @volume %>
+             </tr>
+           <% end %>
 
-       </tbody>
-     </table>
+
+         </tbody>
+       </table>
+      <% else %>
+        <div>注文履歴はございません</div>
+      <% end %>
     </div>
   </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+       <%= paginate @order %>
+      </div>
+    </div>
 </div>
