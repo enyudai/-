@@ -19,9 +19,9 @@
         <tbody>
           <% @customer.each do |customer| %>
             <tr>
-              <th><%= customer.id %></th>
-              <th><%= link_to admin_customer_path(customer.id), class: "text-body" do %><%= customer.first_name %><%= customer.family_name%><%end%></th>
-              <th><%= customer.email %></th>
+              <th class="font-weight-normal"><%= customer.id %></th>
+              <th class="font-weight-normal"><%= link_to admin_customer_path(customer.id), class: "text-body" do %><%= customer.first_name %><%= customer.family_name%><%end%></th>
+              <th class="font-weight-normal"><%= customer.email %></th>
               <th><% if customer.withdrawal_flag == !true %>
                   <span class="text-success">有効</span>
                 <%else%>
