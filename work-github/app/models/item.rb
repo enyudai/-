@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   end
 
   def self.looks(search, word)
-    if search == "完全一致"
+    if search == "perfect_match"
       @item = Item.where("name LIKE?", "#{word}")
     else
       @item = Item.all
