@@ -1,11 +1,11 @@
 <%= form_with model:@customer, local:true, method: :put do |f| %>
 <div class="container">
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-1">
       <div></div>
     </div>
-    <div class="col-2">
-      <h5>会員情報集</h5>
+    <div>
+      <h5 style="background-color:#f4f4f4">　会員情報集　</h5>
     </div>
   </div>
   
@@ -78,10 +78,9 @@
       <div><%= f.label :住所 %></div>
     </div>
     <div class="col-9">
-      <div><%= f.text_field :address, autofocus: true, class: ""  %></div>
+      <div><%= f.text_field :address, autofocus: true, size:60  %></div>
     </div>
   </div>
-  
   
   <div class="row my-2">
     <div class="col-2">
