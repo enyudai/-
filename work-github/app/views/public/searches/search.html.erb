@@ -4,7 +4,6 @@
       <h2>検索結果</h2>
       
       <% if @range == "Item" %>
-        
             <% @items.each do |item| %>
               <div class="col-md-2">
                 <div><%= link_to item_path(item) do %>
@@ -33,7 +32,6 @@
             </div>
           <% end %>
         <% end %>
-         
       <% end %>
     </div>
   </div>
