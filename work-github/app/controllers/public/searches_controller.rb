@@ -5,7 +5,7 @@ class Public::SearchesController < ApplicationController
     if @range == "Item"
       @items = Item.looks(params[:search], params[:word])
     else
-      @jenres = Jenre.looks(params[:search], params[:word])
+      @genres = Genre.looks(params[:search], params[:word])
     end
   end
 end

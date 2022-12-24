@@ -84,7 +84,6 @@ end
 
   resources :items, only: [:new, :index, :show, :create, :edit, :update]
   resources :genres, only: [:index, :create, :edit, :update]
-  get "search" => "searches#search"
 
 end
 
