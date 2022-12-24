@@ -21,7 +21,7 @@
           <tr>
             <th><%= genre.genre_name %></th>
           </tr>
-          <% @genre.items.each do |item| %>
+          <% genre.items.each do |item| %>
             <div class="col-md-2">
               <div>
                 <%= link_to item_path(item) do %>
