@@ -9,17 +9,25 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', :media => 'all' %>
   </head>
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm" style="margin-bottom:40px">
       <div class="container pt-1 pb-1", style="background-color:#CD853F">
-        <div class="text-center text-white">全国配送お承ります</div>
+        <% if customer_signed_in? %>
+         <div class="text-center text-white">ようこそ、<%= current_customer.family_name %>さん！</div>
+        <% elsif admin_signed_in? %>
+         <div class="text-left text-white">管理者用ページ</div>
+        <% else %>
+         <div class="text-left text-white">ようこそ、ゲストさん！</div>
+        <% end %>
+        <!--<div class="text-center text-white">全国配送お承ります</div>-->
       </div>
       <nav class="navbar navbar-expand-lg navbar-light">
 
         <div class="container" style="margin-bottom:10px">
-          <a href="https://b3ae06c2818342ec9f86a8f9c41ec512.vfs.cloud9.ap-northeast-1.amazonaws.com/homes/top"><img src="https://fontmeme.com/permalink/221219/f1e17244a8fad011f7e1024380d2bc03.png" alt="font-cursive" border="0"></a>
+          <%= link_to homes_top_path do %><img src="https://fontmeme.com/permalink/221219/f1e17244a8fad011f7e1024380d2bc03.png" alt="font-cursive" border="0"><%end%>
           <!--<a class="navbar-brand p-3" href="/"><i class="fa-sharp fa-solid fa-cake-candles"></i></a> -->
           <!-- ハンバーガーメニューの記述ここから -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -91,11 +99,12 @@
         </div>
       </nav>
     </header>
-
-    <main class="mb-auto">
-    <%= yield %>
-    </main>
-    <footer class="bg-dark text-white pt-3 pb-2" style="margin-top:40px">
+    
+      <main class="mb-auto">
+        <%= yield %>
+      </main>
+    
+    <footer class="bg-white pt-3 pb-2" style="margin-top:40px">
       <div class="container">
         <div class="row no-gutters">
 
@@ -106,7 +115,7 @@
                 <a href="" title="About" class="text-white-50">会社概要</a>
               </li> -->
               <!--<div class="text-center"> -->
-                <img src="https://fontmeme.com/permalink/221220/6a0c3693105781b9d4cb458b465f45b2.png" alt="font-cursive" border="0">
+                <img src="https://fontmeme.com/permalink/221224/0a017d46b1a4e33746a45b5f89118348.png" alt="font-cursive" border="0">
 
               <!--<img src="https://fontmeme.com/permalink/221219/79790c6d85018d6401b3aa30862f97b5.png" alt="font-cursive" border="0"> -->
               <!--<li>

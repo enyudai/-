@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+
+.neta1{
+  background: rgba(255,255,255,0.6);
+}
+
+.neta {
+  background-image: url(/assets/test9.jpeg);
+  background-position: 350px 0px;
+}

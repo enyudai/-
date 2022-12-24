@@ -1,63 +1,65 @@
-<div style="background-image">
-  <div class="container px-5 px-sm-0">
-    <div class= "row">
-      <div class="col-md-2">
-        <div class="border" style="height:300px">
-          <div class="border-bottom text-center">ジャンル検索</div>
-          <div>ケーキ</div>
-          <div>焼き菓子</div>
-          <div>プリン</div>
-          <div>キャンディ</div>
-        </div>
-      </div>
-        <div class="col-md-9 offset-md-1">
-          <div style="position: relative; margin-bottom:20px">
-            <%#= image_tag "/assets/asia.jpg", size: "600x300" %>
-            <img src="https://cdn.create.vista.com/api/media/medium/418050536/stock-photo-classic-american-cake-brownie-chocolate?token=" alt="font-cursive" border="0" width="600" height="330">
-            <div style="position:absolute; color:white; top:10%; left:25%;">
-            ようこそ、ながのCAKEへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員ではない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
-            </div>
+<div class="neta">
+  <div class="neta1">
+    <div class="container px-5 px-sm-0">
+      <div class= "row">
+        <div class="col-md-2">
+          <div class="border" style="height:300px">
+            <div class="border-bottom text-center">ジャンル検索</div>
+            <div>ケーキ</div>
+            <div>焼き菓子</div>
+            <div>プリン</div>
+            <div>キャンディ</div>
           </div>
-          <h3>新着商品</h3>
         </div>
-  
-  
-      <!--   <table>
-           <thead>
-             <tr>
-               <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
-               <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
-               <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
-               <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
-             </tr>
-           </thead>
-           <tbody>  -->
-  
-  
-  
-         <div class="col-md-3">
-         </div>
-  
-            <% @items.each do |item| %>
-              <div class="col-md-2">
-                <div><%#= image_tag "/assets/asia.jpg", size: "180x100" %>
-                  <%= link_to item_path(item) do %>
-                   <%= image_tag item.get_image, size: "180x100" %>
-                  <% end %>
-                </div>
-                <%#= link_to image_tag "item.image", item_path(item.id), size: "180x100" %>
-                <div><%= link_to item.name, item_path(item.id), class: 'text-dark' %></div>
-                <div>¥<%= item.price %></div>
+          <div class="col-md-9 offset-md-1">
+            <div style="position: relative; margin-bottom:20px">
+              <%#= image_tag "/assets/asia.jpg", size: "600x300" %>
+              <img src="https://cdn.create.vista.com/api/media/medium/418050536/stock-photo-classic-american-cake-brownie-chocolate?token=" alt="font-cursive" border="0" width="600" height="330">
+              <div style="position:absolute; color:white; top:10%; left:25%;">
+              ようこそ、ながのCAKEへ！<br>
+              このサイトは、ケーキ販売のECサイトになります。<br>
+              会員ではない方も商品の閲覧はできますが、<br>
+              購入には会員登録が必要になります。
               </div>
-            <% end %>
-            <div class="col-md-12">
-              <p class="text-right">
-               <%= link_to "全ての商品を見る >", items_path %>
-              </p>
             </div>
+            <h3>新着商品</h3>
+          </div>
+    
+    
+        <!--   <table>
+             <thead>
+               <tr>
+                 <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+                 <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+                 <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+                 <th><%#= image_tag "/assets/asia.jpg", size: "180x100" %></th>
+               </tr>
+             </thead>
+             <tbody>  -->
+    
+    
+    
+           <div class="col-md-3">
+           </div>
+    
+              <% @items.each do |item| %>
+                <div class="col-md-2">
+                  <div><%#= image_tag "/assets/asia.jpg", size: "180x100" %>
+                    <%= link_to item_path(item) do %>
+                     <%= image_tag item.get_image, size: "180x100" %>
+                    <% end %>
+                  </div>
+                  <%#= link_to image_tag "item.image", item_path(item.id), size: "180x100" %>
+                  <div><%= link_to item.name, item_path(item.id), class: 'text-dark' %></div>
+                  <div>¥<%= item.price %></div>
+                </div>
+              <% end %>
+              <div class="col-md-12">
+                <p class="text-right">
+                 <%= link_to "全ての商品を見る >", items_path %>
+                </p>
+              </div>
+      </div>
     </div>
   </div>
 </div>
