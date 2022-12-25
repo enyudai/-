@@ -3,20 +3,23 @@
 
     <h1>注文履歴詳細</h1>
   </div>
-    <div class='row'>
-      <div class="d-flex flex-column bd-highlight mb-3">
-        <div class="p-2 bd-highlight">購入者　<%= @order.name %></div>
-        <div class="p-2 bd-highlight">注文日　<%= @order.created_at %></div>
-        <div class="p-2 bd-highlight">配送先　〒<%= @order.postal_code %>　<%= @order.address %><br>　　　　<%= @order.name %></div>
-        <div class="p-2 bd-highlight">支払方法　<%= @order.payment %></div>
-        <div class="p-2 bd-highlight">
-          <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
-              注文ステータス　<%= f.select :reception_status, Order.reception_statuses_i18n.keys.map {|k| [I18n.t("enums.order.reception_status.#{k}"), k]} %>
-              <%= f.submit "更新", class: "btn btn-warning" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  
+  <div class="d-flex flex-column bd-highlight mb-3">
+  <div class="p-2 bd-highlight">購入者 <%= @order.name %></div>
+  <div class="p-2 bd-highlight">注文日 <%= @order.created_at %></div>
+  <div class="p-2 bd-highlight">配送先 <%= @order.postal_code  %><%= @order.address %><%= @order.name %></div>
+  <div class="p-2 bd-highlight">支払方法 <%= @order.payment_i18n %></div>
+  <div class="p-2 bd-highlight">
+    <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
+        注文ステータス  <%= f.select :reception_status, Order.reception_statuses_i18n.keys.map {|k| [I18n.t("enums.order.reception_status.#{k}"), k]} %>
+        <%= f.submit "更新" %>
+    <% end %>
+  </div>
+</div>
+
+<table  cellpadding="6" cellspacing="0" width="600" height="150">
+         <thead>
+           <tr style="background-color:#f4f4f4">
 
   <div class='row'>
     <div class="col-md-8">
@@ -28,7 +31,23 @@
             <th>数量</th>
             <th>小計</th>
             <th>制作ステータス</th>
-            <th></th>
+           </tr>
+         </thead>
+         <tbody>
+          <% @order.order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.with_tax_price %></td>
+            <td><%= order_detail.volume %></td>
+            <td><%= order_detail.subtotal %></td>
+
+
+            <td>
+              <%= form_with model: [:admin, order_detail], method: :patch, local: true do |f| %>
+                <%= f.select :production_status, OrderDetail.production_statuses_i18n.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
+  		          <%= f.submit "更新" %>
+  		        <% end %>
+  		      </td>
           </tr>
         </thead>
         <tbody>
