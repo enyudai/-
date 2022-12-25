@@ -4,11 +4,8 @@
 
 
       <% if @range == "Item" %>
-<<<<<<< HEAD
         <h2>検索結果</h2>
 
-=======
->>>>>>> origin/develop
             <% @items.each do |item| %>
               <div class="col-md-3">
                 <div><%= link_to item_path(item) do %>
@@ -27,7 +24,7 @@
             <th><%= genre.genre_name %></th>
           </tr>
           <% genre.items.each do |item| %>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div>
                 <%= link_to item_path(item) do %>
                   <%= image_tag item.get_image, size: "180x100" %>
@@ -38,10 +35,7 @@
             </div>
           <% end %>
         <% end %>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/develop
       <% end %>
     </div>
   </div>
