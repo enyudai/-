@@ -5,10 +5,12 @@ class Admin::CustomersController < ApplicationController
   end
   
   def show
+    @orders = Order.all
     @customer = Customer.find(params[:id])
   end
   
   def edit 
+    @orders = Order.find(params[:id])
     @customer = Customer.find(params[:id])
   end
   
