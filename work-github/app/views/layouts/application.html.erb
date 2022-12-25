@@ -10,17 +10,19 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', :media => 'all' %>
+    
+    
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm" style="margin-bottom:40px">
+    <header class="shadow-sm" style="">
       <div class="container pt-1 pb-1", style="background-color:#CD853F">
         <% if customer_signed_in? %>
          <div class="text-center text-white">ようこそ、<%= current_customer.family_name %>さん！</div>
         <% elsif admin_signed_in? %>
          <div class="text-left text-white">管理者用ページ</div>
         <% else %>
-         <div class="text-left text-white">ようこそ、ゲストさん！</div>
+         <div class="text-center text-white">ようこそ、ゲストさん！</div>
         <% end %>
         <!--<div class="text-center text-white">全国配送お承ります</div>-->
       </div>
@@ -101,10 +103,12 @@
     </header>
     
       <main class="mb-auto">
-        <%= yield %>
+        <div class="BackGroundColor">
+          <%= yield %>
+        </div>
       </main>
     
-    <footer class="bg-white pt-3 pb-2" style="margin-top:40px">
+    <footer class="bg-white pt-3 pb-2" style="">
       <div class="container">
         <div class="row no-gutters">
 

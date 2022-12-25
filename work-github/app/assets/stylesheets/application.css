@@ -13,13 +13,23 @@
  *= require_tree .
  *= require_self
  */
-
-
-.neta1{
+ 
+ 
+ 
+.BackGroundColor {
   background: rgba(255,255,255,0.6);
+  padding:30px 0px;
+  height:100%;
 }
 
-.neta {
+main {
   background-image: url(/assets/test9.jpeg);
   background-position: 350px 0px;
+  height:100%;
+}
+
+footer {
+  position: fixed; 
+  bottom:0;
+  width:100%;
 }
