@@ -1,59 +1,73 @@
-<div class='container'>
+<div class="container px-5 px-sm-0">
   <div class='row'>
 
     <h1>注文履歴詳細</h1>
   </div>
-  
-  <div class="d-flex flex-column bd-highlight mb-3">
-  <div class="p-2 bd-highlight">購入者 <%= @order.name %></div>
-  <div class="p-2 bd-highlight">注文日 <%= @order.created_at %></div>
-  <div class="p-2 bd-highlight">配送先 <%= @order.postal_code  %><%= @order.address %><%= @order.name %></div>
-  <div class="p-2 bd-highlight">支払方法 <%= @order.payment %></div>
-  <div class="p-2 bd-highlight">
-    <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
-        注文ステータス  <%= f.select :reception_status, Order.reception_statuses_i18n.keys.map {|k| [I18n.t("enums.reception_status.#{k}"), k]} %>
-        <%= f.submit "更新" %>
-    <% end %>
-  </div>
-</div>
+    <div class='row'>
+      <div class="d-flex flex-column bd-highlight mb-3">
+        <div class="p-2 bd-highlight">購入者　<%= @order.name %></div>
+        <div class="p-2 bd-highlight">注文日　<%= @order.created_at %></div>
+        <div class="p-2 bd-highlight">配送先　〒<%= @order.postal_code %>　<%= @order.address %><br>　　　　<%= @order.name %></div>
+        <div class="p-2 bd-highlight">支払方法　<%= @order.payment %></div>
+        <div class="p-2 bd-highlight">
+          <%= form_with model: [:admin, @order], method: :patch, local: true do |f| %>
+              注文ステータス　<%= f.select :reception_status, Order.reception_statuses_i18n.keys.map {|k| [I18n.t("enums.order.reception_status.#{k}"), k]} %>
+              <%= f.submit "更新", class: "btn btn-warning" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-<table  cellpadding="6" cellspacing="0" width="600" height="150">
-         <thead>
-           <tr style="background-color:#f4f4f4">
-
+  <div class='row'>
+    <div class="col-md-8">
+      <table class="table table-hover table-inverse border-bottom">
+        <thead>
+          <tr style="background-color:#f4f4f4">
             <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
             <th>制作ステータス</th>
-           </tr>
-         </thead>
-         <tbody>
-          <% @order.order_details.each do |order_detail| %>
-          <tr>
-            <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.item.with_tax_price %></td>
-            <td><%= order_detail.volume %></td>
-            <td><%= order_detail.subtotal %></td>
-
-
-            <td>
-              <%= form_with model: [:admin, order_detail], method: :patch, local: true do |f| %>
-                <%= f.select :production_status, OrderDetail.production_statuses_i18n.keys.map {|k| [I18n.t("enums.production_status.#{k}"), k]} %>
-  		          <%= f.submit "更新" %>
-  		        <% end %>
-  		      </td>
+            <th></th>
           </tr>
-          <% @price_all += order_detail.subtotal %>
+        </thead>
+        <tbody>
+          <% @order.order_details.each do |order_detail| %>
+            <tr>
+              <td><%= order_detail.item.name %></td>
+              <td><%= order_detail.item.with_tax_price %></td>
+              <td><%= order_detail.volume %></td>
+              <td><%= order_detail.subtotal %></td>
+              <td>
+                <%= form_with model: [:admin, order_detail], method: :patch, local: true do |f| %>
+                  <%= f.select :production_status, OrderDetail.production_statuses_i18n.keys.map {|k| [I18n.t("enums.order_detail.production_status.#{k}"), k]} %>
+              </td>
+              <td>
+                  <%= f.submit "更新", class: "btn btn-warning" %>
+                <% end %>
+              </td>
+            </tr>
+            <% @price_all += order_detail.subtotal %>
           <% end %>
         </tbody>
-
-       </table>
-<div class="d-flex flex-row-reverse bd-highlight">       
-    <div class="d-flex flex-column bd-highlight mb-3">
-      <div class="p-2 bd-highlight">商品合計 <%= @price_all %></div>
-      <div class="p-2 bd-highlight">送料 <%= @order.postage %></div>
-      <div class="p-2 bd-highlight">請求金額合計:<%= @order.postage + @price_all %></div>
-
+      </table>
     </div>
+
+    <div class="col-md-3">
+      <table style="margin-top:40px">
+        <tr>
+          <th>商品合計</th>
+          <td><%= @price_all %>円</td>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <td><%= @order.postage %>円</td>
+        </tr>
+        <tr>
+          <th>請求金額合計　</th>
+          <td><%= @order.postage + @price_all %>円</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
