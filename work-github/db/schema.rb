@@ -100,9 +100,9 @@ ActiveRecord::Schema.define(version: 2022_12_19_044439) do
     t.string "name", null: false
     t.text "body", null: false
     t.integer "price", null: false
+    t.boolean "sale_status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "sale_status", default: true, null: false
   end
 
   create_table "order_details", force: :cascade do |t|

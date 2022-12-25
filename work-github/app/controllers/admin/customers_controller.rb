@@ -10,7 +10,7 @@ class Admin::CustomersController < ApplicationController
   end
   
   def edit 
-    @orders = Order.find(params[:id])
+    #@orders = Order.find(params[:id])
     @customer = Customer.find(params[:id])
   end
   
