@@ -1,0 +1,61 @@
+<div class='container'>
+    <div class="row">
+      <div class="col-2">
+        <div></div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="ml-4 mb-3">
+        <h5 style="background-color:#f4f4f4">　マイページ　</h5>
+      </div>
+      <div class="">
+        <div></div>
+      </div>
+    </div>
+  
+    <div class='row mb-3'>
+      <div class="col-2">
+        <h4>登録情報</h4>
+      </div>
+      <div class="">
+        <div><%= link_to customers_information_edit_path, class: 'px-4 btn btn-success' do %>編集する<% end %></div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-8">
+        <table class="table">
+          <tr><th class="border bg-light">氏名</th><td class="border"><%= @customer.first_name %> <%= @customer.family_name %></td></tr>
+          <tr><th class="col-md-2 border bg-light">カナ</th><td class="col-lg-6 border"><%= @customer.first_name_kana %> <%= @customer.family_name_kana %></td></tr>
+          <tr><th class="col-md-2 border bg-light">郵便番号</th><td class="col-lg-6 border"><%= @customer.postal_code %></td></tr>
+          <tr><th class="col-md-2 border bg-light">住所</th><td class="col-lg-6 border"><%= @customer.address %></td></tr>
+          <tr><th class="col-md-2 border bg-light">電話番号</th><td class="col-lg-6 border"><%= @customer.phone_number %></td></tr>
+          <tr><th class="col-md-2 border bg-light">メールアドレス</th><td class="col-lg-6 border"><%= @customer.email %></td></tr>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <div></div>
+      </div>
+    </div>
+  
+    <div class='row mb-3 mt-3'>
+      <div class="col-2">
+        <h4>配送先</h4>
+      </div>
+      <div class="">
+        <div><%= link_to deliveries_index_path, class: 'px-4 btn btn-primary' do %>一覧を見る<% end %></div>
+      </div>
+    </div>
+    
+    <div class='row mb-3'>
+      <div class="col-2">
+        <h4>注文履歴</h4>
+      </div>
+      <div class="">
+        <div><%= link_to orders_path, class: 'px-4 btn btn-primary' do %>一覧を見る<% end %></div>
+      </div>
+    </div>
+  </div>
+</div>

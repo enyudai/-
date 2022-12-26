@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="border" style="height:300px">
+      <div class="border-bottom text-center">ジャンル検索</div>
+      <div>ケーキ</div>
+      <div>焼き菓子</div>
+      <div>プリン</div>
+      <div>キャンディ</div>
+      </div>
+    </div>
+    <div class="col-4 m-3">
+      <%= image_tag @item.get_image, class:"img-fluid w-100 h-50" %>
+    </div>
+    <div class="col-4 ml-3 pt-4">
+      <h4><strong><%= @item.name %></strong></h4>
+      <p><%= @item.body %></p>
+      <P><strong>￥<%= (@item.price * 1.1).floor %></strong>(税込)</P>
+      <% if customer_signed_in? %>
+      <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.hidden_field :customer_id, :value => current_customer.id %>
+        <%= f.select :volume, *[1..10], { prompt: '個数選択' } %>
+        <%= f.submit 'カートに入れる', class:"btn btn-success" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

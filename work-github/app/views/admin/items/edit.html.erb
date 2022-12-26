@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row.align-items-center">
+    <div class="col-5 align-self-center">
+      <h4>商品編集</h4>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <%= form_with model: @item, url: admin_item_path(@item), method: :patch do |f| %>
+    <div class="col-auto">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody class="form-group rowjustify-content-start">
+          <tr>
+            <td><%= f.label :image, "商品画像", class:"col-autp col-form-label mr-3" %></td>
+            <td><%= f.file_field :image, accept: "image/*", class:"form-control-plaintext ml-3 my-1 " %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :name, "商品名", class:"col-autp col-form-label mr-3" %></td>
+            <td><%= f.text_field :name, placeholder:"商品名", class:"form-control ml-3 my-1" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :body, "商品説明", class:"col-autp col-form-label mr-3" %></td>
+            <td><%= f.text_area :body, placeholder:"ここに説明文を記述します", size: "30x5", class:"form-control ml-3 my-1" %></td>
+          </tr>
+          <tr>
+            <td class="col-autp col-form-label mr-3">ジャンル</td>
+            <td><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, { prompt: '--選択してください--' }, class:"form-control ml-3 my-1" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :price, "税抜き価格", class:"col-autp col-form-label mr-3" %></td>
+            <td><%= f.text_field :price, placeholder:"1000", class:"form-control ml-3 my-1" %></td>
+            <td class="col-auto">円</td>
+          </tr>
+          <tr>
+            <td class="col-autp col-form-control-label mr-3">販売ステータス</td>
+            <td class="form-control-plaintext ml-3 my-1 d-flex ">
+              <div>
+              <%= f.radio_button :sale_status, true %>
+              <%= f.label :sale_status, '販売中', value: true %>
+              </div>
+              <div class="ml-5">
+              <%= f.radio_button :sale_status, false %>
+              <%= f.label :sale_status, '販売停止中', value: false %>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mb-5 d-flex justify-content-center">
+      <%= f.submit "変更を保存", class:"btn btn-success py-2 px-4" %>
+    </div>
+    <% end %>
+  </div>
+</div>

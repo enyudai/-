@@ -1,0 +1,69 @@
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-2">
+      <div class="border" style="height:300px">
+        <div class="border-bottom text-center">ジャンル検索</div>
+        <div>ケーキ</div>
+        <div>焼き菓子</div>
+        <div>プリン</div>
+        <div>キャンディ</div>
+      </div>
+    </div>
+
+    <!--<div class="col-md-9"> -->
+
+
+    <div class="col-md-8">
+      <table>
+        <tr>
+          <td><h2>商品一覧</h2></td>
+          <td>(全<%= @items.count %>件)</td>
+        </tr>
+      </table>
+
+      <div class="d-flex flex-wrap">
+        <% @items.each do |item| %>
+          <div class="col-md-3">
+　  　　  　<table>
+　  　　  　  <thead>
+　  　　  　    <tr>
+                  <th><% if item.sale_status == true %>
+                        <%= link_to item_path(item) do %>
+                          <%= image_tag item.get_image, size: "180x110" %>
+                        <% end %>
+                      <% else %>
+                        <%= image_tag 'sold_out.jpeg', size: "180x110" %>
+                      <% end %>
+
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= item.name %></td>
+                </tr>
+                <tr>
+                  <td>¥<%= item.price %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+      </div>
+    </div>
+      <div class="col-md-2">
+      </div>
+  </div>
+
+        <div class="row" style="margin-top:40px">
+          <div class="col-md-6 offset-md-3 py-2">
+            <div class="text-center">
+              <div class="pagination justify-content-center">
+               <%= paginate @items %>
+              </div>
+            </div>
+          </div>
+        </div>
+</div>

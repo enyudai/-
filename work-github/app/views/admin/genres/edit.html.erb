@@ -1,0 +1,16 @@
+<div class="container">
+  <span style="background-color:#f4f4f4">　ジャンル編集　</span>
+  <div class="row">
+    <div class="col-md-5">
+      <table style="margin-top:30px">
+         <tr>
+          <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch, local: true do |f| %>
+            <td>　<%= f.label :genre_name, "ジャンル名" %>　</td>
+            <td>　<%= f.text_field :genre_name, placeholder:"ジャンル名" %>　</td>
+            <td>　<%= f.submit "変更を保存", class: "btn btn-success" %>　</td>
+          <% end %>
+         </tr>
+      </table>
+    </div>
+  </div>
+</div>
