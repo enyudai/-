@@ -22,9 +22,12 @@
 }
 
 main {
-  background-image: url(/assets/test9.jpeg);
-  background-position: 350px 0px;
+  background-image: url(/assets/test26.jpeg);
+  background-size: cover;
+  background-position: bottom;
   height:100%;
+  width:100%;
+  background-repeat: no-repeat;
 }
 
 /*footer {
