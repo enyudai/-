@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
@@ -25,9 +24,24 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
-  protected
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  private
+  
+   def after_sign_in_path_for(resource)
+     homes_top_path
+   end
+   
+   def after_sign_out_path_for(resource)
+     root_path
+   end
+  
+   def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :introduction])
+   end
+  
 # 退会しているかを判断するメソッド
-def user_state
+ def user_state
   ## 【処理内容1】 入力されたemailからアカウントを1件取得
    #       モデル名.find_by(カラム名: 検索する値)
     @user = User.find_by(email: params[:user][:email])
@@ -41,5 +55,6 @@ def user_state
     else
       redirect_to  "/users/sign_up"
     end
-  end
-  end
+ end
+ 
+end

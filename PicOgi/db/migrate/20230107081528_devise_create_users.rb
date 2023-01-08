@@ -36,8 +36,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.timestamps null: false
        ##ニックネーム
         t.string :nickname, null: false
-      ##自己紹介
-       t.text :introduction, null: false
+       ## 自己紹介
+        t.text :introduction
     end
 
     add_index :users, :email,                unique: true
