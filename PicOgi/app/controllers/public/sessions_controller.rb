@@ -29,11 +29,11 @@ class Public::SessionsController < Devise::SessionsController
   private
   
    def after_sign_in_path_for(resource)
-     homes_top_path
+     public_homes_top_path
    end
    
    def after_sign_out_path_for(resource)
-     root_path
+     public_root_path
    end
   
    def configure_permitted_parameters
