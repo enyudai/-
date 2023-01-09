@@ -1,4 +1,5 @@
 class Subject < ApplicationRecord
-  has_many :answers, dependent: :destroy
   belongs_to :user
+  has_many :users, through: :user_subject_answers
+  has_one_attached :subject_image
 end

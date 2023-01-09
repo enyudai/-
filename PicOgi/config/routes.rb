@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'homes/top'
+ 
+  scope module: :public do
+    
     root to: 'homes#about'
+    get 'homes/top' => 'homes#top'
+   
+   resources :users, only: [:show, :index, :edit, :update]
+   
   end
   
  # 管理者用
