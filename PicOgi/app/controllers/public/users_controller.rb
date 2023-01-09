@@ -5,12 +5,26 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-    @subjects = Subject.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+   
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
+  
+  private
+  
+  def user_params
+    params.require(:user).permit(:nickname, :email, :profile_image, :introduction)
+  end
+  
 end
