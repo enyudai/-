@@ -37,7 +37,7 @@ class Public::SessionsController < Devise::SessionsController
    end
   
    def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :nickname, :introduction])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :nickname, :introduction])
    end
   
 # 退会しているかを判断するメソッド
