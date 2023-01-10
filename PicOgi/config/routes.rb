@@ -19,6 +19,9 @@ scope module: :public do
    
    resources :users, only: [:show, :index, :edit, :update]
    
+   post 'subjects/check' => 'subjects#check'
+   resources :subjects, only: [:index, :new, :create, :edit, :update, :destroy]
+   
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
