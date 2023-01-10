@@ -5,10 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :subjects, dependent: :destroy 
-  has_many :user_subject_answers, through: :user_subject_answer_favorites 
-  has_many :subjects, through: :user_subject_answers 
-  has_one_attached :profile_image
   
+  has_many :user_subject_answer_favorites
+  has_many :user_subject_answers, through: :user_subject_answer_favorites
+  
+  has_many :user_subject_answers
+  has_many :subjects, through: :user_subject_answers
+  
+  has_one_attached :profile_image
   # def get_profile_image(width, height)
   #   unless profile_image.attached?
   #     file_path = Rails.root.join('app/assets/images/no_image.jpg')

@@ -2,8 +2,10 @@
   <div class = 'container'>
       <%= form_with model: @subject, url: subjects_check_path, method: :post do |f| %>
         <div class="form-group">
-          <%= f.file_field :subject_image %>
+          <%= f.file_field :subject_image, accept: "image/*" %>
+          <%= f.hidden_field :status %>
         </div>
+        
         <div class="form-group">
           <%= f.label :期限 %>
           <%= f.text_field :time_limit %>
