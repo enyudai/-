@@ -23,6 +23,11 @@ class Public::SubjectsController < ApplicationController
     end
   end
   
+  def show
+    @subjects = Subject.where(status: true)
+    @subject = @subjects.where(user_id: subject_id)
+  end
+  
   def edit
   end
   
@@ -30,10 +35,10 @@ class Public::SubjectsController < ApplicationController
   end
   
   def destroy
-    @user = current_user.id
-    subject = Subject.find(params[:id])
-    subject.destroy
-    redirect_to user_path(@user)
+    # @user = current_user.id
+    # subject = Subject.find(params[:id])
+    # subject.destroy
+    # redirect_to user_path(@user)
   end
   
   private
