@@ -13,13 +13,11 @@
   <div>
     <h3>お題</h3>
     <%= @subject.theme %>
-  <%#= @subject.subject_image.signed_id %>
   </div>
   <div>
     <%= form_with model: @subject, url: subjects_path, method: :post do |f| %>
-    <%#= f.hidden_field :subject_image, value: f.object.subject_image.signed_id %>
+    <!-- statusをtrueにする事でsubject_imageを公開にしていす-->
     <%= f.hidden_field :status, value: true %>
-    <%#= f.hidden_field :subject_image, value: @subject.subject_image  %>
     <%= f.hidden_field :time_limit %>
     <%= f.hidden_field :title %>
     <%= f.hidden_field :theme %>

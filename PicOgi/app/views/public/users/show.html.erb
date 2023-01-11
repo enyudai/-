@@ -24,7 +24,11 @@
   
   <div>
      <h3>投稿一覧</h3>
-     <!-- 投稿機能作ってから -->
-    <!--%= render 'index', subjects: @subjects %>-->
+     <% @subjects.each do |subject| %>
+     <p><%= subject.time_limit %></p>
+     <p><%= image_tag subject.subject_image %></p>
+     <p><%= subject.title %></p>
+     <P><%= link_to "編集", edit_subject_path(subject.id) %></P>
+     <% end %>
   </div>
 </div>

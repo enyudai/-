@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile_image = @user.profile_image
+    @subjects = Subject.where(status: true)
   end
 
   def index

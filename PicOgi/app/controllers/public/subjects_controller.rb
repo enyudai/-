@@ -8,28 +8,19 @@ class Public::SubjectsController < ApplicationController
   end
   
   def check
-    #byebug
     @subject = Subject.new(subject_params)
     @subject.user_id = current_user.id
     @subject.save
-    #byebug
-    #@test = params[:subject][:subject_ige]
   end
   
   def create
-    #byebug
+    @user = current_user.id
     @subject = Subject.last
-    byebug
     if @subject.update(subject_params)
        redirect_to user_path(@user)
     else
       # editに遷移させる
-     end
-    # if @subject.update
-    #   redirect_to user_path(@user)
-    # else 
-    #   render :new
-    # end
+    end
   end
   
   def edit
@@ -39,6 +30,10 @@ class Public::SubjectsController < ApplicationController
   end
   
   def destroy
+    @user = current_user.id
+    subject = Subject.find(params[:id])
+    subject.destroy
+    redirect_to user_path(@user)
   end
   
   private
