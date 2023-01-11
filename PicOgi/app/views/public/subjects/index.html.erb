@@ -10,6 +10,9 @@
      <div>
        <%= subject.title %>
      </div>
-     
+     <div>
+       <%= subject.user_subject_answers.count %>"回答数"
+     </div>
+     <%= link_to '参加', subject_path(subject.id) %>
     <% end %>
   </div>

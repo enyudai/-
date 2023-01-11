@@ -1,12 +1,11 @@
 class Public::UserSubjectAnswersController < ApplicationController
   def create
-    subjects = Subject.where(status: true)
-    subject = subjects.where(user_id: subject_id)
-    answer = UserSubjectAnswer.new(user_subject_answer_params)
-    answer.user_id = current_user.id
-    answer.subject_id = subject.id
-    answer.save
-    redirect_to subject_path(subject)
+    @subject = Subject.find(params[:subject_id])
+    @answer = UserSubjectAnswer.new(user_subject_answer_params)
+    @answer.user_id = current_user.id
+    @answer.subject_id = @subject.id
+    @answer.save
+    redirect_to subject_path(@subject)
   end
   
   def destroy

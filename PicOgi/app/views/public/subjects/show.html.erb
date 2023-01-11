@@ -1,0 +1,22 @@
+<div class = 'container'>
+  <div>
+    <p><%= @subject.user.nickname %></p>
+    <p><%= image_tag @subject.subject_image %></p>
+    <p><%= @subject.time_limit %></p>
+    <p><%= @subject.title %></p>
+    <p><%= @subject.theme %></p>
+  </div>
+  <div>
+    <p>回答数：<%= @subject.user_subject_answers.count %></p>
+    <% @subject.user_subject_answers.each do |answer| %>
+      <%= answer.user.nickname %>
+      <%= answer.created_at.strftime('%Y/%m/%d') %><%= answer.answer %>
+    <% end %>
+  </div>
+  <div>
+    <%= form_with model: [@subject, @answer] do |f| %>
+      <%= f.text_area :answer, rows: '5', placeholder: "回答をここに" %>
+      <%= f.submit "回答" %>
+    <% end %>
+  </div>
+</div>

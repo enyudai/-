@@ -24,8 +24,8 @@ class Public::SubjectsController < ApplicationController
   end
   
   def show
-    @subjects = Subject.where(status: true)
-    @subject = @subjects.where(user_id: subject_id)
+    @subject = Subject.find(params[:id])
+    @answer = UserSubjectAnswer.new
   end
   
   def edit
