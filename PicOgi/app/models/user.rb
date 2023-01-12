@@ -6,11 +6,11 @@ class User < ApplicationRecord
   
   has_many :subjects, dependent: :destroy 
   
-  has_many :user_subject_answer_favorites
-  has_many :user_subject_answers, through: :user_subject_answer_favorites
+  has_many :favorites
+  has_many :answers, through: :favorites
   
-  has_many :user_subject_answers
-  has_many :subjects, through: :user_subject_answers
+  has_many :answers
+  has_many :subjects, through: :answers
   
   has_one_attached :profile_image
   # def get_profile_image(width, height)

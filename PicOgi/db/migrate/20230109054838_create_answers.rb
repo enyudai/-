@@ -1,6 +1,6 @@
-class CreateUserSubjectAnswers < ActiveRecord::Migration[6.1]
+class CreateAnswers < ActiveRecord::Migration[6.1]
   def change
-    create_table :user_subject_answers do |t|
+    create_table :answers do |t|
       #会員id
       t.integer :user_id
       #お題id

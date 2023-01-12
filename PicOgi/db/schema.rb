@@ -52,27 +52,27 @@ ActiveRecord::Schema.define(version: 2023_01_09_085008) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "subject_id"
+    t.string "answer", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "answer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
     t.string "theme", null: false
     t.string "time_limit", null: false
     t.boolean "status", default: false, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_subject_answer_favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "user_subject_answer_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "user_subject_answers", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "subject_id"
-    t.string "answer", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

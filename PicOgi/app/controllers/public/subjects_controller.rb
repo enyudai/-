@@ -25,7 +25,7 @@ class Public::SubjectsController < ApplicationController
   
   def show
     @subject = Subject.find(params[:id])
-    @answer = UserSubjectAnswer.new
+    @answer = Answer.new
   end
   
   def edit

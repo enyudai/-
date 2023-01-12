@@ -1,4 +1,0 @@
-$("#subject_<%= @subject.id %> .answers-count").html("回答数: <%= @subject.subject.user_subject_answers.count %>");
-$(".answers").html("<%= j(render 'public/user_subject_answers/index', subject: @subject) %>");
-<!-- .val("")とすることで、空に書き換え、コメントフォームをまっさらにする挙動。-->
-$("#user_subject_answer_answer").val("");

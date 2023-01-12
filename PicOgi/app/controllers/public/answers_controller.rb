@@ -1,7 +1,7 @@
-class Public::UserSubjectAnswersController < ApplicationController
+class Public::AnswersController < ApplicationController
   def create
     @subject = Subject.find(params[:subject_id])
-    @answer = UserSubjectAnswer.new(user_subject_answer_params)
+    @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
     @answer.subject_id = @subject.id
     @answer.save
@@ -20,8 +20,8 @@ class Public::UserSubjectAnswersController < ApplicationController
   
   private
   
-  def user_subject_answer_params
-    params.require(:user_subject_answer).permit(:answer)
+  def answer_params
+    params.require(:answer).permit(:answer)
   end
   
 end
