@@ -1,3 +1,4 @@
+<!-- eachで回すのはshow画面 -->
 <% subject.user_subject_answers.each do |answer| %>
   <%= answer.user.nickname %>
   <%= answer.created_at.strftime('%Y/%m/%d') %><%= answer.answer %>

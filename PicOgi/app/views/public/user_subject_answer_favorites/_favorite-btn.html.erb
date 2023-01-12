@@ -1,5 +1,7 @@
-<% if subject.favorited_by?(current_user) %>
-  <%= link_to subject.favorites.count, subject_user_subject_answer_favorites_path(subject), method: :delete, remote: true, class: "glyphicon glyphicon-heart" %>
-<% else %>
-  <%= link_to subject.favorites.count, subject_user_subject_answer_favorites_path(subject), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" %>
+<% user_subject_answers.each do |user_subject_answer| %>
+  <% if user_subject_answer.favorited_by?(current_user) %>
+    <%= link_to user_subject_answer.user_subject_answer_favorites.count, subject_user_subject_answer_user_subject_answer_favorites_path(subject, user_subject_answer), method: :delete, remote: true, class: "glyphicon glyphicon-heart" %>
+  <% else %>
+    <%= link_to user_subject_answer.user_subject_answer_favorites.count, subject_user_subject_answer_user_subject_answer_favorites_path(subject, user_subject_answer), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" %>
+  <% end %>
 <% end %>

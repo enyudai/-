@@ -29,6 +29,7 @@
      <p><%= image_tag subject.subject_image %></p>
      <p><%= subject.title %></p>
      <P><%= link_to "編集", edit_subject_path(subject.id) %></P>
+     <p><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
      <% end %>
   </div>
 </div>
