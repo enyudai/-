@@ -10,7 +10,11 @@ class Public::SubjectsController < ApplicationController
   def check
     @subject = Subject.new(subject_params)
     @subject.user_id = current_user.id
-    @subject.save
+   if @subject.save
+     render :check
+   else
+     render :new
+   end
   end
   
   def create
@@ -19,7 +23,7 @@ class Public::SubjectsController < ApplicationController
     if @subject.update(subject_params)
        redirect_to user_path(@user)
     else
-      # editに遷移させる
+     #render :edit
     end
   end
   

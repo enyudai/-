@@ -1,5 +1,15 @@
 <h1>新規投稿</h1>
   <div class = 'container'>
+  <!--エラーメッセージ-->
+    <% if @subject.errors.any? %>
+      <%= @subject.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @subject.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    
       <%= form_with model: @subject, url: subjects_check_path, method: :post do |f| %>
         <div class="form-group">
           <%= f.file_field :subject_image, accept: "image/*" %>

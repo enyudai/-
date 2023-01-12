@@ -19,11 +19,11 @@ scope module: :public do
    
    resources :users, only: [:show, :index, :edit, :update]
    
-    post 'subjects/check' => 'subjects#check'
-    resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-      resources :answers, only: [:create, :destroy] do
-         resource :favorites, only: [:create, :destroy]
-      end
+   post 'subjects/check' => 'subjects#check'
+   resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+     resources :answers, only: [:create, :destroy] do
+       resource :favorites, only: [:create, :destroy]
+     end
    end
    
   
