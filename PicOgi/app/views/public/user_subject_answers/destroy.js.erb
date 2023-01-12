@@ -1,0 +1,2 @@
+$("#subject_<%= @subject.id %> .answers-count").html("回答数: <%= @subject.subject.user_subject_answers.count %>");
+$(".answers").html("<%= j(render 'user_subject_answers/index', subject: @subject) %>");

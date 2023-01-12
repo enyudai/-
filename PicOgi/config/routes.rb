@@ -22,6 +22,7 @@ scope module: :public do
    post 'subjects/check' => 'subjects#check'
    resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
      resources :user_subject_answers, only: [:create, :destroy]
+     resource :user_subject_answer_favorites, only: [:create, :destroy]
    end
    
   
