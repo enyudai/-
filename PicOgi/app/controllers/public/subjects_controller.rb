@@ -33,7 +33,10 @@ class Public::SubjectsController < ApplicationController
   end
   
   def edit
-    @subject = Subject.find(params[:id])
+      @subject = Subject.find(params[:id])
+    unless @subject.user_id == current_user.id
+      redirect_to user_path(current_user.id)
+    end
   end
   
   def update

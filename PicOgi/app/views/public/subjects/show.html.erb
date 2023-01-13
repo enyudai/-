@@ -11,17 +11,12 @@
     <tr id="subject_<%= @subject.id %>">
       <td class="answers-count">回答数: <%= @subject.answers.count %></td>
       <% @subject.answers.each do |answer| %>
-        <td class="answers-count"><%= render "public/answers/index", answer: answer %></td>
+        <td class="answers-count"><%= render "public/answers/index", {subject: @subject, answer: answer} %></td>
         <td class="favorite-btn"><%= render "public/favorites/favorite-btn", {subject: @subject, answer: answer} %></td>
       <% end %>
     </tr>
   </table>
  
-  <div>
-    <%= form_with model: [@subject, @answer], local: false do |f| %>
-      <%= f.text_area :answer, size: "90x5" %>
-      <%= f.submit "回答" %>
-    <% end %>
-  </div>
+ <%= render "public/answers/form", {subject: @subject, answer: @answer} %>
   
 </div>
