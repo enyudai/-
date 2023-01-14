@@ -1,7 +1,7 @@
 <div class = 'container'>
   <div>
     <% if  @profile_image.attached? %>
-      <%= image_tag  @profile_image, size: "100,100" %>
+      <%= image_tag  @profile_image.get_profile_image(100,100) %>
     <% else %>
       <%= image_tag 'no_image', size: "100x100" %>
     <% end %>
@@ -18,15 +18,17 @@
     <h3>自己紹介</h3>
     <h3><%= @user.introduction %></h3>
   </div>
-  <div>
-    <%= link_to '編集',  edit_user_path(@user), class: "btn btn-outline-secondary btn-block" %>
-  </div>
+  <%# if user.nickname != "guestuser" %>
+    <div>
+      <%= link_to '編集',  edit_user_path(@user), class: "btn btn-outline-secondary btn-block" %>
+    </div>
+  <%# end %>
   
   <div>
      <h3>投稿一覧</h3>
      <% @subject.each do |subject| %>
      <p><%= subject.time_limit %></p>
-     <p><%= image_tag subject.subject_image %></p>
+     <p><%= image_tag subject.get_subject_image(100,100) %></p>
      <p><%= subject.title %></p>
      <P><%= link_to "編集", edit_subject_path(subject.id) %></P>
      <p><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>

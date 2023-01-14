@@ -1,5 +1,6 @@
 class Public::AnswersController < ApplicationController
   def create
+    # binding.pry
     @subject = Subject.find(params[:subject_id])
     @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id

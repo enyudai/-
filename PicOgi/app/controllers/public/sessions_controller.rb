@@ -13,9 +13,9 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # protected
 
@@ -24,13 +24,13 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   
-  before_action :configure_permitted_parameters, if: :devise_controller?
+   # def guest_sign_in
+   #  user = User.guest
+   #  sign_in user
+   #  redirect_to user_path(user), notice: 'guestuserでログインしました。'
+   # end
   
-  def guest_sign_in
-    user = User.guest
-    sign_in user
-    redirect_to user_path(user), notice: 'guestuserでログインしました。'
-  end
+  before_action :configure_permitted_parameters, if: :devise_controller?
   
   private
   

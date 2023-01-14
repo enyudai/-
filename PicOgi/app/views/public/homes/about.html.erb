@@ -10,7 +10,13 @@
   </div>
   
   <div class = "row">
-    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+    <%#= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
   </div>
   
 </div>
+<% if user_signed_in? %>
+ユーザーテスト
+<% end %>
+<% if admin_signed_in? %> 
+Adminテスト
+<% end %>

@@ -1,6 +1,6 @@
 <div class = 'container'>
   <div>
-    <%= image_tag  @subject.subject_image, size: "100,100" %>
+    <%= image_tag  @subject.get_subject_image(100,100) %>
   </div>
   <div>
     <h3>期限</h3>

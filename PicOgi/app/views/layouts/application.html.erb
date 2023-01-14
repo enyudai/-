@@ -6,9 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-<!--app/javascript 配下のファイルを参照する-->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+    <!--app/javascript 配下のファイルを参照する-->
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -29,9 +28,11 @@
                 <a class = "nav-link active" href = "/subjects">投稿一覧</a>
                 <a class = "nav-link active" href = "/subjects/new">新規登録</a>
                 <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link active' %>
-                <a class = "nav-link active" href = "/users/sign_out">ログアウト</a>        
+                <!--<a class = "nav-link active" href = "/users/sign_out">ログアウト</a>        -->
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             <% elsif admin_signed_in? %>         
-                <a class = "nav-link active" href = "/admin/sign_out">ログアウト</a>      
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link active' %>
+                <!--<a class = "nav-link active" href = "/admin/sign_out">ログアウト</a>      -->
             <% else %>         
             <% end %>          
               </nav>

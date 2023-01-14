@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
    before_action :is_matching_login_user, only: [:edit, :update, :show]
+  #before_action :ensure_guest_user, only: [:edit]
   def show
     @user = User.find(params[:id])
     @profile_image = @user.profile_image
@@ -36,5 +37,12 @@ class Public::UsersController < ApplicationController
       redirect_to root_path
     end
   end
+  
+  # def ensure_guest_user
+  #   @user = User.find(params[:id])
+  #   if @user.nickname == "guestuser"
+  #     redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+  #   end
+  # end  
   
 end

@@ -12,4 +12,9 @@ class Subject < ApplicationRecord
   validates :time_limit, presence: true
   validates :subject_image, presence: true
   
+  #お題写真をwidth,heightで表示
+  def get_subject_image(width, height)
+      subject_image.variant(resize_to_limit: [width, height]).processed
+  end
+  
 end

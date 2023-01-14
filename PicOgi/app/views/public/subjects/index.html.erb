@@ -1,14 +1,18 @@
 <h1>投稿一覧</h1>
   <div class = 'container'>
-    <table>
-      <% @subjects.each do |subject| %>
-        <tr><%= subject.user.nickname %></tr>
-        <tr><%= image_tag subject.subject_image, size: "100,100" %></tr>
-        <tr><%= subject.title %></tr>
-        <tr id="subject_<%= subject.id %>">
-          <td class="answers-count"><p>回答数: <%= subject.answers.count %></p></td>
-        </tr>
-        <tr><%= link_to '参加', subject_path(subject.id) %></tr>
-      <% end %>
-    </table>
+      <ul class="list-inline">
+        <% @subjects.each do |subject| %>
+          <li class="list-inline-item"><%= subject.user.nickname %></li>
+          <li class="list-inline-item"><%= image_tag subject.get_subject_image(100,100) %></li>
+          <li class="list-inline-item"><%= subject.title %></li>
+          <table>
+            <li class="list-inline-item">
+              <tr id="subject_<%= subject.id %>">
+               <td class="answers-count"><p>回答数: <%= subject.answers.count %></p></td>
+              </tr>
+              </li>
+          </table>
+          <li class="list-inline-item"><%= link_to '参加', subject_path(subject.id) %></li>
+        <% end %>
+      </ul>
   </div>
