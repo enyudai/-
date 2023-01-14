@@ -6,6 +6,9 @@ class Public::AnswersController < ApplicationController
     @answer.user_id = current_user.id
     @answer.subject_id = @subject.id
     @answer.save
+    # respond_to do |format|
+    #   format.js { render 'public/answers/create.js.erb' }
+    # end
   end
    # unless @answer.save
     #render 'error'  # app/views/public/user_subject_answers/error.js.erbを参照する ※要件外
