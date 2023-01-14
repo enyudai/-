@@ -5,10 +5,11 @@ Rails.application.routes.draw do
 devise_for :admin, skip: [:registrations] ,controllers: {
   sessions: "admin/sessions"
 }
+
 # 会員用
 # URL /users/sign_in ...
 devise_for :users, controllers: {
-  registrations: "public/registrations",
+  registrations: "public/registrations"
   sessions: 'public/sessions'
 }
 

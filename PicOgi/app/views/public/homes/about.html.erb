@@ -1,5 +1,16 @@
-<h1 class = "cover-heading">ようこそPicOgiへ!!</h1>
-  <p class = "lead">
-  新規登録は<a href = "/users/sign_up">こちら</a> |
-  既にご登録の方は<a href = "/users/sign_in">こちら</a>
-  </p>
+<div class="col-10 mx-auto">
+  
+  <div class="row">
+    <h1>ようこそPicOgiへ!!</h1>
+  </div>
+  
+  <div class="row">
+       新規登録は<%= link_to "こちら", new_user_registration_path, class: "mb-3 sign_up" %> |
+       既にご登録の方は<%= link_to "こちら", new_user_session_path, class: "mb-3 sign_in" %>
+  </div>
+  
+  <div class = "row">
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+  </div>
+  
+</div>
