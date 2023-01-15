@@ -1,4 +1,27 @@
-<h1>Public::Homes#top</h1>
-
+<div class  = "container">
+  
+    <div class = "row align-items-start">
+      <div class = "col-lg-7 mx-auto text-start">
+       <% @all_ranks.each.with_index(10) do |answer| %>
+       <%#= image_tag @subject.get_subject_image(100,100) %>
+       <ul>
+         <li>
+           <%= answer.user.nickname %>
+           <%= answer.answer %>
+           いいね数 <%= answer.favorites.count %>
+         </li>
+       </ul>
+       
+       <% end %>
+      </div>
+    </div>
+    
+    <div class = "row ">
+      <div class = "col-lg-7 mx-auto text-end">
+       
+      </div>
+    </div>
+  
+</div>
 
 

@@ -1,19 +1,24 @@
 <div class = 'container'>
-  <div>
-    <p><%= @subject.user.nickname %></p>
-    <p><%= image_tag @subject.get_subject_image(100,100) %></p>
-    <p><%= @subject.time_limit %></p>
-    <p><%= @subject.title %></p>
-    <p><%= @subject.theme %></p>
-  </div>
-  
-  <table class = "answers">
-    <tr id="subject_<%= @subject.id %>">
-    <%= render "public/answers/index", subject: @subject %>
-    </tr>
-  </table>
-  
-  
- <%= render "public/answers/form", {subject: @subject, answer: @answer} %>
-  
-</div>
+    <div>
+      <p><%= @subject.user.nickname %></p>
+      <p><%= image_tag @subject.get_subject_image(100,100) %></p>
+      <p><%= @subject.time_limit %></p>
+      <p><%= @subject.title %></p>
+      <p><%= @subject.theme %></p>
+    </div>
+    
+    <table class = "answers">
+      <tr id="subject_<%= @subject.id %>">
+      <%= render "public/answers/index", subject: @subject %></tr>
+    </table>
+    
+    <div class = "row">
+      <ul class="list-unstyled">
+        <% @all_favorites.each.with_index(1) do |answer,i| %>
+        <li>第<%= i %>位<%= answer.user.nickname %></li>
+        <% end %>
+      </ul>
+    </div>
+    
+   <%= render "public/answers/form", {subject: @subject, answer: @answer} %>
+</div>   

@@ -30,6 +30,7 @@ class Public::SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
     @answer = Answer.new
+    @all_favorites = Answer.find(Favorite.group(:answer_id).order('count(answer_id) desc').limit(10).pluck(:answer_id))
   end
   
   def edit
