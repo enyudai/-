@@ -11,42 +11,33 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<body class = "text-center">
-    <div class = "container">
-      
-      <header class = "masthead mb-auto">
-        <!--% if user_signed_in? %>
-          <div class="text-center text-white">ようこそ、<-%= current_user.nickname %>さん！</div>
-        <-% elsif admin_signed_in? %>
-          <div class="text-left text-white">管理者用ページ</div>
-        <-% end %>-->
-        <div class = "inner">
-          <h3 class = "masthead-brand">PicOgi</h3>
-            <% if user_signed_in? %>
-              <nav class = "nav nav-masthead justify-content-center">
-                <a class = "nav-link active" href = "/homes/top">Home</a>
-                <a class = "nav-link active" href = "/subjects">投稿一覧</a>
-                <a class = "nav-link active" href = "/subjects/new">新規登録</a>
-                <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link active' %>
-                <!--<a class = "nav-link active" href = "/users/sign_out">ログアウト</a>        -->
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <% elsif admin_signed_in? %>         
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link active' %>
-                <!--<a class = "nav-link active" href = "/admin/sign_out">ログアウト</a>      -->
-            <% else %>         
-            <% end %>          
-              </nav>
-        </div>
-      </header>
-      
-      <main class="inner cover">
-        <%= yield %>
+  <body>
+   <% if user_signed_in? %>
+     <%= render 'layouts/public_header' %>
+   <% elsif admin_signed_in? %>
+     <%= render 'layouts/admin_header' %>
+   <% end %>
+      <main class="mb-auto">
+          <%= yield %>
       </main>
       
-      <footer>
-        
+      <footer class="py-4 pb-2 ">
+        <% if user_signed_in? %>
+          <div class="container ">
+            <nav class="navbar navbar-expand-lg navbar-light">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="">&lt;</a></li>
+                <li class="page-item"><a class="page-link" href="/homes/top">1</a></li>
+                <li class="page-item"><a class="page-link" href="/subjects">2</a></li>
+                <li class="page-item"><a class="page-link" href="/subjects/new">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+              </ul>
+            </nav>   
+          </div>
+        <% end %>
       </footer>
       
-    </div> 
-  </body>
+      
+      
+    </body>
 </html>

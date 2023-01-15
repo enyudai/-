@@ -1,22 +1,16 @@
-<div class="col-10 mx-auto">
+
   
-  <div class="row">
+  <div class="row  justify-content-center">
     <h1>ようこそPicOgiへ!!</h1>
   </div>
   
-  <div class="row">
-       新規登録は<%= link_to "こちら", new_user_registration_path, class: "mb-3 sign_up" %> |
-       既にご登録の方は<%= link_to "こちら", new_user_session_path, class: "mb-3 sign_in" %>
+  <div class="row justify-content-center">
+    <div class = "col">新規登録は<%= link_to "こちら", new_user_registration_path %></div>
+    |
+    <div class = "col">既にご登録の方は<%= link_to "こちら", new_user_session_path %></div>
   </div>
   
   <div class = "row">
     <%#= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
   </div>
   
-</div>
-<% if user_signed_in? %>
-ユーザーテスト
-<% end %>
-<% if admin_signed_in? %> 
-Adminテスト
-<% end %>
