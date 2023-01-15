@@ -1,16 +1,12 @@
 <div class = 'container'>
   <div>
-    <% if  @profile_image.attached? %>
-      <%= image_tag  @profile_image.get_profile_image(100,100) %>
-    <% else %>
-      <%= image_tag 'no_image', size: "100x100" %>
-    <% end %>
+      <%= image_tag  @user.get_profile_image(100,100) %>
   </div>
-  <div>
+  <div class = 'mx-auto text-center'>
     <h3>ニックネーム</h3>
     <h3><%= @user.nickname %></h3>
   </div>
-  <div>
+  <div class = 'row mx-auto text-center'>
     <h3>メールアドレス</h3>
     <h3><%= @user.email %></h3>
   </div>
@@ -18,20 +14,23 @@
     <h3>自己紹介</h3>
     <h3><%= @user.introduction %></h3>
   </div>
-  <%# if user.nickname != "guestuser" %>
+  <% if @user.nickname != "guestuser" %>
     <div>
       <%= link_to '編集',  edit_user_path(@user), class: "btn btn-outline-secondary btn-block" %>
     </div>
-  <%# end %>
+  <% end %>
   
-  <div>
+  <div class = 'row mx-auto text-center'>
      <h3>投稿一覧</h3>
      <% @subject.each do |subject| %>
-     <p><%= subject.time_limit %></p>
-     <p><%= image_tag subject.get_subject_image(100,100) %></p>
-     <p><%= subject.title %></p>
-     <P><%= link_to "編集", edit_subject_path(subject.id) %></P>
-     <p><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+     <ul class="list-inline">
+       <li class="list-inline-item"><%= subject.time_limit %></li>
+       <li class="list-inline-item"><%= image_tag subject.get_subject_image(100,100) %></li>
+       <li class="list-inline-item"><%= subject.title %></li>
+       <li class="list-inline-item"><%= link_to "編集", edit_subject_path(subject.id) %></li>
+       <li class="list-inline-item"><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></li>
+     </ul>
      <% end %>
   </div>
+  
 </div>

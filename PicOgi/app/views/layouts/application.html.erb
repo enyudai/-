@@ -12,32 +12,25 @@
   </head>
 
   <body>
-   <% if user_signed_in? %>
-     <%= render 'layouts/public_header' %>
-   <% elsif admin_signed_in? %>
-     <%= render 'layouts/admin_header' %>
-   <% end %>
-      <main class="mb-auto">
-          <%= yield %>
-      </main>
+    
+    <header>
+     <% if user_signed_in? %>
+       <%= render 'layouts/public_header' %>
+     <% elsif admin_signed_in? %>
+       <%= render 'layouts/admin_header' %>
+     <% else %>
+     <% end %>
+    </header>
+    
+    <main>
+      <%= yield %>
+    </main>
       
-      <footer class="py-4 pb-2 ">
-        <% if user_signed_in? %>
-          <div class="container ">
-            <nav class="navbar navbar-expand-lg navbar-light">
-              <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="">&lt;</a></li>
-                <li class="page-item"><a class="page-link" href="/homes/top">1</a></li>
-                <li class="page-item"><a class="page-link" href="/subjects">2</a></li>
-                <li class="page-item"><a class="page-link" href="/subjects/new">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
-              </ul>
-            </nav>   
-          </div>
-        <% end %>
-      </footer>
+    <footer>
+      <% if user_signed_in? %>
+        <%= render 'layouts/public_footer' %>
+      <% end %>
+    </footer>
       
-      
-      
-    </body>
+  </body>
 </html>
