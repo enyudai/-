@@ -1,15 +1,17 @@
-<div class = 'container'>
-      <ul class="list-inline">
-        <% @subjects.each do |subject| %>
-          <li class="list-inline-item"><%= subject.user.nickname %></li>
-          <li class="list-inline-item"><%= image_tag subject.get_subject_image(100,100) %></li>
-          <li class="list-inline-item"><%= subject.title %></li>
-            <li class="list-inline-item">
-              <tr id="subject_<%= subject.id %>">
-               <td class="answers-count"><p>回答数: <%= subject.answers.count %></p></td>
-              </tr>
-              </li>
-          <li class="list-inline-item"><%= link_to '参加', subject_path(subject.id) %></li>
-        <% end %>
-      </ul>
+<div class = "row">
+  <div class = "col-lg-4 col-sm-6">
+    <% @subjects.each do |subject| %>
+      <div class = "border">
+        <div class = "iconbox">
+          <i class='bx bxs-comment-detail'><%= subject.answers.count %></i>
+          <i><%= image_tag subject.get_subject_image(100,100) %></i>
+        </div>
+        <h5><%= subject.title %></h5>
+        <p>
+          <%= subject.user.nickname %>
+          期限<%= subject.time_limit %>まで
+        </p>
+      </div>
+    <% end %>
   </div>
+</div>
