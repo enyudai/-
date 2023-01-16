@@ -1,36 +1,36 @@
 <div class = 'container'>
-  <div>
-      <%= image_tag  @user.get_profile_image(100,100) %>
-  </div>
-  <div class = 'mx-auto text-center'>
-    <h3>ニックネーム</h3>
-    <h3><%= @user.nickname %></h3>
-  </div>
-  <div class = 'row mx-auto text-center'>
-    <h3>メールアドレス</h3>
-    <h3><%= @user.email %></h3>
-  </div>
-  <div>
-    <h3>自己紹介</h3>
-    <h3><%= @user.introduction %></h3>
-  </div>
-  <% if @user.nickname != "guestuser" %>
-    <div>
-      <%= link_to '編集',  edit_user_path(@user), class: "btn btn-outline-secondary btn-block" %>
-    </div>
-  <% end %>
   
-  <div class = 'row mx-auto text-center'>
+ <div class = "row">
+   <div class = "col-md-4 offset-md-4">
+     <div class="mb-2">
+       <%= image_tag  @user.get_profile_image(100,100) %>
+       <h3>自己紹介</h3>
+       <p><%= @user.introduction %></p>
+     </div>
+     <div class="mb-2">
+       <%= @user.nickname %> <% if @user.nickname != "guestuser" %><%= link_to '編集',  edit_user_path(@user), class: "btn btn-primary" %><% end %>
+     </div>
+     <div class="mb-2">
+       <%= @user.email %><br/>
+       投稿<%= @subject.count %>件
+     </div>
+  </div>
+ </div>
+ 
+ <div class = 'row mx-auto text-center'>
+   <div class = "col mx-auto text-center">
      <h3>投稿一覧</h3>
      <% @subject.each do |subject| %>
      <ul class="list-inline">
+       <li class="list-inline-item"><%= link_to "参加", subject_path(subject.id), class: "btn btn-info" %></li>
        <li class="list-inline-item"><%= subject.time_limit %></li>
        <li class="list-inline-item"><%= image_tag subject.get_subject_image(100,100) %></li>
        <li class="list-inline-item"><%= subject.title %></li>
-       <li class="list-inline-item"><%= link_to "編集", edit_subject_path(subject.id) %></li>
-       <li class="list-inline-item"><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></li>
+       <li class="list-inline-item"><%= link_to "編集", edit_subject_path(subject.id), class: 'btn btn-primary' %></li>
+       <li class="list-inline-item"><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %></li>
      </ul>
      <% end %>
+   </div>
   </div>
-  
+ 
 </div>

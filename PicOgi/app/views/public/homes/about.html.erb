@@ -1,19 +1,27 @@
-<div class ="hero vh-100 d-flex align-items-center" id = "about">
+<div class ="hero vh-100 d-flex align-items-center">
   <div class  = "container">
+    
     <div class = "row">
-      <div class = "col-lg-7 mx-auto text-center">
+      <div class = "col-md-4 offset-md-4 text-center">
         <h1>ようこそPicOgiへ!!</h1>
-        新規登録は<a href = "/users/sign_up">こちら</a>
-        |
-        既にご登録の方は<a href = "/users/sign_in">こちら</a>
       </div>
-      <div class = "col-lg-7 mx-auto text-center">
-        お試しでお使いの方は<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>
+    </div>
+      
+      <div class = "row">
+        <div class = "col-md-4 offset-md-4 text-center">
+          新規登録は<a href = "/users/sign_up">こちら</a>
+          |
+          既にご登録の方は<a href = "/users/sign_in">こちら</a>
+        </div>
       </div>
       
-    </div>
+      <div class = "row ">
+        <div class = "col-md-4 offset-md-4 text-center">
+          お試しでお使いの方は<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>
+        </div>
+      </div>
+        
   </div>
 </div>
-
   
   

@@ -1,23 +1,36 @@
 <div class = 'container'>
-  <%= form_with model: @user, local:true do |f| %>
-    <div class="form-group">
-      <%= f.label :ニックネーム %>
-      <%= f.text_field :nickname %>
-    </div>
-    <div class="form-group">
-      <%= f.label :メールアドレス %>
-      <%= f.email_field :email %>
-    </div>
-    <div class="form-group">
-      <%= f.file_field :profile_image %>
-    </div>
-    <div class="form-group">
-      <%= f.label :自己紹介 %>
-      <%= f.text_area :introduction %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "保存", class: ' btn-success' %>
-    </div>
-  <% end %>
+  <div class = "row">
+  <!--エラーメッセージ-->
+    <% if @user.errors.any? %>
+      <%= @user.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  <div class = "row">
+    <div class = "col-md-4 offset-md-4">
+      <%= form_with model: @user, local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :ニックネーム, class: 'form-label' %>
+          <%= f.text_field :nickname, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :メールアドレス, class: 'form-label' %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.file_field :profile_image, class: 'form-control' %>
+        </div>
+       <div class="form-group">
+          <%= f.label :自己紹介, class: 'form-label' %>
+          <%= f.text_area :introduction, class: 'form-control' %>
+       </div>
+          <%= f.submit "保存", class: ' btn btn-success' %>
+      <% end %>
+   </div>
+  </div>
 </div>
 
