@@ -1,6 +1,8 @@
 <div class ="hero vh-100 d-flex align-items-center" id = "admin_session_new">
   <div class  = "container">
     <div class = "row">
+      <%= flash[:alert] %>
+      
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       
         <div class = "col-lg-7 mx-auto text-center">

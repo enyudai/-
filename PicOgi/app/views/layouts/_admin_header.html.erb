@@ -16,7 +16,7 @@
         <a class="nav-link" href="/admin/homes/top">Home <span class="sr-only">(current)</span></a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="/admin/sign_out">ログアウト</a>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
       </li>
     </ul>
     
