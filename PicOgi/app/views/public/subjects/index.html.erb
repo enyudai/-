@@ -10,11 +10,14 @@
               </tr>
               </li>
           <li class="list-inline-item"><%= link_to '参加', subject_path(subject.id) %></li>
+          <li class="list-inline-item">
+            <!--タグリスト-->
+            <% @tag_list.each do |list|%>
+              <%= list.name %>
+              <%="(#{list.subjects.count})" %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
   </div>
-<!--タグリスト-->
-<% @tag_list.each do |list|%>
-<%= list.name %>
-<%="(#{list.subjects.count})" %>
-<% end %>
+

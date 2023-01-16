@@ -51,7 +51,7 @@ class Public::SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
     tag_list = params[:subject][:name].split(',')
     if @subject.update(subject_params)
-       @post.save_tag(tag_list)
+       @subject.save_tag(tag_list)
       redirect_to user_path(current_user.id)
     else
       render :edit

@@ -2,10 +2,11 @@
   
     <div class = "row align-items-start">
       <div class = "col-lg-7 mx-auto text-start">
-       <% @all_ranks.each.with_index(10) do |answer| %>
+       <% @all_ranks.each.with_index(5) do |answer| %>
        <%#= image_tag @subject.get_subject_image(100,100) %>
        <ul>
          <li>
+           <%= image_tag answer.subject.get_subject_image(100,100) %>
            <%= answer.user.nickname %>
            <%= answer.answer %>
            いいね数 <%= answer.favorites.count %>

@@ -15,6 +15,12 @@
     <%= @subject.theme %>
   </div>
   <div>
+    <h3>タグ</h3>
+    <% @subject.tags.each do |tag| %>
+     <%= tag.name %>
+    <% end %>
+  </div>
+  <div>
     <%= form_with model: @subject, url: subjects_path, method: :post do |f| %>
     <!-- statusをtrueにする事でsubject_imageを公開にしていす-->
     <%= f.hidden_field :status, value: true %>
