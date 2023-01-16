@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_09_085008) do
+ActiveRecord::Schema.define(version: 2023_01_16_072602) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -67,12 +67,28 @@ ActiveRecord::Schema.define(version: 2023_01_09_085008) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "subject_tags", force: :cascade do |t|
+    t.integer "subject_id"
+    t.integer "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id", "tag_id"], name: "index_subject_tags_on_subject_id_and_tag_id", unique: true
+    t.index ["subject_id"], name: "index_subject_tags_on_subject_id"
+    t.index ["tag_id"], name: "index_subject_tags_on_tag_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", null: false
     t.string "theme", null: false
     t.string "time_limit", null: false
     t.boolean "status", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -94,4 +110,6 @@ ActiveRecord::Schema.define(version: 2023_01_09_085008) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "subject_tags", "subjects"
+  add_foreign_key "subject_tags", "tags"
 end

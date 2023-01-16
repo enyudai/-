@@ -3,7 +3,12 @@
       <p><%= @subject.user.nickname %></p>
       <p><%= image_tag @subject.get_subject_image(100,100) %></p>
       <p><%= @subject.time_limit %></p>
-      <p><%= @subject.title %></p>
+      <p>
+        <%= @subject.title %>
+        <% @subject_tags.each do |tag| %>
+          <%= tag.name%><%="(#{tag.subjects.count})" %>
+        <% end %>
+      </p>
       <p><%= @subject.theme %></p>
     </div>
     

@@ -1,6 +1,7 @@
 class Public::SubjectsController < ApplicationController
   def index
     @subjects = Subject.where(status: true)
+     @tag_list=Tag.all
   end
   
   def new
@@ -10,7 +11,11 @@ class Public::SubjectsController < ApplicationController
   def check
     @subject = Subject.new(subject_params)
     @subject.user_id = current_user.id
+    #subjectのタグ名ごとの配列を,で区切っていいる
+    tag_list = params[:subject][:name].split(',')
    if @subject.save
+     #save_tagはモデルに記載
+     @subject.save_tag(tag_list)
      render :check
    else
      render :new
@@ -30,11 +35,13 @@ class Public::SubjectsController < ApplicationController
   def show
     @subject = Subject.find(params[:id])
     @answer = Answer.new
+    @subject_tags = @subject.tags
     @all_favorites = Answer.find(Favorite.group(:answer_id).order('count(answer_id) desc').limit(10).pluck(:answer_id))
   end
   
   def edit
       @subject = Subject.find(params[:id])
+      @tag_list = @subject.tags.pluck(:name).join(',')
     unless @subject.user_id == current_user.id
       redirect_to user_path(current_user.id)
     end
@@ -42,7 +49,9 @@ class Public::SubjectsController < ApplicationController
   
   def update
     @subject = Subject.find(params[:id])
+    tag_list = params[:subject][:name].split(',')
     if @subject.update(subject_params)
+       @post.save_tag(tag_list)
       redirect_to user_path(current_user.id)
     else
       render :edit
