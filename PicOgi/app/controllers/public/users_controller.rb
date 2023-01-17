@@ -24,6 +24,12 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  def favorites
+    @user = User.find(params[:id])
+    favorites= Favorite.where(user_id: @user.id).pluck(:subject_id)
+    @favorite_subjects = Subject.find(favorites)
+  end
+  
   private
   
   def user_params

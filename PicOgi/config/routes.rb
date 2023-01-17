@@ -26,7 +26,11 @@ Rails.application.routes.draw do
       
       
      
-     resources :users, only: [:show, :edit, :update]
+     resources :users, only: [:show, :edit, :update] do
+       member do
+        get :favorites
+       end
+     end
      
      post 'subjects/check' => 'subjects#check'
      resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do

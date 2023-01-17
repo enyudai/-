@@ -1,23 +1,23 @@
-<div class = 'container'>
-      <ul class="list-inline">
-        <% @subjects.each do |subject| %>
-          <li class="list-inline-item"><%= subject.user.nickname %></li>
-          <li class="list-inline-item"><%= image_tag subject.get_subject_image(100,100) %></li>
-          <li class="list-inline-item"><%= subject.title %><%= subject.tags.map(&:name).join(', ') %></li>
-            <li class="list-inline-item">
-              <tr id="subject_<%= subject.id %>">
-               <td class="answers-count"><p>回答数: <%= subject.answers.count %></p></td>
-              </tr>
-              </li>
-          <li class="list-inline-item"><%= link_to '参加', subject_path(subject.id) %></li>
-          <li class="list-inline-item">
-            <!--タグリスト-->
-            <% @tag_list.each do |list|%>
-              <%= list.name %>
-              <%="(#{list.subjects.count})" %>
-            <% end %>
-          </li>
+<div class = "container px-5 px-sm-0">
+  <div class = "row">
+    <div class = "col">
+      <% @subjects.each do |subject| %>
+        <%= subject.user.nickname %><br/>
+        <%= image_tag subject.get_subject_image(100,100) %><br/>
+        <%= subject.title %><%= subject.tags.map(&:name).join(', ') %>
+        <table>
+          <tr id="subject_<%= subject.id %>">
+            <td class="answers-count"><p>回答数: <%= subject.answers.count %></p></td>
+          </tr>
+        </table>
+         <!--タグリスト-->
+        <% @tag_list.each do |list|%>
+          <%= list.name %>
+          <%="(#{list.subjects.count})" %>
         <% end %>
-      </ul>
+        <%= link_to '参加', subject_path(subject.id) %>
+      <% end %>
+    </div>
   </div>
+</div>
 

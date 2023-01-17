@@ -1,29 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/admin/homes/top">PicOgi</a>
-  
-  <!-- ハンバーガーアイコン -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <div class="collapse navbar-collapse justify-content-end">
-        <h3 class = "text-center">お帰りなさい</div></h3>
+<div class = "container">
+  <div class = "row">
+    <div class = "col">
+      <a href="/homes/top">PicOgi</a>
+    </div>
+    <div class = "col">
+      <h3>管理者ページ</h3>
+    </div>
+    <div class = "col">
+      <a href="/admin/homes/top">Home</a>
+      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+    </div>
   </div>
-      
-  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/admin/homes/top">Home <span class="sr-only">(current)</span></a>
-      </li>
-       <li class="nav-item">
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
-      </li>
-    </ul>
-    
-    <!--<form class="form-inline my-2 my-lg-0">-->
-    <!--  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-    <!--  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-    <!--</form>-->
-  </div>
-  
-</nav>
+</div>
