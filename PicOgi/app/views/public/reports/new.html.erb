@@ -1,0 +1,15 @@
+<div class = 'container'>
+  
+  <div class = "row justify-content-center my-5">
+    <div class = "col-4">
+      <%= form_with model:[@subject, @answer, @report] do |f| %>
+        <div class="mb-2">
+          <%= f.label :具体的な内容, class: 'form-label' %>
+          <%= f.text_area :reason, class: "form-control" %>
+        </div>
+        <%= f.submit "通報する", class: "btn btn-danger" %>
+      <% end %>
+   </div>
+  </div>
+  
+</div>

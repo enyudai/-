@@ -24,9 +24,7 @@ Rails.application.routes.draw do
       root to: 'homes#about'
       get 'homes/top' => 'homes#top'
       
-      
-     
-     resources :users, only: [:show, :edit, :update] do
+      resources :users, only: [:show, :edit, :update] do
        member do
         get :favorites
        end
@@ -34,14 +32,21 @@ Rails.application.routes.draw do
      
      post 'subjects/check' => 'subjects#check'
      resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+       resources :reports, only: [:new, :create]
        resources :answers, only: [:create, :destroy] do
+         resources :reports, only: [:new, :create]
          resource :favorites, only: [:create, :destroy]
        end
      end
+     
   end
 
  namespace :admin do
   get 'homes/top' => 'homes#top'
+  
+  resources :users, only: [:index, :show, :update, :edit]
+  resources :reports, only: [:index, :show, :update, :edit]
+  
  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

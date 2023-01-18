@@ -6,7 +6,8 @@
           <li class="page-item"><a class="page-link" href="#">&lt;</a></li>
           <li class="page-item"><a class="page-link" href="/homes/top"><i class='bx bxs-home'>おすすめ</i></a></li>
           <li class="page-item"><a class="page-link" href="/subjects"><i class='bx bxs-book-bookmark' ></i>投稿一覧</a></li>
-          <%= link_to "いいね一覧", favorites_user_path(current_user.id), class: "page-item page-link bx bxs-like " %>
+
+          <%= link_to "いいね一覧", favorites_user_path(current_user.id), class: "page-item page-link bx bxs-like like-good  " %>
           <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
         </ul>
       </nav>

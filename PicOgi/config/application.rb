@@ -11,6 +11,9 @@ module PicOgi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    #enumも日本語化
+     config.i18n.default_locale = :ja
+
     config.action_view.form_with_generates_remote_forms = true
 
     # Configuration for the application, engines, and railties goes here.
@@ -20,9 +23,6 @@ module PicOgi
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    
-    #enumも日本語化
-     config.i18n.default_locale = :ja
     
   end
 end

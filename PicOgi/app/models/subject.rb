@@ -2,10 +2,10 @@ class Subject < ApplicationRecord
 
   belongs_to :user
   
-  has_many :answers, dependent: :destroy 
+  has_many :answers
   has_many :users, through: :answers
   
-  has_many :subject_tags, dependent: :destroy
+  has_many :subject_tags
   has_many :tags, through: :subject_tags
   
   has_many :reports, dependent: :destroy 

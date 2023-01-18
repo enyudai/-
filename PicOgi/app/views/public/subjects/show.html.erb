@@ -1,29 +1,46 @@
 <div class = 'container'>
-    <div>
-      <p><%= @subject.user.nickname %></p>
-      <p><%= image_tag @subject.get_subject_image(100,100) %></p>
-      <p><%= @subject.time_limit %></p>
-      <p>
-        <%= @subject.title %>
-        <% @subject_tags.each do |tag| %>
-          <%= tag.name%><%="(#{tag.subjects.count})" %>
-        <% end %>
-      </p>
-      <p><%= @subject.theme %></p>
-    </div>
-    
-    <table class = "answers">
-      <tr id="subject_<%= @subject.id %>">
-      <%= render "public/answers/index", subject: @subject %></tr>
-    </table>
-    
-    <div class = "row">
-      <ul class="list-unstyled">
+  
+ <div class="row justify-content-center my-5">
+   <div class="row justify-content-end my-5">
+     <ul class="list-unstyled">
         <% @all_favorites.each.with_index(1) do |answer,i| %>
         <li>第<%= i %>位<%= answer.user.nickname %></li>
         <% end %>
       </ul>
-    </div>
-    
-   <%= render "public/answers/form", {subject: @subject, answer: @answer} %>
-</div>   
+   </div>
+   <div class="col-4">
+      <div class="mb-2">
+        <%= image_tag @subject.get_subject_image(100,100), class: "mx-auto d-block" %>
+      </div>
+      <div class="row mb-2">
+        <%= @subject.user.nickname %>
+      </div>
+      <div class="row mb-2">
+        <%= @subject.time_limit %>
+      </div>
+      <div class="row mb-2 justify-content-center">
+        <%= @subject.title %>
+        <% @subject_tags.each do |tag| %>
+          <%= tag.name %><%= "(#{tag.subjects.count})" %>
+        <% end %>
+      </div>
+      <div class="row mb-2 justify-content-center">
+        <%= @subject.theme %>
+        <% if @subject.user.id != current_user.id %>
+           <%= link_to "通報", new_subject_report_path(@subject), class: "btn btn-danger" %>
+        <% end %>
+      </div>
+  </div>
+ </div>
+ 
+ <div class = 'row mx-auto text-center'>
+   <div class = "col mx-auto text-center">
+     <table class = "answers">
+      <tr id="subject_<%= @subject.id %>">
+      <%= render "public/answers/index", subject: @subject %></tr>
+      <%= render "public/answers/form", {subject: @subject, answer: @answer} %>
+    </table>
+   </div>
+  </div>
+ 
+</div>

@@ -38,6 +38,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
         t.string :nickname, null: false
        ## 自己紹介
         t.text :introduction
+       ## レポートステータス 管理者がステータスを変えるとユーザーのステータスも変わる
+       t.integer :report_status, default: 0, null: false
     end
 
     add_index :users, :email,                unique: true
