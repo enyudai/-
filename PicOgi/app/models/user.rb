@@ -6,11 +6,13 @@ class User < ApplicationRecord
   
   has_many :subjects, dependent: :destroy 
   
-  has_many :favorites
+  has_many :favorites, dependent: :destroy 
   has_many :answers, through: :favorites
   
-  has_many :answers
+  has_many :answers, dependent: :destroy 
   has_many :subjects, through: :answers
+  
+  has_many :reports, dependent: :destroy 
   
   has_one_attached :profile_image
   
