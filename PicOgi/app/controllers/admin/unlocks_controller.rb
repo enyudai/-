@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Admin::UnlocksController < Devise::UnlocksController
+     #adminコントローラーを作成するた度、以下の記述
+  skip_before_action :authenticate_user!
+  before_action :authenticate_admin!
   # GET /resource/unlock/new
   # def new
   #   super

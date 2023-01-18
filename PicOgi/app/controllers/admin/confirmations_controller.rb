@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Admin::ConfirmationsController < Devise::ConfirmationsController
+     #adminコントローラーを作成するた度、以下の記述
+  skip_before_action :authenticate_user!
+  before_action :authenticate_admin!
   # GET /resource/confirmation/new
   # def new
   #   super

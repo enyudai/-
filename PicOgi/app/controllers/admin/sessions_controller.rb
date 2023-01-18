@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Admin::SessionsController < Devise::SessionsController
+     #adminコントローラーを作成するた度、以下の記述
+  skip_before_action :authenticate_user!
+  before_action :authenticate_admin!
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
