@@ -3,8 +3,7 @@ class Public::UsersController < ApplicationController
    before_action :ensure_guest_user, only: [:edit]
   def show
     @user = User.find(params[:id])
-    @subjects = Subject.where(status: true)
-    @subject = @subjects.where(user_id: current_user.id)
+    @subjects = @user.subjects.where(status: true)
   end
 
   def index
@@ -30,13 +29,10 @@ class Public::UsersController < ApplicationController
   
   def change
     @user = current_user
-    
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-    @user.update(is_deleted: true)
-    byebug
+    @user.update!(is_deleted: true)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to root_path, notice: "退会処理を実行いたしました"
   end
   
   def favorites

@@ -5,6 +5,7 @@
         <thead>
           
           <tr>
+            <th scope="col"></th>
             <th scope="col">通報ID</th>
             <th scope="col">お題作成者</th>
             <th scope="col">理由</th>
@@ -23,6 +24,7 @@
         </thead>
         <tbody>
             <tr>
+              <td><%= link_to "詳細", admin_subject_path(@subject), class: "btn btn-primary" %></td>
               <td><%= @report.id %></td>
               <td><%= @report.subject.user.nickname %></td>
               <td><%= @report.reason %></td>

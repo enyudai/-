@@ -8,6 +8,8 @@ class Admin::UsersController < ApplicationController
   end
   
   def show
+    @user = User.find(params[:id])
+    @subjects = @user.subjects.where(status: true)
   end
   
   def update

@@ -10,7 +10,7 @@ class User < ApplicationRecord
   # has_many :answers, through: :favorites
   
   has_many :answers
-  has_many :subjects, through: :answers
+  has_many :answered_subjects, through: :answers, source: :subject
   
   has_many :reports, dependent: :destroy 
   
