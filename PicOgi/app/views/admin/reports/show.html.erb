@@ -7,10 +7,9 @@
           <tr>
             <th scope="col">通報ID</th>
             <th scope="col">お題作成者</th>
-            <th scope="col">お題画像</th>
-            <th scope="col">お題タイトル</th>
+            <th scope="col">理由</th>
             <th scope="col">通報者</th>
-            <th scope="col">ステータス</th>
+            <th scope="col">対応ステータス</th>
           </tr>
           
           <!--<tr>-->
@@ -23,14 +22,17 @@
           
         </thead>
         <tbody>
-          <% @reports.each do |report| %>
             <tr>
-              <td><%= link_to report.id, admin_report_path(report) %></td>
-              <td><%= report.subject.user.nickname %></td>
-              <td><%= image_tag report.subject.get_subject_image(100,100) %></td>
-              <td><%= report.subject.title %></td>
-              <td><%= report.user.nickname %></td>
-              <td><% report.report_status_i18n %></td>
+              <td><%= @report.id %></td>
+              <td><%= @report.subject.user.nickname %></td>
+              <td><%= @report.reason %></td>
+              <td><%= @report.user.nickname %></td>
+              <td>
+                  <%= form_with model: @report, url: admin_report_path(@report), method: :patch, local: true do |f| %>
+                      通報ステータス　<%= f.select :report_status, Report.report_statuses_i18n.keys.map {|k| [I18n.t("enums.report.report_status.#{k}"), k]} %>
+                      <%= f.submit "更新", class: "btn btn-warning" %>
+                  <% end %>
+              </td>
             </tr>
             
             <!--<tr>-->
@@ -41,7 +43,6 @@
             <!--  <td><%# report.report_status_i18n %></td>-->
             <!--</tr>-->
           
-          <% end %>
         </tbody>
       </table>
     </div>

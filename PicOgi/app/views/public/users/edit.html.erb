@@ -29,6 +29,7 @@
           <%= f.text_area :introduction, class: 'form-control' %>
        </div>
           <%= f.submit "保存", class: ' btn btn-success' %>
+          <%= link_to "退会", users_is_deleted_path, class: 'btn btn-danger' %>
       <% end %>
    </div>
   </div>

@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(version: 2023_01_18_041232) do
   create_table "reports", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "subject_id"
-    t.integer "answer_id"
     t.integer "report_status", default: 0, null: false
     t.text "reason"
     t.datetime "created_at", precision: 6, null: false

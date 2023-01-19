@@ -28,6 +28,10 @@ Rails.application.routes.draw do
       root to: 'homes#about'
       get 'homes/top' => 'homes#top'
       
+      patch 'users/change' => 'users#change', as: 'change'
+      
+      get 'users/is_deleted' => 'users#is_deleted'
+      
       resources :users, only: [:show, :edit, :update] do
        member do
         get :favorites
@@ -38,7 +42,7 @@ Rails.application.routes.draw do
      resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
        resources :reports, only: [:new, :create]
        resources :answers, only: [:create, :destroy] do
-         resources :reports, only: [:new, :create]
+        #  resources :reports, only: [:new, :create]
          resource :favorites, only: [:create, :destroy]
        end
      end

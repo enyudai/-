@@ -46,21 +46,39 @@ class Public::SessionsController < Devise::SessionsController
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :nickname, :introduction])
    end
   
-# 退会しているかを判断するメソッド
- def user_state
-  ## 【処理内容1】 入力されたemailからアカウントを1件取得
-   #       モデル名.find_by(カラム名: 検索する値)
-    @user = User.find_by(email: params[:user][:email])
-    
-  ## アカウントを取得できなかった場合、このメソッドを終了する
-  return if !@user
   
-  ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-   #  ユーザー情報.valid_password?(入力されたパスワード)
+   # 退会しているかを判断するメソッド
+  def user_state
+      
+    ## 【処理内容1】 入力されたemailからアカウントを1件取得
+    @user = User.find_by(email: params[:user][:email])
+    ## アカウントを取得できなかった場合、このメソッドを終了する
+    return if !@user
+    
+    ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @user.valid_password?(params[:user][:password]) && !@user.is_deleted
     else
-      redirect_to  "/users/sign_up"
+      #flash[:notice] = "既に退会されています。再度ご登録を行ってください。"
+      redirect_to "/users/sign_up"
     end
- end
+  end
+  
+  
+# 退会しているかを判断するメソッド
+ # def user_state
+ #  ## 【処理内容1】 入力されたemailからアカウントを1件取得
+ #   #       モデル名.find_by(カラム名: 検索する値)
+ #    @user = User.find_by(email: params[:user][:email])
+    
+ #  ## アカウントを取得できなかった場合、このメソッドを終了する
+ #  return if !@user
+  
+ #  ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
+ #   #  ユーザー情報.valid_password?(入力されたパスワード)
+ #    if @user.valid_password?(params[:user][:password]) && !@user.is_deleted
+ #    else
+ #      redirect_to  "/users/sign_up"
+ #    end
+ # end
  
 end

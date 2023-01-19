@@ -7,7 +7,7 @@ class CreateReports < ActiveRecord::Migration[6.1]
       #お題id
       t.integer :subject_id
       #回答id
-      t.integer :answer_id
+      # t.integer :answer_id
       #管理者が通報に対して「対応済み」等、ステータスを変えられるようにする。
       t.integer :report_status, default: 0, null: false
       #通報理由
