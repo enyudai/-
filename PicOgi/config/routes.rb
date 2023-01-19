@@ -40,7 +40,7 @@ Rails.application.routes.draw do
      
      post 'subjects/check' => 'subjects#check'
      resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-       resources :reports, only: [:new, :create]
+       resources :reports, only: [:new, :create, :index]
        resources :answers, only: [:create, :destroy] do
         #  resources :reports, only: [:new, :create]
          resource :favorites, only: [:create, :destroy]
@@ -52,7 +52,9 @@ Rails.application.routes.draw do
  namespace :admin do
   get 'homes/top' => 'homes#top'
   
-  resources :subjects,  only: [:show, :destroy]
+  resources :subjects,  only: [:show, :destroy] do
+   resources :answers, only: [:destroy]
+  end 
   
   resources :users, only: [:index, :show, :update, :edit]
   

@@ -34,6 +34,12 @@ class Public::ReportsController < ApplicationController
     end
   end
   
+  def index
+    @user = current_user
+    @reports = @user.reports
+    # @subject = Subject.find(params[:id])
+  end 
+  
   private
   
   def report_params

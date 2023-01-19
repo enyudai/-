@@ -1,0 +1,16 @@
+<table class = "answers">
+  <tr>
+    <td>
+      回答数: <%= subject.answers.count %>
+    </td>
+      
+    <% subject.answers.each do |answer| %>
+    <td>
+      <%= answer.created_at.strftime('%Y/%m/%d') %>
+      <%= answer.user.nickname %>
+      <%= answer.answer %>
+      <%= link_to "削除",  admin_subject_answer_path(subject.id, answer.id), method: :delete %>
+    </td>
+    <% end %>
+  </tr>
+</table>

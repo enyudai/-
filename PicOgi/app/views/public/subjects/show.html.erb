@@ -37,7 +37,8 @@
    <div class = "col mx-auto text-center">
      <table class = "answers">
       <tr id="subject_<%= @subject.id %>">
-      <%= render "public/answers/index", subject: @subject %></tr>
+      <%= render "public/answers/index", subject: @subject %>
+      </tr>
       <%= render "public/answers/form", {subject: @subject, answer: @answer} %>
     </table>
    </div>
