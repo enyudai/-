@@ -1,33 +1,38 @@
 <div class = 'container'>
-  <div>
-    <%= image_tag  @subject.get_subject_image(100,100) %>
+
+  <div class = "row">
+    <div class = "col-md-4 offset-md-4">
+        <div class="mb-2">
+           <%= image_tag  @subject.get_subject_image(100,100) %>
+        </div>
+        <div class="mb-2">
+         期限 <%= @subject.time_limit %> まで
+        </div>
+        <div class="mb-2">
+          <h5>タイトル</h5>
+          <%= @subject.title %>
+        </div>
+        <div class="mb-2">
+          <h5>お題</h5>
+          <%= @subject.theme %>
+        </div>
+        <div class="mb-2">
+           <h5>タグ</h5>
+          <% @subject.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+        </div>
+        <div class="mb-2">
+         <%= form_with model: @subject, url: subjects_path, method: :post do |f| %>
+          <!-- statusをtrueにする事でsubject_imageを公開にしていす-->
+          <%= f.hidden_field :status, value: true %>
+          <%= f.hidden_field :time_limit %>
+          <%= f.hidden_field :title %>
+          <%= f.hidden_field :theme %>
+          こちらでよろしいでしょうか？<%= f.submit "はい" %>
+         <% end %> 
+        </div>
+    </div>
   </div>
-  <div>
-    <h3>期限</h3>
-    <%= @subject.time_limit %>
-  </div>
-  <div>
-    <h3>タイトル</h3>
-    <%= @subject.title %>
-  </div>
-  <div>
-    <h3>お題</h3>
-    <%= @subject.theme %>
-  </div>
-  <div>
-    <h3>タグ</h3>
-    <% @subject.tags.each do |tag| %>
-     <%= tag.name %>
-    <% end %>
-  </div>
-  <div>
-    <%= form_with model: @subject, url: subjects_path, method: :post do |f| %>
-    <!-- statusをtrueにする事でsubject_imageを公開にしていす-->
-    <%= f.hidden_field :status, value: true %>
-    <%= f.hidden_field :time_limit %>
-    <%= f.hidden_field :title %>
-    <%= f.hidden_field :theme %>
-    <p>こちらでよろしいでしょうか？<%= f.submit "はい" %></p>
-    <% end %> 
-  </div>
+  
 </div>

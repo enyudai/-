@@ -3,5 +3,4 @@
       report:
         report_status:
           waiting: "対応待ち"
-          keep: "保留"
-          finish: "対応"
+          finish: "対応済み"

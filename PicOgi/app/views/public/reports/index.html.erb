@@ -6,7 +6,6 @@
           
           <tr>
             <th scope="col"></th>
-            <th scope="col">お題作成者</th>
             <th scope="col">理由</th>
             <th scope="col">進捗</th>
           </tr>
@@ -24,9 +23,8 @@
             <% @reports.each do |report| %>
             <tr>
               <td><%#= link_to "詳細", subject_path(@subject), class: "btn btn-primary" %></td>
-              <td><%= report.subject.user.nickname %></td>
               <td><%= report.reason %></td>
-              <td><% report.report_status_i18n %></td>
+              <td><%#= report.report_statuses_i18n %></td>
             </tr>
             
             <!--<tr>-->

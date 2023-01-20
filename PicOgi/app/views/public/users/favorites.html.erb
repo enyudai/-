@@ -1,4 +1,23 @@
-いいね一覧
-<% @favorite_answers.each do |answer|%>
-  <%= answer.answer %>
-<% end %>
+<div class = 'container'>
+  <% @favorite_answers.each do |answer|%>
+     
+      <div class="row justify-content-center my-5">
+        <div class="col-4">
+          <div class="row mb-2">
+            <%= answer.created_at.strftime('%Y/%m/%d') %>
+          </div>
+        </div>
+      </div>
+         
+      <div class = 'row mx-auto text-center'>
+           <div class = "col mx-auto text-center">
+             <ul class="list-inline">
+               <li class="list-inline-item"><%#= link_to "詳細", subject_path(@subject), class: "btn btn-info" %></li>
+               <li class="list-inline-item"><%#= answer.nickname %></li>
+               <li class="list-inline-item"><%= answer.answer %></li>
+             </ul>
+           </div>
+      </div>
+     
+  <% end %>
+</div>

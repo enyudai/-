@@ -8,7 +8,7 @@
     </div>
     <div class = "col">
       <%= link_to current_user.nickname, user_path(current_user.id) %>
-      <%#= link_to "通報一覧", subject_reports_path(subject_id) %>
+      <a href="/subjects/:subject_id/reports">通報一覧</a>
       <a href="/subjects/new">新規投稿</a>
       <a href="/users/sign_out">ログアウト</a>
     </div>

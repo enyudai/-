@@ -11,7 +11,7 @@ module PicOgi
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    #enumも日本語化
+    #enum日本語化
      config.i18n.default_locale = :ja
 
     config.action_view.form_with_generates_remote_forms = true

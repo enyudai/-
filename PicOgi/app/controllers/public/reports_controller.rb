@@ -37,7 +37,7 @@ class Public::ReportsController < ApplicationController
   def index
     @user = current_user
     @reports = @user.reports
-    # @subject = Subject.find(params[:id])
+    #@subject = Subject.find(params[:subject_id])
   end 
   
   private

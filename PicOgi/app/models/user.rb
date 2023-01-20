@@ -16,9 +16,6 @@ class User < ApplicationRecord
   
   has_one_attached :profile_image
   
-  # 通報ステータス waiting →対応待ち keep →保留 finish →対応済み
-  enum report_status: { waiting: 0, keep: 1, finish: 3 }
-  
   #ニックネーム、メールアドレスを登録する際に必須で入力
   validates :nickname, presence: true
   validates :email, presence: true
