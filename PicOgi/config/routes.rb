@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       
       get 'users/is_deleted' => 'users#is_deleted'
       
+      get "search" => "searches#search"
+      
       resources :users, only: [:show, :edit, :update] do
        member do
         get :favorites

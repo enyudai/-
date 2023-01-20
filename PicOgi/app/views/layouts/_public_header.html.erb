@@ -7,6 +7,16 @@
       <h3>お帰りなさい<%= current_user.nickname %></h3>
     </div>
     <div class = "col">
+      <div class="input-group">
+      <%= form_with url: search_path, local: true, method: :get do |f| %>
+        <%= f.text_field :word %>
+        <%= f.select :range, options_for_select([['User'], ['Subject'], ['Answer']]) %>
+        <%= f.select :search, options_for_select([["部分一致","partial_match"]]) %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+      </div>
+    </div>
+    <div class = "col">
       <%= link_to current_user.nickname, user_path(current_user.id) %>
       <a href="/subjects/:subject_id/reports">通報一覧</a>
       <a href="/subjects/new">新規投稿</a>
