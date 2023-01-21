@@ -64,10 +64,6 @@ class Public::SubjectsController < ApplicationController
      redirect_to user_path(current_user.id)
   end
   
-  def search
-    @subjects = Subject.search(params[:keyword])
-  end
-  
   private
   
   def subject_params

@@ -32,28 +32,23 @@ Rails.application.routes.draw do
       
       get 'users/is_deleted' => 'users#is_deleted'
       
+      get "search" => "searches#index"
+      
       resources :reports, only: [:new, :create, :index]
       
       resources :users, only: [:show, :edit, :update] do
        member do
         get :favorites
-        get 'search'
        end
      end
      
      post 'subjects/check' => 'subjects#check'
      resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-       collection do
-         get 'search'
-      end
+    
        resources :answers, only: [:create, :destroy] do
-        collection do
-          get 'search'
-        end
         #  resources :reports, only: [:new, :create]
          resource :favorites, only: [:create, :destroy]
        end
-       
      end
      
   end

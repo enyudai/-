@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-   before_action :is_matching_login_user, only: [:edit, :update, :show]
+   before_action :is_matching_login_user, only: [:edit, :update]
    before_action :ensure_guest_user, only: [:edit]
   def show
     @user = User.find(params[:id])
@@ -39,10 +39,6 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     favorites_answer_ids = Favorite.where(user_id: @user.id).pluck(:answer_id)
     @favorite_answers = Answer.where(id: favorites_answer_ids)
-  end
-  
-  def search
-    @users = User.search(params[:keyword])
   end
   
   private

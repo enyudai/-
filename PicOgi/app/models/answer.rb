@@ -22,12 +22,12 @@ class Answer < ApplicationRecord
 #     end
 #   end
    
-    def self.search(search)
-        if search != ""
-          Answer.where(['answer LIKE(?)', "%#{search}%"])
-        else
-          Answer.includes(:user).order('created_at DESC')
-        end
-    end
+    # def self.search(search)
+    #     if search != ""
+    #       Answer.where(['answer LIKE(?)', "%#{search}%"])
+    #     else
+    #       Answer.includes(:user).order('created_at DESC')
+    #     end
+    # end
    
 end
