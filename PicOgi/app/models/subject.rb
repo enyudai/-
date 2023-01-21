@@ -45,15 +45,23 @@ class Subject < ApplicationRecord
   end
   
    # 検索
-  def self.looks(search, word)
-    if search == "partial_match"
-      @subject = Subject.where("user.nickname LIKE?","%#{word}%")
-    elsif search == "partial_match"
-      @subject = Subject.where("title LIKE?","%#{word}%")
-    elsif search == "partial_match"
-      @subject = Subject.where("theme LIKE?","%#{word}%")
+  # def self.looks(search, word)
+  #   if search == "partial_match"
+  #     @subject = Subject.where("user.nickname LIKE?","%#{word}%")
+  #   elsif search == "partial_match"
+  #     @subject = Subject.where("title LIKE?","%#{word}%")
+  #   elsif search == "partial_match"
+  #     @subject = Subject.where("theme LIKE?","%#{word}%")
+  #   else
+  #     @subjects = Subject.where(status: true)
+  #   end
+  # end
+  
+  def self.search(search)
+    if search != ""
+      Subject.where(['title LIKE(?) OR theme LIKE(?)', "%#{search}%", "%#{search}%"])
     else
-      @subjects = Subject.where(status: true)
+      Subject.includes(:user).order('created_at DESC')
     end
   end
   

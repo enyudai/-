@@ -39,11 +39,19 @@ class User < ApplicationRecord
   end
   
   # 検索
-  def self.looks(search, word)
-    if search == "partial_match"
-      @user = User.where("nickname LIKE?","%#{word}%")
+  # def self.looks(search, word)
+  #   if search == "partial_match"
+  #     @user = User.where("nickname LIKE?","%#{word}%")
+  #   else
+  #     @users = User.all
+  #   end
+  # end
+  
+  def self.search(search)
+    if search != ""
+      User.where(['nickname LIKE(?)', "%#{search}%"])
     else
-      @users = User.all
+      User.includes(:user).order('created_at DESC')
     end
   end
   

@@ -13,6 +13,10 @@ class Public::AnswersController < ApplicationController
     answer.destroy
   end
   
+   def search
+    @answers = Answer.search(params[:keyword])
+   end
+  
   private
   
   def answer_params

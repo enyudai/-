@@ -41,6 +41,10 @@ class Public::UsersController < ApplicationController
     @favorite_answers = Answer.where(id: favorites_answer_ids)
   end
   
+  def search
+    @users = User.search(params[:keyword])
+  end
+  
   private
   
   def user_params
