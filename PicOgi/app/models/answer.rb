@@ -14,7 +14,9 @@ class Answer < ApplicationRecord
    # 検索
   def self.looks(search, word)
     if search == "partial_match"
-      @answer = Answer.where("name LIKE?","%#{word}%")
+      @answer = Answer.where("answer.nickname LIKE?","%#{word}%")
+    elsif search == "partial_match"
+      @answer = Answer.where("answer LIKE?","%#{word}%")
     else
       @answers = Answer.all
     end

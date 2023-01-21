@@ -41,7 +41,7 @@ class User < ApplicationRecord
   # 検索
   def self.looks(search, word)
     if search == "partial_match"
-      @user = User.where("name LIKE?","%#{word}%")
+      @user = User.where("nickname LIKE?","%#{word}%")
     else
       @users = User.all
     end

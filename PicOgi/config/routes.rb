@@ -34,6 +34,8 @@ Rails.application.routes.draw do
       
       get "search" => "searches#search"
       
+      resources :reports, only: [:new, :create, :index]
+      
       resources :users, only: [:show, :edit, :update] do
        member do
         get :favorites
@@ -42,7 +44,6 @@ Rails.application.routes.draw do
      
      post 'subjects/check' => 'subjects#check'
      resources :subjects, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-       resources :reports, only: [:new, :create, :index]
        resources :answers, only: [:create, :destroy] do
         #  resources :reports, only: [:new, :create]
          resource :favorites, only: [:create, :destroy]

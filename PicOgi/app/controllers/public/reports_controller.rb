@@ -2,6 +2,7 @@ class Public::ReportsController < ApplicationController
   def new
     @report = Report.new
     @subject = Subject.find(params[:subject_id])
+    @report.subject_id = @subject.id
     # @answer = Answer.find(params[:answer_id])
   end
   
@@ -21,14 +22,13 @@ class Public::ReportsController < ApplicationController
     #   render :new
     # end
     
-    @subject = Subject.find(params[:subject_id])
     # @answer = Answer.find(params[:answer_id])
     @report = Report.new(report_params)
     @report.user_id = current_user.id 
-    @report.subject_id = @subject.id
+    #@report.subject_id = @subject.id
     # @report.answer_id = @answer.id
     if @report.save
-      redirect_to subject_path(@subject)
+      redirect_to subject_path(@report.subject)
     else
       render :new
     end
@@ -37,13 +37,13 @@ class Public::ReportsController < ApplicationController
   def index
     @user = current_user
     @reports = @user.reports
-    #@subject = Subject.find(params[:subject_id])
+    
   end 
   
   private
   
   def report_params
-    params.require(:report).permit(:reason)
+    params.require(:report).permit(:reason, :subject_id)
   end
   
 end

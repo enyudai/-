@@ -12,8 +12,8 @@
       <div class = 'row mx-auto text-center'>
            <div class = "col mx-auto text-center">
              <ul class="list-inline">
-               <li class="list-inline-item"><%#= link_to "詳細", subject_path(@subject), class: "btn btn-info" %></li>
-               <li class="list-inline-item"><%#= answer.nickname %></li>
+               <li class="list-inline-item"><%= link_to "詳細", subject_path(answer.subject), class: "btn btn-info" %></li>
+               <li class="list-inline-item"><%= answer.user.nickname %></li>
                <li class="list-inline-item"><%= answer.answer %></li>
              </ul>
            </div>
