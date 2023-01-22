@@ -15,7 +15,8 @@
           <%= list.name %>
           <%="(#{list.subjects.count})" %>
         <% end %>
-        <%= link_to '参加', subject_path(subject.id) %>
+        <%= link_to '参加', subject_path(subject.id),data: {"turbolinks"=>false} %>
+        <%#= paginate subject %>
       <% end %>
     </div>
   </div>

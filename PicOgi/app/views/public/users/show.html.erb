@@ -28,6 +28,7 @@
        <li class="list-inline-item"><%= link_to "編集", edit_subject_path(subject.id), class: 'btn btn-primary' %></li>
        <li class="list-inline-item"><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %></li>
      </ul>
+     <%#= paginate subject %>
      <% end %>
    </div>
   </div>

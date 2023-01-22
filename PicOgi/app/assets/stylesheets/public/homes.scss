@@ -1,3 +1,53 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.fadeIn {
+    animation-name: fadeInAnime;/*1で解説*/
+    animation-fill-mode:backwards;/*2で解説*/
+    animation-duration:3s;/*3で解説*/
+    // animation-iteration-count:infinite;/*4で解説*/
+    animation-timing-function:ease;/*5で解説*/
+    // animation-delay: 0.5s;/*6で解説*/
+    animation-direction:normal;/*7で解説*/
+}
+
+.a1 {
+    animation-delay: 0.5s
+}
+
+.a2 {
+    animation-delay: 0.8s
+}
+
+.a3 {
+    animation-delay: 1.1s
+}
+
+.a3 {
+    animation-delay: 1.4s
+}
+
+.a4 {
+    animation-delay: 1.7s
+}
+
+.a5 {
+    animation-delay: 2.0s
+}
+
+.a6 {
+    animation-delay: 2.3s
+}
+
+/*1で解説*/
+@keyframes fadeInAnime{
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+     transform: translateX(0px);
+  }
+}

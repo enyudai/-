@@ -1,49 +1,26 @@
 
-<% if @user_flag.present? %>
+<%# if @user_flag.present? %>
     <% if @users.blank? %>
     <h2 class = "seach-result">検索結果はありません</h2>
     <% else %>
     <div class = "user-contents">
       <ul class = "user-list">
         <% @users.each do |user| %>
-        <li class = "list"><%= link_to "詳細", user_path(user.id), class: "btn btn-primary" %></li>
+        <li class = "list"><%= link_to "プロフィール", user_path(user.id), class: "btn btn-primary" %></li>
         <li class = "list"><%= user.nickname %></li>
+          <% user.subjects.each do |subject| %>
+          <li class = "list"><%= link_to "詳細", subject_path(subject.id), class: "btn btn-primary" %></li>
+          <li class = "list"><%= subject.title %></li>
+          <li class = "list"><%= subject.theme %></li>
+            <% subject.answers.each do |answer| %>
+            <li class = "list"><%= answer.answer %></li>
+            <% end %>
+          <% end %>
         <% end %>
       </ul>
     </div>
+    <%#= paginate user %>
     <% end %>
-<% end %>
+<%# end %>
 
 
-<% if @subject_flag.present? %>
-    <% if @subjects.blank? %>
-    <h2 class = "seach-result">検索結果はありません</h2>
-    <% else %>
-    <div class = "user-contents">
-      <ul class = "user-list">
-        <% @subjects.each do |subject| %>
-        <li class = "list"><%= link_to "詳細", subject_path(subject.id), class: "btn btn-primary" %></li>
-        <li class = "list"><%= subject.user.nickname %></li>
-        <li class = "list"><%= subject.title %></li>
-        <li class = "list"><%= subject.theme %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-<% end %>
-
-<% if @answer_flag.present? %>
-    <% if @answers.blank? %>
-    <h2 class = "seach-result">検索結果はありません</h2>
-    <% else %>
-    <div class = "user-contents">
-      <ul class = "user-list">
-        <% @answers.each do |answer| %>
-        <li class = "list"><%= link_to "詳細", subject_path(answer.subject.id), class: "btn btn-primary" %></li>
-        <li class = "list"><%= answer.user.nickname %></li>
-        <li class = "list"><%= answer.answer %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-<% end %>

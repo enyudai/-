@@ -1,7 +1,7 @@
 class Public::SubjectsController < ApplicationController
   def index
     @subjects = Subject.where(status: true)
-     @tag_list=Tag.all
+     @tag_list=Tag.page(params[:page])
   end
   
   def new

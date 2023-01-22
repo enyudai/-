@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :favorites
   # has_many :answers, through: :favorites
   
-  has_many :answers
+  has_many :answers, dependent: :destroy 
   has_many :answered_subjects, through: :answers, source: :subject
   
   has_many :reports, dependent: :destroy 
@@ -41,7 +41,8 @@ class User < ApplicationRecord
   #検索
   def self.search(search)
     if search != ""
-      User.where(['nickname LIKE(?)', "%#{search}%"])
+      User.includes(:subjects, :answers).where('users.nickname LIKE ? OR subjects.title LIKE ? OR subjects.theme LIKE ? OR answers.answer LIKE ?',
+                                               "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").references(:subjects, :answers)
     else
       User.includes(:user).order('created_at DESC')
     end

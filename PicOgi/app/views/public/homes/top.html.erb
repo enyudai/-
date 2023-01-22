@@ -4,7 +4,7 @@
     <h3>話題の投稿</h3>
   </div>
 
-  <% @all_ranks.each.with_index(5) do |answer| %>
+  <% @all_ranks.each do |answer| %>
   <div class="card" style="width: 18rem;">
     <%= image_tag answer.subject.get_subject_image(100,100), class: "card-img-top" %>
     <div class="card-body">
@@ -31,9 +31,8 @@
     
     </div>
   </div>  
-    
   <% end %>
-  
+   <%= paginate @all_ranks %>
 </div>
 
 

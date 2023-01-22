@@ -5,7 +5,7 @@ class Admin::SubjectsController < ApplicationController
   
     def show
       @subject = Subject.find(params[:id])
-      @subject_tags = @subject.tags
+      @subject_tags = @subject.tags.page(params[:page])
     end
     
     def destroy

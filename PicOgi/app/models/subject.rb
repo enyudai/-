@@ -44,13 +44,13 @@ class Subject < ApplicationRecord
    end
   end
   
-  #検索
-  def self.search(search)
-    if search != ""
-      Subject.joins(:users).where(['title LIKE(?) OR theme LIKE(?) OR subject.users.nickname LIKE(?) ', "%#{search}%", "%#{search}%", "%#{search}%"])
-    else
-      Subject.includes(:user).order('created_at DESC')
-    end
-  end
+  # #検索
+  # def self.search(search)
+  #   if search != ""
+  #     Subject.joins(:user).where(['title LIKE(?) OR theme LIKE(?) OR users.nickname LIKE? ', "%#{search}%", "%#{search}%", "%#{search}%"])
+  #   else
+  #     Subject.includes(:user).order('created_at DESC')
+  #   end
+  # end
   
 end
