@@ -1,8 +1,38 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.fadeIn {
-    animation-name: fadeInAnime;/*1で解説*/
+
+.about-box{
+    width: 100%;
+    height: 100vh;
+    background-color: #FAE58B;
+}
+
+.about-box-sm{
+    text-align: center;
+    padding-top: 7%;
+}
+
+.about-text1{
+    font-family: 'Sacramento', cursive;
+    font-size: 150px;
+    color: #586085;
+}
+
+.about-text2{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 30px;
+    color: #CB8FE4;
+}
+
+.about-text3{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 30px;
+    color: #586085;
+}
+
+.fadeIn1 {
+    animation-name: fadeInAnime1;/*1で解説*/
     animation-fill-mode:backwards;/*2で解説*/
     animation-duration:3s;/*3で解説*/
     // animation-iteration-count:infinite;/*4で解説*/
@@ -23,31 +53,103 @@
     animation-delay: 1.1s
 }
 
-.a3 {
+.a4 {
     animation-delay: 1.4s
 }
 
-.a4 {
+.a5 {
     animation-delay: 1.7s
 }
 
-.a5 {
+.a6 {
     animation-delay: 2.0s
 }
 
-.a6 {
+.a7 {
     animation-delay: 2.3s
 }
 
+
 /*1で解説*/
-@keyframes fadeInAnime{
+@keyframes fadeInAnime1{
   0% {
     opacity: 0;
-    transform: translateX(10px);
+    transform: translateY(-50px);
   }
 
   100% {
     opacity: 1;
-     transform: translateX(0px);
+     transform: translateY(0px);
+  }
+}
+
+
+.fadeIn2 {
+    animation-name: fadeInAnime2;/*1で解説*/
+    animation-fill-mode:backwards;/*2で解説*/
+    animation-duration:3s;/*3で解説*/
+    // animation-iteration-count:infinite;/*4で解説*/
+    animation-timing-function:ease;/*5で解説*/
+    // animation-delay: 0.5s;/*6で解説*/
+    animation-direction:normal;/*7で解説*/
+}
+
+.b1 {
+    animation-delay: 1.0s
+}
+
+.b2 {
+    animation-delay: 1.3s
+}
+
+.b3 {
+    animation-delay: 1.6s
+}
+
+.b4 {
+    animation-delay: 1.9s
+}
+
+.b5 {
+    animation-delay: 2.2s
+}
+
+.b6 {
+    animation-delay: 2.5s
+}
+
+
+/*1で解説*/
+@keyframes fadeInAnime2{
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+     transform: translateY(0px);
+  }
+}
+
+
+.fadeIn3 {
+ animation-name: fadeInAnime3;/*1で解説*/
+ animation-fill-mode:backwards;/*2で解説*/
+ animation-duration:3s;/*3で解説*/
+ // animation-iteration-count:infinite;/*4で解説*/
+ animation-timing-function:ease;/*5で解説*/
+ // animation-delay: 0.5s;/*6で解説*/
+ animation-direction:normal;/*7で解説*/
+}
+
+/*1で解説*/
+@keyframes fadeInAnime3{
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

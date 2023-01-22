@@ -1,39 +1,65 @@
-<div class ="hero vh-100 d-flex align-items-center">
-  <div class  = "container">
-    
-    <div class = "row">
-      <div class ="col-md-4 offset-md-4 text-center pic-ogi">
-        <h1>
-          ようこそ
-          <!--PicOgi-->
+<div class ="container-fluid about-box ">
+
+<div class="row about-box-sm">
+    <div class = "col-12 about-text1">
+      <div class ="text-center">
+        <div class="d-flex justify-content-center">
+          <span class="fadeIn1 a1 d-block">W</span>
+          <span class="fadeIn1 a2 d-block">e</span>
+          <span class="fadeIn1 a3 d-block">l</span>
+          <span class="fadeIn1 a4 d-block">c</span>
+          <span class="fadeIn1 a5 d-block">o</span>
+          <span class="fadeIn1 a6 d-block">m</span>
+          <span class="fadeIn1 a7 d-block">e</span>
+        </div>
           <div class="d-flex justify-content-center">
-            <span class="fadeIn a1 d-block">P</span>
-            <span class="fadeIn a2 d-block">i</span>
-            <span class="fadeIn a3 d-block">c</span>
-            <span class="fadeIn a4 d-block">O</span>
-            <span class="fadeIn a5 d-block">g</span>
-            <span class="fadeIn a6 d-block">i</span>
+            <span class="fadeIn2 b1 d-block">P</span>
+            <span class="fadeIn2 b2 d-block">i</span>
+            <span class="fadeIn2 b3 d-block">c</span>
+            <span class="fadeIn2 b4 d-block">O</span>
+            <span class="fadeIn2 b5 d-block">g</span>
+            <span class="fadeIn2 b6 d-block">i</span>
           </div>
-          へ!!
-        </h1>
       </div>
     </div>
       
-      <div class = "row">
-        <div class = "col-md-4 offset-md-4 text-center">
-          新規登録は<a href = "/users/sign_up">こちら</a>
-          |
-          既にご登録の方は<a href = "/users/sign_in">こちら</a>
+      <div class ="col-12 about-text2">
+        <div class ="text-center">
+          <div class="d-flex justify-content-center">
+            <span class="fadeIn3 d-block">
+              このサイトでは、色々なお題に対して大喜利をします<br/>
+              あなたもぜひ参加してみましょう！！
+            </span>
+          </div>
+      </div>
+      </div>
+      
+      <div class = "col-12 about-text3">
+        <div class = "text-center">
+          <div class="d-flex justify-content-center">
+            <span class="fadeIn3 d-block">
+              新規登録は<a href = "/users/sign_up">こちら</a>
+              |
+              既にご登録の方は<a href = "/users/sign_in">こちら</a>
+            </span>
+          </div>
         </div>
       </div>
       
       <div class = "row ">
-        <div class = "col-md-4 offset-md-4 text-center">
-          お試しでお使いの方は<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>
+        <div class = "col-12 about-text3">
+          <div class = "text-center">
+             <div class="d-flex justify-content-center">
+               <span class="fadeIn3 d-block">
+                お試しでお使いの方は<%= link_to 'こちら', users_guest_sign_in_path, method: :post %>
+               </span>
+             </div>
+          </div>
         </div>
       </div>
         
-  </div>
 </div>
+
   
   
+</div>
