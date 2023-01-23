@@ -73,4 +73,4 @@ gem "net-imap"
 #kaminari導入
 gem 'kaminari','~> 1.2.1'
 #Jqueryの導入
-# gem 'jquery-rails'
+gem 'jquery-rails'
