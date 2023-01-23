@@ -13,49 +13,44 @@
       
       <div class = "col">
         
-        <nav>
+        <nav class="d-flex align-items-center">
           
-          <ul class="d-flex align-items-center">
+         
             
-            <li class="burger">
-              <script>
-                $(".burger").click(function () {
-                    $(".burger").toggleClass("active");
-                    $(".menu").toggleClass("active");
-                });
-              </script>
-            </li>
+            <div class="burger">
+              
+            </div>
             
             <div class="menu d-flex align-items-center justify-content-center">サンプル</div>
             
             <div class="header-nav d-flex align-items-center">
             
-            <li>
+            <div>
               <a href="/homes/top">PicOgi</a>
-            </li>
+            </div>
             
-            <li>
+            <div>
               <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |form| %> 
                 <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
                 <%= form.submit "検索", class: "search-btn" %>
                <% end %>
-            </li>
-            <li>
+            </div>
+            <div>
               <%= link_to current_user.nickname, user_path(current_user.id) %>
-            </li>
-            <li>
+            </div>
+            <div>
               <a href="/reports">通報一覧</a>
-            </li>
-            <li>
+            </div>
+            <div>
               <a href="/subjects/new">新規投稿</a>
-            </li>
-            <li>
+            </div>
+            <div>
                <a href="/users/sign_out">ログアウト</a>
-            </li>
+            </div>
             
             </div>
             
-          </ul>
+        
           
         </nav>
         
@@ -65,3 +60,10 @@
   </div>
 
 </div>
+
+<script>
+  // $(".burger").click(function () {
+  //     $(".burger").toggleClass("active");
+  //     $(".menu").toggleClass("active");
+  // });
+</script>
