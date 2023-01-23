@@ -7,15 +7,17 @@
     <%= csp_meta_tag %>
      
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
-    <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
+  
     <!--app/javascript 配下のファイルを参照する-->
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    
+    <!-- css導入-->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <!--slick導入-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    
      <!--Boxicons仕様-->
      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
@@ -40,6 +42,6 @@
         <%= render 'layouts/public_footer' %>
       <% end %>
     </footer>
-      
+     
   </body>
 </html>

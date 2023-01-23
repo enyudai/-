@@ -1,38 +1,23 @@
-<div class = 'container'>
+<div class = 'container-fluid top-box'>
   
-  <div class = "row">
-    <h3>話題の投稿</h3>
-  </div>
-
-  <% @all_ranks.each do |answer| %>
-  <div class="card" style="width: 18rem;">
-    <%= image_tag answer.subject.get_subject_image(100,100), class: "card-img-top" %>
-    <div class="card-body">
-      <div class = "row">
-        <div class = "col">
-          <i class='bx bx-like'><%= answer.favorites.count %></i>
+  <div class = "row g-4">
+      <% @all_ranks.each.with_index(5) do |answer| %>
+      <div class="col-lg-4 col-sm-6">
+            <div class="servicce top-card-effect">
+              <div class="image-box">
+                <%= image_tag answer.subject.get_subject_image(100,100) %>
+              </div>
+              <div class="icon-box d-flex align-items-center justify-content-center">
+                <i class='bx bx-like'><%= answer.favorites.count %></i>
+              </div>
+              <h5 class ="mt-4 mb-2 top-text">ニックネーム <%= answer.user.nickname %></h5>
+              <p class ="mt-4 mb-2 top-text">回答<%= answer.answer %></p>
+              <div class="mt-4 mb-2"><%= link_to "参加", subject_path(answer.subject.id), class: "btn btn-info" %></div>
+            </div>
        </div>
-      </div>
-      
-      <div class = "row">
-        <div class = "col-md-5">
-           <h5><%= answer.user.nickname %></h5>
-        </div>
-        <div class = "col-md-6">
-           <h5><%= answer.answer %></h5>
-        </div>
-      </div>
-      
-      <div class = "row">
-        <div class = "col">
-          <%= link_to "参加", subject_path(answer.subject.id), class: "btn btn-info" %>
-        </div>
-      </div>
-    
-    </div>
-  </div>  
-  <% end %>
-   <%= paginate @all_ranks %>
+      <% end %>
+  </div>
+  
 </div>
 
 

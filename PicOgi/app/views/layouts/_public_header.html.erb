@@ -1,36 +1,67 @@
-<div class = "container">
-  <div class = "row">
-    
-    <div class = "col openbtn">
-     <span></span><span></span><span></span>
-        <script type="text/javascript">
-         $(".openbtn").click(function () {
-          $(this).toggleClass('active');
-        });
-        </script>
+<div class = "d-flex align-items-center">
+  <div class = "container header-box">
+    <div class = "row">
+      
+      <!--<div class = "col openbtn">-->
+      <!-- <span></span><span></span><span></span>-->
+      <!--    <script type="text/javascript">-->
+      <!--     $(".openbtn").click(function () {-->
+      <!--      $(this).toggleClass('active');-->
+      <!--    });-->
+      <!--    </script>-->
+      <!--</div>-->
+      
+      <div class = "col">
+        
+        <nav>
+          
+          <ul class="d-flex align-items-center">
+            
+            <li class="burger">
+              <script>
+                $(".burger").click(function () {
+                    $(".burger").toggleClass("active");
+                    $(".menu").toggleClass("active");
+                });
+              </script>
+            </li>
+            
+            <div class="menu d-flex align-items-center justify-content-center">サンプル</div>
+            
+            <div class="header-nav d-flex align-items-center">
+            
+            <li>
+              <a href="/homes/top">PicOgi</a>
+            </li>
+            
+            <li>
+              <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |form| %> 
+                <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+                <%= form.submit "検索", class: "search-btn" %>
+               <% end %>
+            </li>
+            <li>
+              <%= link_to current_user.nickname, user_path(current_user.id) %>
+            </li>
+            <li>
+              <a href="/reports">通報一覧</a>
+            </li>
+            <li>
+              <a href="/subjects/new">新規投稿</a>
+            </li>
+            <li>
+               <a href="/users/sign_out">ログアウト</a>
+            </li>
+            
+            </div>
+            
+          </ul>
+          
+        </nav>
+        
+       </div>
+      
     </div>
-    
-    <div class = "col">
-      <a href="/homes/top">PicOgi</a>
-    </div>
-    
-    <div class = "col">
-      <h3>お帰りなさい<%= current_user.nickname %></h3>
-    </div>
-    
-    <div class = "col">
-      <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |form| %> 
-        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-        <%= form.submit "検索", class: "search-btn" %>
-      <% end %>
-    </div>
-    
-    <div class = "col">
-      <%= link_to current_user.nickname, user_path(current_user.id) %>
-      <a href="/reports">通報一覧</a>
-      <a href="/subjects/new">新規投稿</a>
-      <a href="/users/sign_out">ログアウト</a>
-    </div>
-    
   </div>
+
 </div>
