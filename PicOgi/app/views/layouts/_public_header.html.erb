@@ -1,32 +1,25 @@
 <div class = "d-flex align-items-center">
-  <div class = "container header-box">
+  <div class = "container-fluid header-box">
     <div class = "row">
       
-      <div class = "col">
-        
-        <nav class="d-flex align-items-center">
-          
-            <div class="burger"></div>
-            
-            <div class="menu">
-              
-              <div class=" test1 d-flex align-items-center justify-content-center">
+       <div class = "col-lg-6">
+         <div class="burger"></div>
+           <div class="menu">
+             <div class=" d-flex align-items-center justify-content-center">
                 <div class="home-icon-box"><i class='bx bxs-home'></i></div>
                 <div class="header-text1"> <a href="/homes/top">おすすめ</a></div>
-              </div>
-              
+             </div>
               <a href="/subjects">投稿一覧</a>
-              
               <%= link_to "いいね一覧", favorites_user_path(current_user.id)%>
-              
                <a href="/reports">通報一覧</a>
-               
-                <%= link_to current_user.nickname, user_path(current_user.id) %>
+              <%= link_to current_user.nickname, user_path(current_user.id) %>
             </div>
+        </div>  
+          
+        <div class = "col-lg-6">
+          <div class="header-nav d-flex align-items-center">
             
-            <div class="header-nav d-flex align-items-center">
-            
-            <div>
+            <div class ="picogi-text">
               <a href="/homes/top">PicOgi</a>
             </div>
             
@@ -36,30 +29,17 @@
                 <%= form.submit "検索", class: "search-btn" %>
                <% end %>
             </div>
-          
-            <div>
-              <a href="/subjects/new">新規投稿</a>
-            </div>
-            <div>
-               <a href="/users/sign_out">ログアウト</a>
-            </div>
             
-            </div>
+            <ul class="gnavi">
+              <li class="current"><a href="/subjects/new">新規投稿</a></li>
+              <li><a href="/users/sign_out">ログアウト</a></li>
+            </ul>
             
-        
-          
-        </nav>
+          </div>
+        </div> 
         
        </div>
-      
     </div>
   </div>
-
 </div>
 
-<script>
-  // $(".burger").click(function () {
-  //     $(".burger").toggleClass("active");
-  //     $(".menu").toggleClass("active");
-  // });
-</script>

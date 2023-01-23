@@ -1,13 +1,14 @@
 .header-box{
 	padding: 15px 24px 30px;
 	margin: 0px 0 15px;
-	
+	background-color: #FFAB0B;
 }
 
 .burger{
-	width: 40px;
-	height: 40px;
-	background-color: red;
+	width: 60px;
+	height: 60px;
+	border-radius: 100px;
+	background-color: #EE4035;
 	background-image: image-url("menu.png");
 	background-size: 24px;
 	background-position: center;
@@ -47,14 +48,65 @@
     gap: 40px;
 }
 
-.test1{
-　// padding: 110px 0px 0px;
+.picogi-text{
+	font-size: 40px;
 }
 
-.home-icon-box{
-	
+
+/*==================================================
+共通　横並びのための設定
+===================================*/
+
+.gnavi{
+    display: flex;
+    flex-wrap: wrap;/*スマホ表示折り返し用なのでPCのみなら不要*/
+    margin:0 0 50px 0;
+    list-style: none;
 }
 
-.header-text1{
-	color: #30499B;
+.gnavi li a{
+    display: block;
+    padding:10px 30px;
+    text-decoration: none;
+    color: #333;
+}
+
+.gnavi li{
+    margin-bottom:20px;
+}
+
+/*==================================================
+　5-3-1 中心から外に線が伸びる（下部）
+===================================*/
+
+.gnavi li a{
+    /*線の基点とするためrelativeを指定*/
+	position: relative;
+}
+
+.gnavi li.current a,
+.gnavi li a:hover{
+	color:#0481A2;
+}
+
+.gnavi li a::after {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    /*線の形状*/
+    width: 80%;
+    height: 2px;
+    background:#0481A2;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);/*X方向0、Y方向1*/
+    transform-origin: center top;/*上部中央基点*/
+}
+
+/*現在地とhoverの設定*/
+.gnavi li.current a::after,
+.gnavi li a:hover::after {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
 }
