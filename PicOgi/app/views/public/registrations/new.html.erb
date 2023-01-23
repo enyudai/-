@@ -1,31 +1,31 @@
-<div class ="d-flex align-items-center registration-box">
+<div class ="d-flex align-items-center session-box">
   <div class ="container-fluid">
     
     <div class="row">
       <div class="col-lg-3 mx-auto text-center">
-        <div class="sign_up-box card-effect">
+        <div class="session-box-sm card-effect">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <div class ="sign_up-text1">新規登録</div>
-            <div class= "mt-4 mb-2 sign_up-text2"> 
+            <div class ="session-text1">新規登録</div>
+            <div class= "mt-4 mb-2 session-text2"> 
               <%= f.label :ニックネーム %><br/>
               <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
             </div>
-            <div class= "mt-4 mb-2 sign_up-text2"> 
+            <div class= "mt-4 mb-2 session-text2"> 
               <%= f.label :メールアドレス %><br/>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
-            <div class= "mt-4 mb-2 sign_up-text2">   
+            <div class= "mt-4 mb-2 session-text2">   
               <%= f.label :パスワード %>
               <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %><br/>
               <%= f.password_field :password, autocomplete: "new-password" %>
             </div>
-              <div class= "mt-4 mb-2 sign_up-text2">
+              <div class= "mt-4 mb-2 session-text2">
                 <%= f.label :確認 %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
               </div>
-              <div class= "mt-4 mb-2 sign_up-text2"> 
+              <div class= "mt-4 mb-2 session-text2"> 
                 <%= f.submit "新規登録" %>
           <% end %>
                 <%= render "public/shared/links" %>
