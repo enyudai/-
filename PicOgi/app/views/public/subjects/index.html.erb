@@ -1,25 +1,48 @@
-<div class = "container px-5 px-sm-0">
-  <div class = "row">
-    <div class = "col">
-    
-      <% @subjects.each do |subject| %>
-        <%= subject.user.nickname %><br/>
+<div class = 'container'>
+  
+ <div class="row justify-content-center my-5">
+   <div class="row justify-content-end my-5">
+     <ul class="list-unstyled">
+        <% @all_favorites.each.with_index(1) do |answer,i| %>
+        <li>第<%= i %>位<%= answer.user.nickname %></li>
+        <% end %>
+      </ul>
+   </div>
+   <div class="col-4">
+     <% @subjects.each do |subject| %>
+      <div class="mb-2">
+        <%= subject.user.nickname %>
+      </div>
+      <div class="row mb-2">
         <%= image_tag subject.get_subject_image(100,100) %><br/>
+      </div>
+      <div class="row mb-2">
         <%= subject.title %><%= subject.tags.map(&:name).join(', ') %>
+      </div>
+      <div class="row mb-2 justify-content-center">
         <table>
-          <tr id="subject_<%= subject.id %>">
-            <td class="answers-count"><p>回答数: <%= subject.answers.count %></p></td>
-          </tr>
+            <tr id="subject_<%= subject.id %>">
+              <td class="answers-count"><p>回答数: <%= subject.answers.count %></p></td>
+            </tr>
         </table>
-         <!--タグリスト-->
+      </div>
+      <div class="row mb-2 justify-content-center">
+       <!--タグリスト-->
         <% @tag_list.each do |list|%>
           <%= list.name %>
           <%="(#{list.subjects.count})" %>
         <% end %>
-        <%= link_to '参加', subject_path(subject.id),data: {"turbolinks"=>false} %>
-        <%#= paginate subject %>
-      <% end %>
-    </div>
+      </div>
+      
+      <div class="row mb-2 justify-content-center">
+         <%= link_to '参加', subject_path(subject.id),data: {"turbolinks"=>false} %>
+      </div>
+     <% end %>
+     <%#= paginate subject %>
   </div>
-</div>
+ </div>
+ 
+ 
+ 
+</div>    
 
