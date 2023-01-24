@@ -38,8 +38,25 @@
 	z-index: 1;
 }
 
-.menu.active{
+ul.menu-list {
+	list-style: none;
+}
+
+ul.global-menu > li {
+  margin-left: 40px;
+}
+
+ul.menu-list li {
+	padding: 10px;
+}
+
+.menu.active {
+	display: block !important;
+}
+.menu.active .menu-list{
 	display: flex !important;
+	flex-direction: column;
+	margin-top: 100px;
 }
 
 .header-nav{
@@ -59,19 +76,19 @@
 .gnavi{
     display: flex;
     flex-wrap: wrap;/*スマホ表示折り返し用なのでPCのみなら不要*/
-    margin:0 0 50px 0;
+    margin: 0 0 50px 0;
     list-style: none;
 }
 
 .gnavi li a{
     display: block;
-    padding:10px 30px;
+    padding: 10px 30px;
     text-decoration: none;
     color: #333;
 }
 
 .gnavi li{
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 /*==================================================

@@ -1,6 +1,6 @@
 class Public::SubjectsController < ApplicationController
   def index
-    @subjects = Subject.where(status: true)
+    @subjects = Subject.where(status: true).page(params[:page]).per(5)
     @tag_list=Tag.page(params[:page])
     @all_favorites = Answer.find(Favorite.group(:answer_id).order('count(answer_id) desc').limit(10).pluck(:answer_id))
   end

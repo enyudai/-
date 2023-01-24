@@ -2,40 +2,49 @@
   <div class = "container-fluid header-box">
     <div class = "row">
       
-       <div class = "col-lg-6">
-         <div class="burger"></div>
+       <div class = "col-lg-3 row align-items-center">
+         <div>
+           <div class="burger"></div>
            <div class="menu">
-             <div class=" d-flex align-items-center justify-content-center">
-                <div class="home-icon-box"><i class='bx bxs-home'></i></div>
-                <div class="header-text1"> <a href="/homes/top">おすすめ</a></div>
-             </div>
-              <a href="/subjects">投稿一覧</a>
-              <%= link_to "いいね一覧", favorites_user_path(current_user.id)%>
-               <a href="/reports">通報一覧</a>
-              <%= link_to current_user.nickname, user_path(current_user.id) %>
-            </div>
+             <ul class="menu-list">
+             <!--<div class=" d-flex align-items-center justify-content-center">
+                <div class="home-icon-box"/div>
+                <div class="header-text1"></div>
+             </div>-->
+        
+               <li><i class='bx bxs-home'></i>< <a href="/homes/top">おすすめ</a></li>
+               <li><%= link_to "いいね一覧", favorites_user_path(current_user.id)%></li>
+               <li><%= link_to current_user.nickname, user_path(current_user.id) %></li>
+               <li><a href="/subjects">投稿一覧</a></li>
+            
+              
+               <!--<a href="/reports">通報一覧</a>-->
+             
+            </ul>
+          </div>
+          </div>
         </div>  
           
-        <div class = "col-lg-6">
-          <div class="header-nav d-flex align-items-center">
-            
-            <div class ="picogi-text">
-              <a href="/homes/top">PicOgi</a>
+        <div class = "col-lg-9 row justify-content-between">
+            <div class ="col-2 picogi-text row align-items-center">
+              <div><a href="/homes/top">PicOgi</a></div>
             </div>
             
-            <div>
-              <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |form| %> 
+            <div class="col-4 row align-items-center">
+              <div>
+               <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |form| %> 
                 <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
                 <%= form.submit "検索", class: "search-btn" %>
                <% end %>
+               </div>
             </div>
             
-            <ul class="gnavi">
-              <li class="current"><a href="/subjects/new">新規投稿</a></li>
-              <li><a href="/users/sign_out">ログアウト</a></li>
-            </ul>
-            
-          </div>
+            <div class="col-4">
+              <ul class="gnavi global-menu">
+                <li class="current"><a href="/subjects/new">新規投稿</a></li>
+                <li class=""><a href="/users/sign_out">ログアウト</a></li>
+              </ul>
+            </div>
         </div> 
         
        </div>
