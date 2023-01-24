@@ -43,6 +43,12 @@
     // padding: 0 30px; 
 }
 
+.subjects-index{
+  width: 100%;
+  height: 100vh;
+  background-color: #FEF2E8; 
+}
+
 .subject-index{
   padding: 30px;
 }
@@ -68,3 +74,44 @@
 .ranks-box{
    padding: 30px; 
 }
+
+.subject-each{
+    box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+    border: solid 2px #333;
+    border-radius: 60px;
+    width: 500px;
+    padding: 25px;
+    transition: all 0.35s ease;
+}
+
+.subject-each:hover{
+    box-shadow: none;
+    transform: translateY(5px);
+}
+
+.subject-profile_image-box{
+   color: #4F04C2;
+   font-size: 30px;
+}
+
+.rank-box{
+  padding: 30px; 
+}
+
+.rank-box-sm{
+  width: 500px; 
+  border : solid 2px #333 ;
+}
+
+.test000{
+    padding: 25px;
+}
+
+.rank-each{
+   width: 500px;
+}
+
+.rank-text{
+   font-size: 30px;  
+}
+

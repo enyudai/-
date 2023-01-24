@@ -2,11 +2,6 @@
   
  <div class="row justify-content-center my-5">
    <div class="row justify-content-end my-5">
-     <ul class="list-unstyled">
-        <% @all_favorites.each.with_index(1) do |answer,i| %>
-        <li>第<%= i %>位<%= answer.user.nickname %></li>
-        <% end %>
-      </ul>
    </div>
    <div class="col-4">
       <div class="mb-2">
@@ -27,7 +22,7 @@
       <div class="row mb-2 justify-content-center">
         <%= @subject.theme %>
         <% if @subject.user.id != current_user.id %>
-           <%= link_to "通報", new_report_path(subject_id@subject.id), class: "btn btn-danger" %>
+           <%= link_to "通報", new_report_path(subject_id: @subject.id), class: "btn btn-danger" %>
         <% end %>
       </div>
   </div>

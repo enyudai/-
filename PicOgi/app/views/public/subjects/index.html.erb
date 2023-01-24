@@ -1,5 +1,6 @@
-<div class = 'container-fluid'>
-  <div class="row">
+<div class = 'container-fluid '>
+  
+  <div class="row  subjects-index">
     
     <div class="col-lg-6 d-flex  justify-content-end">
       <div class="subject-index">
@@ -7,34 +8,38 @@
           
          <% @subjects.each do |subject| %>
           <div class ="mb-4">
-            <div class="mb-2">
-              <div class="subject-profile_image"><%= image_tag  subject.user.get_profile_image(100,100), class: "img-thumbnail rounded-circle"  %></div>
-              <div class="subject-text text-center"><%= subject.user.nickname %></div>
-            </div>
-            <div class="mb-2 text-center subject-text">
-              <%= subject.title %><br/>
-              #<%= subject.tags.map(&:name).join('#') %>
-            </div>
-            
-            <div class="mb-2 d-flex  justify-content-center">
-              <div class="subject-image-indx">
-                <%= image_tag subject.get_subject_image(350,350) %>
-              </div>
-              <div class="subject-mark">
-                <div class="subject-comment-box">
-                   <table>
-                      <tr id="subject_<%= subject.id %>">
-                        <i class='bx bx-comment-detail'><%= subject.answers.count %></i>
-                      </tr>
-                    </table>
+            <div class="subject-each">
+              <div class="mb-2">
+                <div class="subject-profile_image-box text-center">
+                  <%= image_tag  subject.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %>
+                  <%= subject.user.nickname %>
                 </div>
               </div>
+              
+              <div class="mb-2 text-center subject-text">
+                <%= subject.title %><br/>
+                #<%= subject.tags.map(&:name).join('#') %>
+              </div>
+              
+              <div class="mb-2 d-flex  justify-content-center">
+                <div class="subject-image-indx">
+                  <%= image_tag subject.get_subject_image(350,350) %>
+                </div>
+                <div class="subject-mark">
+                  <div class="subject-comment-box">
+                     <table>
+                        <tr id="subject_<%= subject.id %>">
+                          <i class='bx bx-comment-detail'><%= subject.answers.count %></i>
+                        </tr>
+                      </table>
+                  </div>
+                </div>
+              </div>
+             
+              <div class="mb-10  d-flex justify-content-center subject-text">
+                 <%= link_to '参加', subject_path(subject.id),data: {"turbolinks"=>false} %>
+              </div>
             </div>
-           
-            <div class="mb-10  d-flex justify-content-center subject-text">
-               <%= link_to '参加', subject_path(subject.id),data: {"turbolinks"=>false} %>
-            </div>
-            
           </div>
          <% end %>
          
@@ -43,19 +48,35 @@
    </div>
    
    <div class="col-lg-6 d-flex  justify-content-center">
-    <div class="ranks-box">
-       <ul class="list-unstyled">
-          <% @all_favorites.each.with_index(1) do |answer,i| %>
-          <li>第<%= i %>位<%= answer.user.nickname %></li>
-          <% end %>
-        </ul>
+     <div class="rank-box">
+       
+        <div class="rank-box-sm text-center">
+          
+            
+          <div class="rank-text ">ランキング</div>
+         <% @all_favorites.each.with_index(1) do |answer,i| %>
+          <div class ="mb-4 ">
+            <div class="rank-each">
+              <div class="mb-2 rank-text">
+                第<%= i %>位
+              </div>
+              <div class="mb-2 rank-text">
+                <%= answer.user.nickname %>
+              </div>
+         <% end %>
+            </div>
+          </div>
+          
+        </div>
+      </div>
     </div>
+    
+    
   </div>
-
- 
-  </div>
-  <%= paginate @subjects %>
-</div>    
+  
+  <div class="row"><%= paginate @subjects %></div>
+  
+</div>
 
 
  

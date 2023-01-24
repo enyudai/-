@@ -7,7 +7,7 @@
 	width: 60px;
 	height: 60px;
 	border-radius: 100px;
-	background-color: #EE4035;
+	background-color: #FE0084;
 	background-image: image-url("menu.png");
 	background-size: 24px;
 	background-position: center;
@@ -28,15 +28,17 @@
 
 .menu{
 	display: none !important;
-	color: #fff;
+	color: #B34E7E;
 	width: 20vw;
 	height: 80vh;
-	background: rgba(3,189,112,0.8);
+	background: rgba(79,194,240,0.8);
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 1;
 }
+
+
 
 ul.menu-list {
 	list-style: none;
@@ -47,8 +49,17 @@ ul.global-menu > li {
 }
 
 ul.menu-list li {
-	padding: 10px;
+    padding: 40px;
+    font-size: 30px;
+    position: relative;
+	z-index: 2;
 }
+
+
+ul.menu-list li:hover{
+	background-color: #FFE7E2;
+}
+
 
 .menu.active {
 	display: block !important;
