@@ -115,3 +115,108 @@
    font-size: 30px;  
 }
 
+.subject-show-box{
+  width: 100%;
+  height: 100vh;
+  background-color: #FEF2E8; 
+}
+
+
+
+.bgUD{
+	position: relative;/*テキストの基点となる位置を定義*/
+}
+
+.bgUD span.mask{
+	position: relative;/*背景色の基点となる位置を定義*/
+    display: block;
+    line-height: 0;/*行の高さを0にする*/
+    overflow: hidden;/*拡大してはみ出る要素を隠す*/
+}
+
+.bgUD span.mask::before{
+	content:"";
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	opacity:0;
+	transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+    transform: translateY(-100%);
+	background: rgba(15,15,15,0.6);
+	width: 100%;
+	height: 100%;	
+}
+
+.bgUD:hover span.mask::before{/*hoverした時の変化*/
+	opacity:1;
+	transform: translateY(0);
+}
+
+.bgUD span.cap{
+	position: absolute;
+	opacity:0;
+	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+	z-index:3;/*テキストを前面に出す*/
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;/*テキストの色を変えたい場合はここを修正*/
+    line-height: 1.5;/*行の高さを1.5にする*/
+}
+
+.bgUD:hover span.cap{/*hoverした時の変化*/
+	opacity:1;
+}
+
+.subject-show-text1{
+    font-size: 30px;
+    padding: 20px;
+}
+
+.subject-show-text2{
+    font-size: 25px;
+    padding: 5px;
+}
+
+.subject-show-text3{
+    font-size: 25px;
+}
+
+.subject-show-image{
+    padding: 5px;
+}
+
+.time_limit-icon{
+    width: 240px;
+    padding: 5px;
+    height: 50px;
+    background-color: #BBECCD;
+    font-size: 28px;
+    border-radius: 100px;
+    color: #fd4e4e;
+}
+
+.title-icon1{
+    width: 50px;
+    padding: 3px;
+    height: 50px;
+    font-size: 30px;
+    background-color: #EF7D3C;
+    border-radius: 100px;
+    color: #7541F5;
+}
+
+.report-icon{
+    width: 94px;
+    padding: 8px;
+    height: 50px;
+    font-size: 23px;
+    background-color: #E21924;
+    border-radius: 100px;
+    color: #49359B;
+}
+
+.report-box{
+    width: 880px;
+}

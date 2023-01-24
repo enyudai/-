@@ -1,16 +1,35 @@
-<div class = 'container'>
-  
-  <div class = "row justify-content-center my-5">
-    <div class = "col-4">
-      <%= form_with model: @report do |f| %>
-        <div class="mb-2">
-          <%= f.label :具体的な内容, class: 'form-label' %>
-          <%= f.text_area :reason, class: "form-control" %>
+<div class = 'container-fluid report-new-box'>
+    <div class = "row">
+      
+      <div class = "col row d-flex align-items-center justify-content-center ">
+        
+        <div class="report-new-box-sm ">
+        
+        <div class="d-flex  justify-content-center ">
+         <div class="report-new-icon d-flex align-items-center justify-content-center ">
+           <i class='bx bxs-bell' ></i>
+         </div>
         </div>
-        <%= f.hidden_field :subject_id, value: @report.subject_id %>
-        <%= f.submit "通報する", class: "btn btn-danger" %>
-      <% end %>
-   </div>
-  </div>
-  
+        
+          <div class=" report-new-text1 text-center">
+           どのようなことで、お困りでしょうか？<br/>
+            以下のテキストに入力してください
+          </div>
+          
+          <%= form_with model: @report do |f| %>
+            <div class="form-group pt-4">
+              <%= f.text_area :reason, class: "form-control" %>
+            </div>
+            <div class="form-group pt-4 text-center">
+              <%= f.hidden_field :subject_id, value: @report.subject_id %>
+              <%= f.submit "通報する", class: "btn btn-danger" %>
+            </div>
+          <% end %>
+          
+       </div>
+       
+      </div>
+     
+    </div>
+    
 </div>

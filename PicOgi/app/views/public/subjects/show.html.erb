@@ -1,42 +1,82 @@
-<div class = 'container'>
+<div class = 'container-fluid'>
+ <div class="subject-show-box">
+     <div class="row">
+         
+       <div class="col">
+          <div class="mb-2">
+            <div class="bgUD">
+                <span class="mask"> 
+                  <div class="d-flex  justify-content-center">
+                    <%= image_tag @subject.get_subject_image(360,350), class: "rounded " %>
+                  </div>
+                  <span class="cap">
+                    <% @subject_tags.each do |tag| %>
+                      #<%= tag.name %><%= "(#{tag.subjects.count})" %>
+                    <% end %>
+                  </span>
+                </span>
+            </div>
+            </div>
+                  
+          </div>
+          <div class=" mb-2 row">
+            <div class="col d-flex  justify-content-center">
+              <div class ="subject-show-image"><%= image_tag  @subject.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %></div>
+              <div class ="subject-show-text1"><%= @subject.user.nickname %></div>
+            </div>
+          </div>
+          <div class="mb-2 d-flex  justify-content-center">
+            <div class="time_limit-icon"><i class='bx bx-time' ><%= @subject.time_limit %>まで</i></div>
+          </div>
+          
+          <div class="mb-2 d-flex  justify-content-center">
+            <div class="title-icon1 text-center">
+                <i class='bx bx-paperclip'></i>
+            </div>
+            <div class="subject-show-text2 justify-content-center">
+                <%= @subject.title %>
+            </div>
+          </div>
+          
+          <div class="mb-2 d-flex  justify-content-center">
+              <div class="subject-show-text3"><%= @subject.theme %></div>
+          </div>
+          
+          <div class="mb-2 d-flex  justify-content-center report-box">
+              <% if @subject.user.id != current_user.id %>
+              <div class="report-icon">
+                <i class='bx bxs-bell-ring' ><%= link_to "通報", new_report_path(subject_id: @subject.id) %></i>
+              </div>
+              <% end %>
+          </div>
+          
+      </div>
+      
+      <div class = "col d-flex  justify-content-center">
+         <table class = "answers">
+          <tr id="subject_<%= @subject.id %>">
+          <%= render "public/answers/index", subject: @subject %>
+          </tr>
+        </table>
+       </div>
+        <div class ="d-flex  justify-content-center">
+          <%= render "public/answers/form", {subject: @subject, answer: @answer} %>  
+        </div>
+        
+     </div>
+     
+     <!--<div class = 'row'>-->
+     <!--  <div class = "col d-flex  justify-content-center">-->
+     <!--    <table class = "answers">-->
+     <!--     <tr id="subject_<%#= @subject.id %>">-->
+     <!--     <%#= render "public/answers/index", subject: @subject %>-->
+     <!--     </tr>-->
+     <!--   </table>-->
+     <!--  </div>-->
+     <!--   <div class ="d-flex  justify-content-center">-->
+     <!--     <%#= render "public/answers/form", {subject: @subject, answer: @answer} %>  -->
+     <!--   </div>-->
+     <!-- </div>-->
   
- <div class="row justify-content-center my-5">
-   <div class="row justify-content-end my-5">
-   </div>
-   <div class="col-4">
-      <div class="mb-2">
-        <%= image_tag @subject.get_subject_image(100,100), class: "mx-auto d-block" %>
-      </div>
-      <div class="row mb-2">
-        <%= @subject.user.nickname %>
-      </div>
-      <div class="row mb-2">
-        <%= @subject.time_limit %>
-      </div>
-      <div class="row mb-2 justify-content-center">
-        <%= @subject.title %>
-        <% @subject_tags.each do |tag| %>
-          <%= tag.name %><%= "(#{tag.subjects.count})" %>
-        <% end %>
-      </div>
-      <div class="row mb-2 justify-content-center">
-        <%= @subject.theme %>
-        <% if @subject.user.id != current_user.id %>
-           <%= link_to "通報", new_report_path(subject_id: @subject.id), class: "btn btn-danger" %>
-        <% end %>
-      </div>
   </div>
- </div>
- 
- <div class = 'row mx-auto text-center'>
-   <div class = "col mx-auto text-center">
-     <table class = "answers">
-      <tr id="subject_<%= @subject.id %>">
-      <%= render "public/answers/index", subject: @subject %>
-      </tr>
-      <%= render "public/answers/form", {subject: @subject, answer: @answer} %>
-    </table>
-   </div>
-  </div>
- 
 </div>
