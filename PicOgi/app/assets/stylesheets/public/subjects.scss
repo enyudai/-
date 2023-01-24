@@ -2,9 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-.subject-box{
+.subject-check-box{
   width: 100%;
   height: 100vh;
   background-color: #FEF2E8;
+}
+
+
+.subject-check-box-sm{
+    width: 540px;
+    padding: 40px;
+    margin: 50px;
+    background: rgba(79,4,194,0.4);
+    border: solid 4px #333;
+    border-radius: 60px;
+}
+
+.subject-check-text1{
+    color: #9AF995;
+    font-size: 30px;
+}
+
+.subject-new-box{
+  width: 100%;
+  height: 100vh;
+  background-color: #FEF2E8;
+}
+
+.subject-new-box-sm{
+    width: 540px;
+    padding: 40px;
+    margin: 50px;
+    border : dashed 4px #333;
+    border-radius: 60px;
+}
+
+.subject-new-text1{
+    color: #4F04C2;
+    font-size: 30px;
+    // padding: 0 30px; 
 }

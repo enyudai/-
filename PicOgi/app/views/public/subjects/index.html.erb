@@ -1,6 +1,7 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class = "col">
+    
       <% @subjects.each do |subject| %>
         <%= subject.user.nickname %><br/>
         <%= image_tag subject.get_subject_image(100,100) %><br/>

@@ -1,40 +1,51 @@
-<div class = 'container-fluid subject-box'>
-  <div class = "row">
-  <!--エラーメッセージ-->
-    <% if @subject.errors.any? %>
-      <%= @subject.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @subject.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-  <div class = "row">
-    <div class = "col-md-4 offset-md-4">
-      <%= form_with model: @subject, url: subjects_check_path, method: :post, local: true do |f| %>
-        <div class="mb-2">
-          <%= f.file_field :subject_image, accept: "image/*" %>
-          <%= f.hidden_field :status %>
-        </div>
-        <div class="mb-2">
-          <%= f.label :期限, class: 'form-label' %>
-          <%= f.text_field :time_limit, class: 'form-control' %>
-        </div>
-        <div class="mb-2">
-          <%= f.label :タイトル, class: 'form-label' %>
-          <%= f.text_field :title, class: 'form-control' %>
-        </div>
-        <div class="mb-2">
-          <%= f.label :お題, class: 'form-label' %>
-          <%= f.text_area :theme, class: 'form-control' %>
-        </div>
-        <div class="mb-2">
-          <%= f.label :タグ, class: 'form-label' %>
-          <%= f.text_field :name, class: 'form-control' %>
-        </div>
-          <%= f.submit "確認", class: 'btn btn-primary' %>
-      <% end %>
-   </div>
-  </div>
+<div class = 'container-fluid subject-new-box'>
+    <div class = "row">
+      
+      <div class = "col-lg-12 d-flex align-items-center justify-content-center ">
+        
+        <div class="subject-new-box-sm">
+          
+          <div class=" subject-new-text1">
+           <!--エラーメッセージ-->
+            <% if @subject.errors.any? %>
+              <%= @subject.errors.count %>件のエラーが発生しました
+              <ul>
+                <% @subject.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+          
+        <%= form_with model: @subject, url: subjects_check_path, method: :post, local: true do |f| %>
+            <div class="form-group pt-4 subject-new-text1">
+              <%= f.file_field :subject_image, accept: "image/*" %>
+              <%= f.hidden_field :status %>
+            </div>
+            <div class="form-group pt-4  subject-new-text1">
+              <%= f.label :期限, class: 'form-label' %>
+              <%= f.text_field :time_limit, class: 'form-control' %>
+            </div>
+            <div class="form-group pt-4 subject-new-text1">
+              <%= f.label :タイトル, class: 'form-label' %>
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
+           <div class="form-group pt-4 subject-new-text1">
+              <%= f.label :お題, class: 'form-label' %>
+              <%= f.text_area :theme, class: 'form-control' %>
+           </div>
+            <div class="form-group pt-4 subject-new-text1">
+              <%= f.label :タグ, class: 'form-label' %>
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="form-group pt-4 subject-new-text1">
+              <%= f.submit "確認", class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+       </div>
+       
+      </div>
+     
+    </div>
+    
 </div>

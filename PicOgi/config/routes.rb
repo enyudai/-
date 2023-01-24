@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       
       get "search" => "searches#index"
       
+      
       resources :reports, only: [:new, :create, :index]
       
       resources :users, only: [:show, :edit, :update] do
