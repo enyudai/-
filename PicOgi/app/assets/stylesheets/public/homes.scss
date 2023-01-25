@@ -5,12 +5,20 @@
 .about-box{
     width: 100%;
     height: 100vh;
-    background-color: #FAE58B;
+    background-color: #FEF2E8;
 }
 
 .about-box-sm{
     text-align: center;
     padding-top: 7%;
+}
+
+.about-card-efect{
+    transition: all 0.35s ease; 
+}
+
+.about-card-efect:hover{
+    transform: translateY(5px);
 }
 
 .about-text1{
@@ -20,7 +28,7 @@
 }
 
 .about-text2{
-    font-family: -apple-system, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif;
+    font-family: "Hiragino Sans","ヒラギノ角ゴシック"; 
     font-size: 30px;
     color: #CB8FE4;
 }
@@ -32,13 +40,11 @@
 }
 
 .fadeIn1 {
-    animation-name: fadeInAnime1;/*1で解説*/
-    animation-fill-mode:backwards;/*2で解説*/
-    animation-duration:3s;/*3で解説*/
-    // animation-iteration-count:infinite;/*4で解説*/
-    animation-timing-function:ease;/*5で解説*/
-    // animation-delay: 0.5s;/*6で解説*/
-    animation-direction:normal;/*7で解説*/
+    animation-name: fadeInAnime1;
+    animation-fill-mode:backwards;
+    animation-duration:3s;
+    animation-timing-function:ease;
+    animation-direction:normal;
 }
 
 .a1 {
@@ -69,8 +75,6 @@
     animation-delay: 2.3s
 }
 
-
-/*1で解説*/
 @keyframes fadeInAnime1{
   0% {
     opacity: 0;
@@ -83,15 +87,12 @@
   }
 }
 
-
 .fadeIn2 {
-    animation-name: fadeInAnime2;/*1で解説*/
-    animation-fill-mode:backwards;/*2で解説*/
-    animation-duration:3s;/*3で解説*/
-    // animation-iteration-count:infinite;/*4で解説*/
-    animation-timing-function:ease;/*5で解説*/
-    // animation-delay: 0.5s;/*6で解説*/
-    animation-direction:normal;/*7で解説*/
+    animation-name: fadeInAnime2;
+    animation-fill-mode:backwards;
+    animation-duration:3s;
+    animation-timing-function:ease;
+    animation-direction:normal;
 }
 
 .b1 {
@@ -119,7 +120,6 @@
 }
 
 
-/*1で解説*/
 @keyframes fadeInAnime2{
   0% {
     opacity: 0;
@@ -134,16 +134,13 @@
 
 
 .fadeIn3 {
- animation-name: fadeInAnime3;/*1で解説*/
- animation-fill-mode:backwards;/*2で解説*/
- animation-duration:3s;/*3で解説*/
- // animation-iteration-count:infinite;/*4で解説*/
- animation-timing-function:ease;/*5で解説*/
- // animation-delay: 0.5s;/*6で解説*/
- animation-direction:normal;/*7で解説*/
+ animation-name: fadeInAnime3;
+ animation-fill-mode:backwards;
+ animation-duration:3s;
+ animation-timing-function:ease;
+ animation-direction:normal;
 }
 
-/*1で解説*/
 @keyframes fadeInAnime3{
   50% {
     opacity: 0;

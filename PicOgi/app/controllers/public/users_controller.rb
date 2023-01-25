@@ -3,7 +3,7 @@ class Public::UsersController < ApplicationController
    before_action :ensure_guest_user, only: [:edit]
   def show
     @user = User.find(params[:id])
-    @subjects = @user.subjects.where(status: true).page(params[:page])
+    @subjects = @user.subjects.where(status: true).page(params[:page]).per(5)
     # if params[:sort] == "0"
     #   @subjects = Subject.all
     # else
@@ -42,7 +42,7 @@ class Public::UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     favorites_answer_ids = Favorite.where(user_id: @user.id).pluck(:answer_id)
-    @favorite_answers = Answer.where(id: favorites_answer_ids)
+    @favorite_answers = Answer.where(id: favorites_answer_ids).page(params[:page]).per(10)
   end
   
   private

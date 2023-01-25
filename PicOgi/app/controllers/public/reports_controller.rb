@@ -36,7 +36,7 @@ class Public::ReportsController < ApplicationController
   
   def index
     @user = current_user
-    @reports = @user.reports
+    @reports = @user.reports.page(params[:page]).per(10)
     
   end 
   

@@ -7,19 +7,13 @@
            <div class="burger"></div>
            <div class="menu">
              <ul class="menu-list">
-             <!--<div class=" d-flex align-items-center justify-content-center">
-                <div class="home-icon-box"/div>
-                <div class="header-text1"></div>
-             </div>-->
-            <div class="text-center">
-               <li><i class='bx bxs-home'></i> <a href="/homes/top">おすすめ</a></li>
-               <li><%= link_to "いいね一覧", favorites_user_path(current_user.id)%></li>
-               <li><%= link_to current_user.nickname, user_path(current_user.id) %></li>
-               <li><a href="/subjects">投稿一覧</a></li>
-               <li><a href="/reports">通報一覧</a></li>
-            </div>
-              
-             
+                <div class="text-center">
+                   <li><i class='bx bxs-home'></i> <a href="/homes/top">おすすめ</a></li>
+                   <li><%= link_to "いいね一覧", favorites_user_path(current_user.id)%></li>
+                   <li><%= link_to current_user.nickname, user_path(current_user.id) %></li>
+                   <li><a href="/subjects">投稿一覧</a></li>
+                   <li><a href="/reports">通報一覧</a></li>
+                </div>
             </ul>
           </div>
           </div>
