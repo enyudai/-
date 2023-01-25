@@ -18,6 +18,13 @@
   color: #CB8FE4;
 }
 
+.session-text3{
+    width: 125px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: white;
+}
+
 .card-effect{
     box-shadow: 0 8px 22px rgba(0,0,0,0.2);
     background-color: #586085;
@@ -29,4 +36,9 @@
 .card-effect:hover{
     box-shadow: none;
     transform: translateY(5px);
+}
+
+.link-sign_up-btn{
+  font-size: 30px;
+  color: #324362;
 }

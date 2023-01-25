@@ -5,27 +5,95 @@
        <div class = "col-lg-3 row align-items-center">
          <div>
            <div class="burger"></div>
+           
            <div class="menu">
              <ul class="menu-list">
                 <div class="text-center">
                    <li>
                        <%= link_to homes_top_path do %>
-                         <i class='bx bxs-home'></i><span>おすすめ</span>
-                        <%end%>
+                         <div class="row">
+                           <div class="col-lg-3 li-text">
+                             <i class='bx bx-home' ></i>
+                           </div>
+                           <div class="col-lg-6 li-text">
+                             <span>おすすめ</span>
+                           </div>
+                         </div>
+                       <% end %>
                     </li>
-                   <li><%= link_to "いいね一覧", favorites_user_path(current_user.id)%></li>
-                   <li><%= link_to current_user.nickname, user_path(current_user.id) %></li>
-                   <li><a href="/subjects">投稿一覧</a></li>
-                   <li><a href="/reports">通報一覧</a></li>
+                   <li>
+                       <%= link_to  favorites_user_path(current_user.id) do %>
+                         <div class="row">
+                           <div class="col-lg-3 li-text">
+                            <i class='bx bx-like' ></i>
+                           </div>
+                           <div class="col-lg-6 li-text">
+                             <span>いいね一覧</span>
+                           </div>
+                         </div>
+                       <% end %>
+                   </li>
+                   <li>
+                       <%= link_to  user_path(current_user.id) do %>
+                         <div class="row">
+                           <div class="col-lg-3 li-text">
+                             <%= image_tag  current_user.get_profile_image(50,50), class: "img-thumbnail rounded-circle"  %>
+                           </div>
+                           <div class="col-lg-6 li-text">
+                             <span><%= current_user.nickname %></span>
+                           </div>
+                         </div>
+                       <% end %>
+                    </li>
+                   <li>
+                       <%= link_to subjects_path do %>
+                         <div class="row">
+                           <div class="col-lg-3 li-text">
+                             <i class='bx bx-book-content' ></i>
+                           </div>
+                           <div class="col-lg-6 li-text">
+                             <span>投稿一覧</span>
+                           </div>
+                         </div>
+                       <% end %>
+                   </li>
+                   <li>
+                       <%= link_to reports_path do %>
+                         <div class="row">
+                           <div class="col-lg-3 li-text">
+                             <i class='bx bx-bell' ></i>
+                           </div>
+                           <div class="col-lg-6 li-text">
+                             <span>通知一覧</span>
+                           </div>
+                         </div>
+                       <% end %>
+                   </li>
                 </div>
             </ul>
           </div>
-          </div>
+          
+          <div class="menu-bgin"></div>
+          
+        </div>
         </div>  
           
         <div class = "col-lg-9 row justify-content-between">
-            <div class ="col-2 picogi-text row align-items-center">
-              <div><a href="/homes/top">PicOgi</a></div>
+            
+            <div class ="col-2 row align-items-center">
+              <div class ="text-center">
+                  <%= link_to homes_top_path do %>
+                    <div class="d-flex justify-content-center picogi-text">
+                      <span class="fadeIn4 c1 d-block">P</span>
+                      <span class="fadeIn4 c2 d-block">i</span>
+                      <span class="fadeIn4 c3 d-block">c</span>
+                      <span class="fadeIn4 c4 d-block">&nbsp;</span>
+                      <span class="fadeIn4 c5 d-block">O</span>
+                      <span class="fadeIn4 c6 d-block">g</span>
+                      <span class="fadeIn4 c7 d-block">i</span>
+                   </div>
+                  <% end %>
+              </div>
             </div>
             
             <div class="col-4 row align-items-center" style="margin-right: 50px;">

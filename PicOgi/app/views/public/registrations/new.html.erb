@@ -25,10 +25,14 @@
                 <%= f.label :確認 %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
               </div>
-              <div class= "mt-4 mb-2 session-text2"> 
-                <%= f.submit "新規登録" %>
+              <div class= "mt-4 mb-2 row"> 
+                <div class="col"><%= f.submit "新規登録", class: "link-sign_up-btn" %></div>
           <% end %>
-                <%= render "public/shared/links" %>
+                <div class="col">
+                  <div class="session-text3">
+                    <%= link_to "ログイン", new_session_path(resource_name), class: "link-sign_up-btn" %>
+                  </div>
+                </div>
               </div>
         </div>
       </div>

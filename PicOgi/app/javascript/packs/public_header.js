@@ -6,6 +6,8 @@ $(document).on('turbolinks:load', function() {
   $(".burger").click(function () {
      $(".burger").toggleClass("active");
      $(".menu").toggleClass("active");
+     $(".menu-bgin").toggleClass("active");
   });
  });
 });
+

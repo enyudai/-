@@ -1,25 +1,40 @@
-<div class = 'container'>
-  <%= form_with model: @subject, local:true do |f| %>
-    <div class="form-group">
-     <%= f.file_field :subject_image, accept: "image/*" %>
-    <div class="form-group">
-      <%= f.label :期限 %>
-      <%= f.text_field :time_limit %>
-    </div>
-    <div class="form-group">
-      <%= f.label :タイトル %>
-      <%= f.text_field :title %>
-      <%= f.label "タグ(,で区切ると複数タグ登録できます)"%>
-      <%= f.text_field :name,value: @tag_list %>
-  </div>
+<div class = 'container-fluid edit-box'>
+    <div class = "row">
       
+      <div class = "col-lg-12 d-flex align-items-center justify-content-center ">
+        
+        <div class="edit-box-sm">
+          
+          <%= form_with model: @subject, local:true do |f| %>
+            <div class="form-group pt-4 edit-text2">
+             <%= f.file_field :subject_image, accept: "image/*" %>
+            </div>
+            <div class="form-group pt-4  edit-text2 ">
+              期限<br/>
+              <%= f.text_field :time_limit %>
+            </div>
+            <div class="form-group pt-4 edit-text2">
+              タイトル<br/>
+              <%= f.text_field :title %>
+            </div>
+           <div class="form-group pt-4 edit-text2">
+             タグ(,で区切ると複数タグ登録できます)<br/>
+             <%= f.text_field :name,value: @tag_list %>
+           </div>
+           
+           <div class="form-group pt-4 edit-text2">
+              お題<br/>
+              <%= f.text_area :theme %>
+           </div>
+           
+            <div class="form-group pt-4 edit-text2">
+             <%= f.submit "保存", class: ' btn-success' %>
+            </div>
+          <% end %>
+       </div>
+       
+      </div>
+     
     </div>
-    <div class="form-group">
-      <%= f.label :お題 %>
-      <%= f.text_area :theme %>
-    </div>
-    <div class="form-group">
-      <%= f.submit "保存", class: ' btn-success' %>
-    </div>
-  <% end %>
+    
 </div>

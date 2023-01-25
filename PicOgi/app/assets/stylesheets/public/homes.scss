@@ -28,13 +28,13 @@
 }
 
 .about-text2{
-    font-family: "Hiragino Sans","ヒラギノ角ゴシック"; 
+    font-family: 'Potta One', cursive;
     font-size: 30px;
     color: #CB8FE4;
 }
 
 .about-text3{
-    font-family: -apple-system, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", メイリオ, meiryo, sans-serif;
+    font-family: 'Potta One', cursive;
     font-size: 30px;
     color: #586085;
 }
@@ -90,7 +90,7 @@
 .fadeIn2 {
     animation-name: fadeInAnime2;
     animation-fill-mode:backwards;
-    animation-duration:3s;
+    animation-duration: 3s;
     animation-timing-function:ease;
     animation-direction:normal;
 }
@@ -155,12 +155,12 @@
 
 .top-box{
   width: 100%;
-  height: 100vh;
+ 
   background-color: #FEF2E8;
 }
 
 .top-box-sm{
-    padding: 24px 202px 0;
+    padding: 24px 202px 24px;
 }
 
 .top-card-effect{
