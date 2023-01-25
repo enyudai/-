@@ -4,3 +4,7 @@
         report_status:
           waiting: "対応待ち"
           finish: "対応済み"
+      # user:
+      #   comment_off_status:
+      #     on: "期限内"
+      #     off: "期限外"

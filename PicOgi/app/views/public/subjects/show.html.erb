@@ -63,7 +63,10 @@
        </div>
         <div class ="d-flex  justify-content-center">
           <% if current_user.nickname != "guestuser" %>
-            <%= render "public/answers/form", {subject: @subject, answer: @answer} %>  
+            <%# if comment_off_status == 0 %>
+              <%= render "public/answers/form", {subject: @subject, answer: @answer} %>  
+            <%# else %>
+            <%# end %>
           <% end %>
         </div>
         

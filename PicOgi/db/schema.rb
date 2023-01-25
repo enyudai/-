@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 2023_01_18_041232) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname", null: false
     t.text "introduction"
+    t.integer "comment_off_status", default: 0, null: false
     t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

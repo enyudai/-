@@ -1,26 +1,38 @@
-
-<%# if @user_flag.present? %>
-    <% if @users.blank? %>
-    <h2 class = "seach-result">検索結果はありません</h2>
-    <% else %>
-    <div class = "user-contents">
-      <ul class = "user-list">
+<div class="container-fluid search-box">
+  <div class="row">
+    <div class="col">
+      <% if @users.blank? %>
+        <div class="nothing-result">検索結果はありません</div>
+      <% else %>
         <% @users.each do |user| %>
-        <li class = "list"><%= link_to "プロフィール", user_path(user.id), class: "btn btn-primary" %></li>
-        <li class = "list"><%= user.nickname %></li>
+          <div class="result-box">
+            <div class="user-result">
+              <%= link_to user_path(user.id) do %>
+                <%= image_tag  user.get_profile_image(100,100), class: "img-thumbnail rounded-circle"  %>
+                <%= user.nickname %>
+              <% end %>
+            </div>
           <% user.subjects.each do |subject| %>
-          <li class = "list"><%= link_to "詳細", subject_path(subject.id), class: "btn btn-primary" %></li>
-          <li class = "list"><%= subject.title %></li>
-          <li class = "list"><%= subject.theme %></li>
+            <div class="subject-result">
+              <%= link_to subject_path(subject.id) do %>
+                <%= subject.title %>
+                <%= subject.theme %>
+              <% end %>
+            </div>
+          
             <% subject.answers.each do |answer| %>
-            <li class = "list"><%= answer.answer %></li>
+              <div class="answer-result">
+                <%= answer.answer %>
+              </div>
             <% end %>
+          </div>
           <% end %>
         <% end %>
-      </ul>
+      <% end %>
+      <%= paginate @users %>
     </div>
-    <%#= paginate user %>
-    <% end %>
-<%# end %>
+  </div>
+</div>
+
 
 

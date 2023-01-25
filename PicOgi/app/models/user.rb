@@ -48,4 +48,7 @@ class User < ApplicationRecord
     end
   end
   
+  # コメント停止ステータス on →期限内 off →期限外
+  # enum comment_off_status: { on: 0, off: 1 }
+  
 end
