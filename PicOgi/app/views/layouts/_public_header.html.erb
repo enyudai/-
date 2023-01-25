@@ -8,7 +8,11 @@
            <div class="menu">
              <ul class="menu-list">
                 <div class="text-center">
-                   <li><i class='bx bxs-home'></i> <a href="/homes/top">おすすめ</a></li>
+                   <li>
+                       <%= link_to homes_top_path do %>
+                         <i class='bx bxs-home'></i><span>おすすめ</span>
+                        <%end%>
+                    </li>
                    <li><%= link_to "いいね一覧", favorites_user_path(current_user.id)%></li>
                    <li><%= link_to current_user.nickname, user_path(current_user.id) %></li>
                    <li><a href="/subjects">投稿一覧</a></li>
@@ -24,7 +28,7 @@
               <div><a href="/homes/top">PicOgi</a></div>
             </div>
             
-            <div class="col-4 row align-items-center">
+            <div class="col-4 row align-items-center" style="margin-right: 50px;">
               <div>
                <%= form_with url: search_path, local: true, method: :get, class: "search-form" do |form| %> 
                 <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>

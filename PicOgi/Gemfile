@@ -62,9 +62,10 @@ gem "enum_help"
 
 #MySQL/dotenv-railsでは、プロジェクトごとにファイルベースで環境変数を管理することができる
 gem 'dotenv-rails'
-# group :production do
-#   gem 'mysql2'
-# end
+
+group :production do
+   gem 'mysql2'
+end
 
 gem "net-smtp"
 gem "net-pop"
