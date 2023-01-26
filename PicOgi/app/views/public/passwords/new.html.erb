@@ -8,15 +8,21 @@
               <%= render "public/shared/error_messages", resource: resource %>
             
               <div class ="sign_up-text1">Forgot your password?</div>
-              <div class= "mt-4 mb-2 sign_up-text2">
+              <div class= "mt-4 mb-2 forget-text">
                 <%= f.label :メールアドレス %><br/>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
               </div>
            
-              <div class= "mt-4 mb-2 sign_up-text2"> 
+              <div class= "mt-4 mb-2"> 
                <%= f.submit "確認用メールを送る" %>
             <% end %>
-               <%= render "public/shared/links" %>
+               <%- if controller_name != 'sessions' %>
+                 <%= link_to new_session_path(resource_name) do  %>
+                   <div class="forget-text">
+                     ログイン
+                   </div>
+                 <% end %>
+              <% end %>
               </div>
               
           </div>
