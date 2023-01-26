@@ -51,24 +51,27 @@
    
    <div class="col-lg-6 d-flex  justify-content-center">
      <div class="rank-box">
-       
         <div class="rank-box-sm text-center">
-          
-            
-          <div class="rank-text ">ランキング</div>
-         <% @all_favorites.each.with_index(1) do |answer,i| %>
-          <div class ="mb-4 ">
-            <div class="rank-each">
-              <div class="mb-2 rank-text">
-                第<%= i %>位
-              </div>
-              <div class="mb-2 rank-text">
-                <%= answer.user.nickname %>
-              </div>
-         <% end %>
-            </div>
+          <div class="rank-text ">
+            いいねランキング
           </div>
-          
+         <% @all_favorites.each.with_index(1) do |answer,i| %>
+            <div class="rank-each ">
+              <div class="rank-text row">
+                <div class="col-lg-2 d-flex align-items-center justify-content-center">
+                    <%= i %>位
+                </div>
+                <div class="col-lg-8 row d-flex align-items-center">
+                  <div class="col rank-user-image">
+                    <%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %>
+                  </div>
+                  <div class="col rank-user-name">
+                    <%= answer.user.nickname %>
+                  </div>
+                </div>
+              </div>
+            </div>
+         <% end %>
         </div>
       </div>
     </div>

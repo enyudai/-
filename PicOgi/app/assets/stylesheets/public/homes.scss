@@ -201,7 +201,7 @@
    position: absolute;
    top: 100%;
    left: 0;
-   background-color: #EA5587;
+   background-color: #EB4B33;
    width: 100%;
    height: 100%;
    opacity: 0;
@@ -210,17 +210,22 @@
 }
 
 .top-text{
+   font-family: 'DotGothic16', sans-serif;
    color: #F5CD3B;
    padding: 15px 0;
    font-size: 22px;
 }
 
-.servicce:hover h5
-.servicce:hover p {
-    color: white;
+.servicce:hover .top-text{
+    color: black;
 }
 
 .servicce:hover .icon-box{
+    background-color: white;
+    color: black;
+}
+
+.servicce:hover .btnripple3{
     background-color: white;
     color: black;
 }
@@ -229,9 +234,6 @@
     opacity: 1;
     top: 0;
 }
-
-
-
 
 .btnripple3{
     width: 50px;
@@ -249,14 +251,13 @@
 .btnripple3:hover::before {
     content: '';
     position: absolute;
-    left: 30%;
     top: 0;
-    border: 1px solid #333;
+    border: 3px solid #252447;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-	opacity:1;
-    animation:1s circleanime2 forwards;
+	opacity: 1;
+    animation: 1s circleanime2 forwards;
 }
 
 @keyframes circleanime2{
@@ -264,7 +265,7 @@
 	  transform: scale(0);
 	}
 	100%{
-		transform:scale(2);
+		transform: scale(2);
 		opacity: 0;
 	}
 }
@@ -280,3 +281,7 @@
     border-right: 1px solid #000;
     transform: rotate(45deg);
 }
+
+
+
+

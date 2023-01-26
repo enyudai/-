@@ -102,16 +102,18 @@
   border : solid 2px #333 ;
 }
 
-.test000{
-    padding: 25px;
+.rank-text{
+   font-size: 30px;  
 }
 
 .rank-each{
-   width: 500px;
+   width: 101%;
+   padding: 10px;
+   transition: all 0.35s ease;
 }
 
-.rank-text{
-   font-size: 30px;  
+.rank-each:hover{
+    transform: translateY(5px);
 }
 
 .subject-show-box{
