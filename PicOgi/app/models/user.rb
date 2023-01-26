@@ -44,11 +44,9 @@ class User < ApplicationRecord
       User.includes(:subjects, :answers).where('users.nickname LIKE ? OR subjects.title LIKE ? OR subjects.theme LIKE ? OR answers.answer LIKE ?',
                                                "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%").references(:subjects, :answers)
     else
-      User.includes(:user).order('created_at DESC')
+      User.order('created_at DESC')
     end
   end
   
-  # コメント停止ステータス on →期限内 off →期限外
-  # enum comment_off_status: { on: 0, off: 1 }
   
 end

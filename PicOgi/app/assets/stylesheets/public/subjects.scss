@@ -99,7 +99,7 @@
 
 .rank-box-sm{
   width: 500px; 
-  border : solid 2px #333 ;
+ 
 }
 
 .rank-text{
@@ -110,10 +110,12 @@
    width: 101%;
    padding: 10px;
    transition: all 0.35s ease;
+   transition: 1s;
 }
 
 .rank-each:hover{
     transform: translateY(5px);
+    transform: scale(1.2);
 }
 
 .subject-show-box{

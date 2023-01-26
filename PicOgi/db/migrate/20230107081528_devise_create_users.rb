@@ -38,8 +38,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
         t.string :nickname, null: false
        ## 自己紹介
         t.text :introduction
-        ##コメント停止ステータス
-        t.integer :comment_off_status, default: 0, null: false
     end
 
     add_index :users, :email,                unique: true

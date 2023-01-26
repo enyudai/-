@@ -41,7 +41,6 @@
             <th scope="col">期限</th>
             <th scope="col">お題画像</th>
             <th scope="col">タイトル</th>
-            <th scope="col">期限が切れたら変えてください</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -54,12 +53,6 @@
               <td> <%= subject.time_limit %></td>
               <td><%= image_tag subject.get_subject_image(100,100) %></td>
               <td><%= subject.title %></td>
-              <td>
-                <%#= form_with model: @subject, url: subject_path(subject.id), method: :patch, local: true do |f| %>
-                      <%#= f.select :comment_off_status %>
-                      <%#= f.submit "更新", class: "btn btn-warning" %>
-                <%# end %>
-              </td>
               <td><%= link_to "編集", edit_subject_path(subject.id), class: 'btn btn-primary' %></td>
               <td> <%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %></td>
             </tr>

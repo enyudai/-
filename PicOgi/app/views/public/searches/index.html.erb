@@ -1,11 +1,13 @@
 <div class="container-fluid search-box">
   <div class="row">
-    <div class="col">
-      <% if @users.blank? %>
-        <div class="nothing-result">検索結果はありません</div>
+    <div class="col" align = "center">
+      <% if !@users.present? %>
+        <div class="nothing-result" align = "center">
+          検索結果はありません
+        </div>
       <% else %>
         <% @users.each do |user| %>
-          <div class="result-box">
+          <div class="result-box" align = "center">
             <div class="user-result">
               <%= link_to user_path(user.id) do %>
                 <%= image_tag  user.get_profile_image(100,100), class: "img-thumbnail rounded-circle"  %>
@@ -21,15 +23,14 @@
             </div>
           
             <% subject.answers.each do |answer| %>
-              <div class="answer-result">
+              <div class="answer-result" >
                 <%= answer.answer %>
               </div>
             <% end %>
-          </div>
           <% end %>
+         </div>
         <% end %>
       <% end %>
-      <%= paginate @users %>
     </div>
   </div>
 </div>

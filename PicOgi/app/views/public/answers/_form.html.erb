@@ -1,6 +1,6 @@
 <% if current_user != subject.user %>
   <%= form_with(model: [subject, answer], local: false) do |f| %>
-    <%= f.text_area :answer, size: "90x5" %>
+    <%= f.text_area :answer, size: "90x2" %>
     <%= f.submit "回答" %>
   <% end %>
 <% end %>
