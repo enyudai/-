@@ -38,6 +38,7 @@ class Public::SubjectsController < ApplicationController
     @answer = Answer.new
     @subject_tags = @subject.tags
     @all_favorites = Answer.find(Favorite.group(:answer_id).order('count(answer_id) desc').limit(10).pluck(:answer_id))
+    @time_limit = Date.parse(@subject.time_limit) 
   end
   
   def edit

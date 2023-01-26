@@ -11,7 +11,7 @@
             </div>
             <div class="form-group pt-4  edit-text2 ">
               期限<br/>
-              <%= f.text_field :time_limit %>
+              <%= f.date_field :time_limit, value: @subject.time_limit%>
             </div>
             <div class="form-group pt-4 edit-text2">
               タイトル<br/>

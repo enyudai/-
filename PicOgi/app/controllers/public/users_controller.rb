@@ -4,13 +4,6 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @subjects = @user.subjects.where(status: true).page(params[:page]).per(5)
-    # if params[:sort] == "0"
-    #   @subjects = Subject.all
-    # else
-    #   @user = User.find(params[:id])
-    #   @subjects = @user.subjects.where(status: true).page(params[:page])
-    # end
-    
   end
 
 
