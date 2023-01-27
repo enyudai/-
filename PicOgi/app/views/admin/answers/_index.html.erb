@@ -1,16 +1,47 @@
-<table class = "answers">
-  <tr>
-    <td>
-      回答数: <%= subject.answers.count %>
-    </td>
+<div class="row answer-count-box">
+  <div class="col answer-text2 d-flex justify-content-center">
+    回答数: <%= @subject.answers.count %>
+  </div>
+</div>
+
+<% subject.answers.each do |answer| %>
+  <div class="row mb-2 answer-box">
+    
+    <div class="col row">
+      <div class="col d-flex justify-content-end">
+        <div class="">
+          <%= image_tag  answer.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %> 
+        </div>
+      </div>
+    
+      <div class="col  row d-flex align-items-center">
+       
+          
+          <div class="mb-3 answer-show-box">
+            
+           <div class="d-flex flex-row">
+             <div class="answer-text1">
+               <%= answer.user.nickname %>
+             </div>
+             <div class="answer-text2">
+               <%= answer.created_at.strftime('%Y/%m/%d') %>
+             </div>
+           </div>
+                 
+           <div class="answer-text3">
+             <%= answer.answer %>
+           </div>
+              
+            <div class ="answer-text2"  id="favorite-btn_<%= answer.id %>">
+                <%= link_to "削除", admin_subject_path(subject.id, answer.id), method: :delete, class: "btn btn-danger" %>
+            </div>
+               
+          </div>
+             
+        
+      </div>
       
-    <% subject.answers.each do |answer| %>
-    <td>
-      <%= answer.created_at.strftime('%Y/%m/%d') %>
-      <%= answer.user.nickname %>
-      <%= answer.answer %>
-      <%= link_to "削除",  admin_subject_answer_path(subject.id, answer.id), method: :delete %>
-    </td>
-    <% end %>
-  </tr>
-</table>
+    </div>
+        
+  </div>
+<% end %> 
