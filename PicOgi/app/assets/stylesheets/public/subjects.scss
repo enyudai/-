@@ -144,7 +144,7 @@
 	content:"";
 	position: absolute;
 	z-index: 2;
-	left: 650px;
+	left: 550px;
 	top: 0;
 	opacity: 0;
 	transition: .3s ease-in-out;
@@ -169,6 +169,7 @@
 	transform: translate(-50%,-50%);
 	color: #fff;
     line-height: 1.5;
+    font-size: 20px;
 }
 
 .bgUD:hover span.cap{
@@ -186,7 +187,7 @@
 }
 
 .subject-show-text3{
-    font-size: 25px;
+    font-size: 35px;
 }
 
 .subject-show-image{
@@ -194,7 +195,7 @@
 }
 
 .time_limit-icon{
-    width: 240px;
+    width: 260px;
     padding: 5px;
     height: 50px;
     background-color: #BBECCD;
