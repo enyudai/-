@@ -8,20 +8,21 @@
   background-color: #FEF2E8;
 }
 
-.user-show-box{
-   padding: 20px; 
+.profile_image-box{
+  height: 25%;
 }
-
 
 .user-text{
+    font-family: 'Potta One', cursive;
     color: #324362;
-    font-size: 40px;
+    font-size: 20px;
 }
 
-.user-text2{
-    color: #324362;
-    font-size: 30px;
-    // padding: 0 30px;
+.user-index-text{
+  font-family: 'Potta One', cursive;
+  color: #324362;
+  font-size: 40px;
+  padding: 15px;
 }
 
 .edit-box{

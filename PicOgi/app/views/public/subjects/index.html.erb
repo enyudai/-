@@ -16,7 +16,7 @@
                 </div>
               </div>
               
-              <div class="mb-2 text-center subject-text">
+              <div class="mb-2 text-center">
                 <%= subject.title %><br/>
                 #<%= subject.tags.map(&:name).join('#') %>
               </div>
@@ -36,7 +36,7 @@
                 </div>
               </div>
              
-              <div class="mb-10  d-flex justify-content-center subject-text">
+              <div class="mb-10  d-flex justify-content-center">
                  <%= link_to '参加', subject_path(subject.id),data: {"turbolinks"=>false} %>
               </div>
             </div>
@@ -64,15 +64,17 @@
           </div>
          <% @all_favorites.each.with_index(1) do |answer,i| %>
             <div class="rank-each ">
-              <div class="rank-text row">
-                <div class="col-lg-2 d-flex align-items-center justify-content-center">
-                    <%= i %>位
+              <div class="row">
+                <div class="col-lg-3 d-flex align-items-center justify-content-center rank-text1">
+                  <div>
+                     <%= i %>位
+                  </div>
                 </div>
-                <div class="col-lg-8 row d-flex align-items-center">
-                  <div class="col rank-user-image">
+                <div class="col-lg-9 row d-flex align-items-center rank-text1">
+                  <div class="col-lg-3">
                     <%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %>
                   </div>
-                  <div class="col rank-user-name">
+                  <div class="col-lg-9">
                     <%= answer.user.nickname %>
                   </div>
                 </div>

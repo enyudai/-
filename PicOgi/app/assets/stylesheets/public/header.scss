@@ -32,7 +32,6 @@
 
 .menu{
 	display: none !important;
-	color: #B34E7E;
 	width: 20vw;
 	height: 100vh;
     background: white;
@@ -53,15 +52,16 @@ ul.global-menu > li {
 }
 
 ul.menu-list li {
-    padding: 30px;
-    font-size: 30px;
+    padding: 28px;
+    width: 115%;
+    left: -49px;
     position: relative;
-	z-index: 2;
+    z-index: 2;
 }
 
 
 ul.menu-list li:hover{
-	background-color: #FFE7E2;
+	background: rgba(255,231,226,0.6);
 }
 
 
@@ -82,7 +82,7 @@ ul.menu-list li:hover{
     background: rgba(50,67,98,0.4);
 	position: fixed;
 	top: 0;
-	left: 383px;;
+	left: 349px;;
 	z-index: 1;
 }
 
@@ -99,6 +99,8 @@ ul.menu-list li:hover{
 
 .li-text{
 	color: #324362;
+	font-size: 25px;
+    font-family: 'Potta One', cursive;
 }
 
 .header-nav{
