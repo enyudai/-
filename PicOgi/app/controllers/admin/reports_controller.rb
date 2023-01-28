@@ -9,7 +9,7 @@ class Admin::ReportsController < ApplicationController
  
   def show
     @report = Report.find(params[:id])
-    @subject = Subject.find(params[:id])
+    @subject = @report.subject
   end
  
   def update
