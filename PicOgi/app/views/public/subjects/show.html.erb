@@ -7,7 +7,7 @@
             <div class="bgUD">
                 <span class="mask"> 
                   <div class="d-flex  justify-content-center">
-                    <%= image_tag @subject.get_subject_image(360,350), class: "rounded " %>
+                    <%= image_tag @subject.get_subject_image(360,350), class: "rounded ", style: "width: 306px;" %>
                   </div>
                   <span class="cap">
                     <% @subject_tags.each do |tag| %>
