@@ -11,7 +11,7 @@
                   </div>
                   <span class="cap">
                     <% @subject_tags.each do |tag| %>
-                      #<%= tag.name %><%= "(#{tag.subjects.count})" %>
+                      <%= tag.name %><%= "(#{tag.subjects.count})" %>
                     <% end %>
                   </span>
                 </span>

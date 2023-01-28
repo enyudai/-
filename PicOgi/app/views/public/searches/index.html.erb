@@ -8,23 +8,34 @@
       <% else %>
         <% @users.each do |user| %>
           <div class="result-box" align = "center">
-            <div class="user-result">
+            <div class="user-result row mb-4">
               <%= link_to user_path(user.id) do %>
-                <%= image_tag  user.get_profile_image(100,100), class: "img-thumbnail rounded-circle"  %>
-                <%= user.nickname %>
+                <div class="col user-result-sm">
+                  プロフィール画像<%= image_tag  user.get_profile_image(100,100), class: "img-thumbnail rounded-circle"  %>
+                </div>
+                <div class="col user-result-sm">
+                 ニックネーム <%= user.nickname %>
+                </div>
               <% end %>
             </div>
           <% user.subjects.each do |subject| %>
-            <div class="subject-result">
+            <div class="subject-result row mb-4">
               <%= link_to subject_path(subject.id) do %>
-                <%= subject.title %>
-                <%= subject.theme %>
+                <div class="col-lg-4 subject-result-sm">
+                 お題画像 <%= image_tag subject.get_subject_image(100,100) %>
+                </div>
+                <div class="col-lg-4 subject-result-sm">
+                 タイトル <%= subject.title %>
+                </div>
+                <div class=" col-lg-4 subject-result-sm">
+                 お題 <%= subject.theme %>
+                </div>
               <% end %>
             </div>
           
             <% subject.answers.each do |answer| %>
-              <div class="answer-result" >
-                <%= answer.answer %>
+              <div class="answer-result mb-4" >
+                回答　<%= answer.answer %>
               </div>
             <% end %>
           <% end %>

@@ -12,8 +12,8 @@ class Public::SubjectsController < ApplicationController
   def check
     @subject = Subject.new(subject_params)
     @subject.user_id = current_user.id
-    #subjectのタグ名ごとの配列を,で区切っていいる
-    tag_list = params[:subject][:name].split(',')
+    #subjectのタグ名ごとの配列を#で区切っていいる
+    tag_list = params[:subject][:name].split('#')
    if @subject.save
      #save_tagはモデルに記載
      @subject.save_tag(tag_list)
@@ -43,7 +43,7 @@ class Public::SubjectsController < ApplicationController
   
   def edit
       @subject = Subject.find(params[:id])
-      @tag_list = @subject.tags.pluck(:name).join(',')
+      @tag_list = @subject.tags.pluck(:name).join('#')
     unless @subject.user_id == current_user.id
       redirect_to user_path(current_user.id)
     end
@@ -51,7 +51,7 @@ class Public::SubjectsController < ApplicationController
   
   def update
     @subject = Subject.find(params[:id])
-    tag_list = params[:subject][:name].split(',')
+    tag_list = params[:subject][:name].split('#')
     if @subject.update(subject_params)
        @subject.save_tag(tag_list)
       redirect_to user_path(current_user.id)
