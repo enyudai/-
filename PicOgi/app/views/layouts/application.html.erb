@@ -25,25 +25,24 @@
 
   <body>
     
-    <header>
-     <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <header>
        <%= render 'layouts/public_header' %>
-     <% elsif admin_signed_in? %>
+    <% elsif admin_signed_in? %>
        <%= render 'layouts/admin_header' %>
-     <% else %>
-     <% end %>
-    </header>
+      </header>
+    <% end %>
     
     <main>
       <%= yield %>
     </main>
     
-    <% if (controller.controller_name != 'subjects' && controller.controller_name != 'show') %>  
-    <footer>
+    <% if (controller.controller_name != 'subjects' && controller.controller_name != 'show')  %> 
       <% if user_signed_in? %>
-        <%= render 'layouts/public_footer' %>
+        <footer>
+          <%= render 'layouts/public_footer' %>
+        </footer>
       <% end %>
-    </footer>
     <% end %>
   </body>
 </html>
