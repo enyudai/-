@@ -37,12 +37,13 @@
     <main>
       <%= yield %>
     </main>
-      
+    
+    <% if (controller.controller_name != 'subjects' && controller.controller_name != 'show') %>  
     <footer>
       <% if user_signed_in? %>
         <%= render 'layouts/public_footer' %>
       <% end %>
     </footer>
-     
+    <% end %>
   </body>
 </html>

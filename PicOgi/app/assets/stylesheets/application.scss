@@ -14,6 +14,10 @@
  *= require_self
  */
  
+ main{
+  min-height: calc(100vh - 8.75em - 2.5em);
+  background-color: #FEF2E8;
+ }
  
 .pagination > span > a:hover {
 

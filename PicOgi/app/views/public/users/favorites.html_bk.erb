@@ -1,0 +1,29 @@
+<div class = 'container-fluid favorites-box'>
+  <div class="favorites-box-sm">
+    <% @favorite_answers.each do |answer|%>
+       
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <div class="favorites-created">
+              <%= answer.created_at.strftime('%Y/%m/%d') %>
+            </div>
+          </div>
+        </div>
+           
+        <div class = 'row mx-auto text-center'>
+             <div class = "col mx-auto text-center favorites-text">
+               <ul class="list-inline">
+                 <li class="list-inline-item"><%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %></li>
+                 <li class="list-inline-item"><%= answer.user.nickname %></li>
+                 <li class="list-inline-item"><%= answer.answer %></li>
+                 <li class="list-inline-item"><%= link_to "詳細", subject_path(answer.subject), class: "btn btn-info" %></li>
+               </ul>
+             </div>
+        </div>
+       
+    <% end %>
+    <div class="paginate-favorites d-flex justify-content-center pt-4">
+      <%= paginate @favorite_answers %>
+      </div>
+  </div>
+</div>

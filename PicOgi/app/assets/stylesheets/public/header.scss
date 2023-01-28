@@ -1,3 +1,8 @@
+header{
+  height: 8.375em;
+  max-height: 8.375em;  
+}
+
 .header-box{
 	padding: 10px 10px 10px;
 	background-color: #3DB8B1;
@@ -33,6 +38,7 @@
 .menu{
 	display: none !important;
 	width: 20vw;
+	max-width: 20vw;
 	height: 100vh;
     background: white;
 	position: fixed;
@@ -45,6 +51,7 @@
 
 ul.menu-list {
 	list-style: none;
+    padding: 0;
 }
 
 ul.global-menu > li {
@@ -52,9 +59,8 @@ ul.global-menu > li {
 }
 
 ul.menu-list li {
-    padding: 28px;
-    width: 115%;
-    left: -49px;
+    padding: 2.8em 0px 0.8em;
+    width: 20vw;
     position: relative;
     z-index: 2;
 }
@@ -62,6 +68,7 @@ ul.menu-list li {
 
 ul.menu-list li:hover{
 	background: rgba(255,231,226,0.6);
+	
 }
 
 
@@ -82,7 +89,7 @@ ul.menu-list li:hover{
     background: rgba(50,67,98,0.4);
 	position: fixed;
 	top: 0;
-	left: 349px;;
+	left: 20vw;
 	z-index: 1;
 }
 

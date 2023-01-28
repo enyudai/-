@@ -35,7 +35,7 @@ class Public::UsersController < ApplicationController
   def favorites
     @user = User.find(params[:id])
     favorites_answer_ids = Favorite.where(user_id: @user.id).pluck(:answer_id)
-    @favorite_answers = Answer.where(id: favorites_answer_ids).page(params[:page]).per(10)
+    @favorite_answers = Answer.where(id: favorites_answer_ids).page(params[:page]).per(5)
   end
   
   private
