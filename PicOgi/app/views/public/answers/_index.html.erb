@@ -36,9 +36,11 @@
               <% if current_user.nickname != "guestuser" %>
                 <%= render "public/favorites/favorite-btn", {subject: @subject, answer: answer} %>
               <% end %>
+              
               <% if answer.user == current_user %>
+              
                 <%= link_to subject_answer_path(subject.id, answer.id), method: :delete, remote: true  do %>
-                  <box-icon name='trash'></box-icon>
+                  <i class='bx bx-trash' ></i>
                 <% end %>
               <% end %>
             </div>

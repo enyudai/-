@@ -11,13 +11,6 @@ class Answer < ApplicationRecord
     favorites.exists?(user_id: user.id)
    end
    
-#   # 検索
-#     def self.search(search)
-#         if search != ""
-#           Answer.joins(:user, :subject).where(['answer LIKE(?) OR users.nickname LIKE(?) OR subjects.title LIKE(?) OR subjects.theme LIKE(?) ', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
-#         else
-#           Answer.includes(:user).order('created_at DESC')
-#         end
-#     end
+  validates_uniqueness_of :subject_id, scope: :user_id
    
 end

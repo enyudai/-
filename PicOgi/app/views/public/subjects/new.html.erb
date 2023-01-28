@@ -19,7 +19,7 @@
           
         <%= form_with model: @subject, url: subjects_check_path, method: :post, local: true do |f| %>
             <div class="form-group pt-4 subject-new-text1">
-              <%= f.file_field :subject_image, accept: "image/*" %>
+              <%= f.file_field :subject_image, accept: "image/jpg,image/jpeg,image/png,image" %>
               <%= f.hidden_field :status %>
             </div>
             <div class="form-group pt-4  subject-new-text1">

@@ -4,10 +4,10 @@ class Admin::AnswersController < ApplicationController
   before_action :authenticate_admin!
   
     def destroy
-      @subject = Subject.find(params[:subject_id])
-      answer = @subject.answers.find(params[:id])
+      subject = Subject.find(params[:subject_id])
+      answer = Answer.find(params[:id])
       answer.destroy
-      redirect_to admin_subject_path(@subject)
+      redirect_to admin_subject_path(subject)
     end
     
 end

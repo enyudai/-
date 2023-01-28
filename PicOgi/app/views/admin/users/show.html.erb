@@ -82,7 +82,7 @@
               <td><%= subject.time_limit %></td>
               <td><%= image_tag subject.get_subject_image(100,100) %></td>
               <td><%= subject.title %></td>
-              <td><%= link_to "削除", subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
+              <td><%= link_to "削除", admin_subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
             </tr>
           <% end %>
         </tbody>

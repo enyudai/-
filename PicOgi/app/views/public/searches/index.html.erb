@@ -18,7 +18,8 @@
                 </div>
               <% end %>
             </div>
-          <% user.subjects.each do |subject| %>
+            
+          <% user.subjects.where(status: true).each do |subject| %>
             <div class="subject-result row mb-4">
               <%= link_to subject_path(subject.id) do %>
                 <div class="col-lg-4 subject-result-sm">
