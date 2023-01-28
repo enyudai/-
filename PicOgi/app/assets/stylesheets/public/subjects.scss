@@ -100,12 +100,20 @@
 }
 
 .rank-box{
-  padding: 30px; 
+    padding: 27px;
+    width: 79%;
+    height: 40%;
+    
+    
 }
 
 .rank-box-sm{
   width: 500px; 
- 
+}
+
+.rank-text{
+  font-family: 'Potta One', cursive; 
+  font-size: 40px;
 }
 
 .rank-text1{
@@ -114,8 +122,13 @@
     font-family: 'Potta One', cursive;
 }
 
+.rank-text2{
+  font-size: 12px;    
+  font-family: 'Potta One', cursive;
+}
+
 .rank-each{
-   width: 102%;
+   width: 120%;
    padding: 10px;
    transition: all 0.35s ease;
    transition: 1s;
@@ -128,7 +141,7 @@
 
 .subject-show-box{
   width: 100%;
-  height: 100vh;
+  padding: 12px;
   background-color: #FEF2E8; 
 }
 

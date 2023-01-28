@@ -1,4 +1,4 @@
-<div class = 'container-fluid user-box'>
+<div class = 'container-fluid '>
   <div class="row">
     
     <div class="col-lg-5 row ">
@@ -6,7 +6,7 @@
       <div class="col row">
       
         <div class="col d-flex justify-content-end align-items-center">
-          <div class="profile_image-box">
+          <div class="">
             <%= image_tag  @user.get_profile_image(100,100), class: "img-thumbnail rounded-circle"  %> 
           </div>
         </div>
@@ -16,11 +16,11 @@
              
              <div class="mb-3">
                
-               <div class="user-text">
+               <div class="">
                  <%= @user.nickname %> 
                </div>
                
-                 <div class="user-text">
+                 <div class="">
                    <%= link_to edit_admin_user_path(@user) do %>
                      プロフィールを編集
                      <i class='bx bx-user' ></i>
@@ -30,19 +30,19 @@
              </div>
            
              <div class="mb-3 row">
-               <div class="col-lg-4 user-text">
+               <div class="col-lg-4 ">
                  投稿<%= @subjects.count %>件
                </div>
-               <div class="col-lg-8 user-text">
+               <div class="col-lg-8">
                  <%= @user.email %>
                </div>
              </div>
            
-             <div class="user-text">
+             <div class="">
                <%= @user.introduction %>
              </div>
              
-             <div class="user-text">
+             <div class="">
                <% if @user.is_deleted == !true %>
                  <span class="text-success">有効</span>
                <% else %>
@@ -59,7 +59,7 @@
 
     
     <div class = "col-lg-7">
-      <div class="user-index-text d-flex justify-content-center">
+      <div class=" d-flex justify-content-center">
         投稿一覧
       </div>
       <table class="table table-hover table-inverse" style="margin-top:15px">
