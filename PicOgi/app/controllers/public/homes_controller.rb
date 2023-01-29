@@ -8,4 +8,9 @@ class Public::HomesController < ApplicationController
 
   def about
   end
+  
+  def how
+    
+  end
+  
 end

@@ -29,12 +29,13 @@ Rails.application.routes.draw do
       root to: 'homes#about'
       get 'homes/top' => 'homes#top'
       
+      get "how" => "homes#how"
+      
       patch 'users/change' => 'users#change', as: 'change'
       
       get 'users/is_deleted' => 'users#is_deleted'
       
       get "search" => "searches#index"
-      
       
       resources :reports, only: [:new, :create, :index]
       
