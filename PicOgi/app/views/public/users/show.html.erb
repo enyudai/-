@@ -41,7 +41,7 @@
              </div>
            
              <div class="user-text">
-               <%= @user.introduction %>
+               <%= simple_format(h(@user.introduction)) %>
              </div>
             </div>
          </div>

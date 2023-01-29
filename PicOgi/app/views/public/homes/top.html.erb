@@ -17,7 +17,7 @@
 
               <div class =" top-text  text-center"><%= answer.user.nickname %></div>
               
-              <div class =" top-text text-center"><%= answer.answer %></div>
+              <div class =" top-text text-center"><%= simple_format(h(answer.answer)) %></div>
               
               <div class="text-center">
                 <%= link_to "参加", subject_path(answer.subject.id), class: "btnripple3" %>

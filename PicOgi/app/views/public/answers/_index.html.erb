@@ -29,7 +29,7 @@
            </div>
                  
            <div class="answer-text3">
-             <%= answer.answer %>
+             <%= simple_format(h(answer.answer)) %>
            </div>
               
             <div class ="answer-text2"  id="favorite-btn_<%= answer.id %>">
