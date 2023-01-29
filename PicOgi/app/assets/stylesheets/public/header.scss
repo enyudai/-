@@ -179,7 +179,7 @@ ul.menu-list li:hover{
     list-style: none;
 }
 
-.gnavi li a{
+.gnavi li div{
     display: block;
     padding: 10px 30px;
     text-decoration: none;
@@ -190,29 +190,34 @@ ul.menu-list li:hover{
     margin-bottom: 20px;
 }
 
-.gnavi li a{
+.gnavi li div{
 	position: relative;
 }
 
-.gnavi li.current a,
-.gnavi li a:hover{
-	color:#0481A2;
+.gnavi li.current div,
+.gnavi li div:hover{
+	color: white;
 }
 
-.gnavi li a::after {
+.gnavi li div::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 10%;
     width: 80%;
     height: 2px;
-    background:#0481A2;
+    background: #C82033;
     transition: all .3s;
     transform: scale(0, 1);
     transform-origin: center top;
 }
 
-.gnavi li.current a::after,
-.gnavi li a:hover::after {
+.gnavi li.current div::after,
+.gnavi li div:hover::after {
     transform: scale(1, 1);
+}
+
+.header-text{
+    color: white;
+    font-size: 25px;
 }

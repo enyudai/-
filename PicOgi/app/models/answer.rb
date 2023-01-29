@@ -12,5 +12,7 @@ class Answer < ApplicationRecord
    end
    
   validates_uniqueness_of :subject_id, scope: :user_id
+  
+  validates :answer, presence: true
    
 end

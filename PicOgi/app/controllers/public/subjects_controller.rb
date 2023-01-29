@@ -1,4 +1,6 @@
 class Public::SubjectsController < ApplicationController
+  before_action :is_matching_subjects_id, only: [:show]
+  
   def index
     @subjects = Subject.where(status: true).page(params[:page]).per(5)
     @tag_list=Tag.page(params[:page])
@@ -68,8 +70,16 @@ class Public::SubjectsController < ApplicationController
   
   private
   
-  def subject_params
-    params.require(:subject).permit(:subject_image, :time_limit, :title, :theme, :user_id, :status)
-  end
+    def subject_params
+      params.require(:subject).permit(:subject_image, :time_limit, :title, :theme, :user_id, :status)
+    end
   
+    def is_matching_subjects_id
+      subject = Subject.find_by(id: params[:id])
+     if subject.nil? || subject.status == false
+      redirect_to homes_top_path
+     end
+    
+    end 
+
 end

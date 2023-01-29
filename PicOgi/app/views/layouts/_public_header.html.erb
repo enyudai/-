@@ -108,9 +108,17 @@
             <div class="col-4">
               <ul class="gnavi global-menu">
                 <% if current_user.nickname != "guestuser" %>
-                 <li class="current"><a href="/subjects/new">新規投稿</a></li>
+                 <li class="current">
+                   <%= link_to new_subject_path do %>
+                     <div class= "header-text">新規投稿</div>
+                   <% end %>
+                 </li>
                 <% end %>
-                <li class=""><a href="/users/sign_out">ログアウト</a></li>
+                <li class="">
+                  <%= link_to destroy_user_session_path do %>
+                    <div class= "header-text">ログアウト</div>
+                  <% end %>
+                </li>
               </ul>
             </div>
         </div> 
