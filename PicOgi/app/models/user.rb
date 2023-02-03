@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,7 +8,6 @@ class User < ApplicationRecord
   has_many :subjects, dependent: :destroy 
   
   has_many :favorites
-  # has_many :answers, through: :favorites
   
   has_many :answers, dependent: :destroy 
   has_many :answered_subjects, through: :answers, source: :subject
@@ -47,6 +47,5 @@ class User < ApplicationRecord
       User.order('created_at DESC')
     end
   end
-  
   
 end
