@@ -13,16 +13,9 @@
             <th scope="col">ステータス</th>
           </tr>
           
-          <!--<tr>-->
-          <!--  <th scope="col">通報ID</th>-->
-          <!--  <th scope="col">回答作成者</th>-->
-          <!--  <th scope="col">内容</th>-->
-          <!--  <th scope="col">通報者</th>-->
-          <!--  <th scope="col">ステータス</th>-->
-          <!--</tr>-->
-          
         </thead>
         <tbody>
+          
           <% @reports.each do |report| %>
             <tr>
               <td><%= link_to report.id, admin_report_path(report) %></td>
@@ -32,16 +25,8 @@
               <td><%= report.user.nickname %></td>
               <td><%= report.report_status_i18n %></td>
             </tr>
-            
-            <!--<tr>-->
-            <!--  <td><%#= link_to report.id, admin_report_path(report) %></td>-->
-            <!--  <td><%#= report.answer.user.nickname %></td>-->
-            <!--  <td><%#= report.answer.answer %></td>-->
-            <!--  <td><%#= report.user.nickname %></td>-->
-            <!--  <td><%# report.report_status_i18n %></td>-->
-            <!--</tr>-->
-          
           <% end %>
+          
         </tbody>
       </table>
     </div>

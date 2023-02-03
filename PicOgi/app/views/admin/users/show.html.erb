@@ -1,70 +1,67 @@
 <div class = 'container-fluid '>
+  
   <div class="row">
     
     <div class="col-lg-5 row ">
-      
       <div class="col row">
-      
+        
         <div class="col d-flex justify-content-end align-items-center">
-          <div class="">
+          <div>
             <%= image_tag  @user.get_profile_image(100,100), class: "img-thumbnail rounded-circle"  %> 
           </div>
         </div>
-  
+        
         <div class="col  row d-flex align-items-center">
-           <div class="flex-column">
-             
-             <div class="mb-3">
-               
-               <div class="">
-                 <%= @user.nickname %> 
-               </div>
-               
-                 <div class="">
-                   <%= link_to edit_admin_user_path(@user) do %>
-                     プロフィールを編集
-                     <i class='bx bx-user' ></i>
-                   <% end %>
-                 </div>
-            
-             </div>
-           
-             <div class="mb-3 row">
-               <div class="col-lg-4 ">
-                 投稿<%= @subjects.count %>件
-               </div>
-               <div class="col-lg-8">
-                 <%= @user.email %>
-               </div>
-             </div>
-           
-             <div class="">
-               <%= @user.introduction %>
-             </div>
-             
-             <div class="">
-               <% if @user.is_deleted == !true %>
-                 <span class="text-success">有効</span>
-               <% else %>
-                 <span class="text-success">退会</span>
-               <% end %>
-             </div>
-             
+          
+          <div class="flex-column">
+            <div class="mb-3">
+              <div>
+                <%= @user.nickname %> 
+              </div>
+              <div>
+                <%= link_to edit_admin_user_path(@user) do %>
+                  プロフィールを編集
+                  <i class='bx bx-user' ></i>
+                <% end %>
+              </div>
             </div>
-         </div>
-         
-      </div>
+            
+            <div class="mb-3 row">
+              <div class="col-lg-4 ">
+                投稿<%= @subjects.count %>件
+              </div>
+              <div class="col-lg-8">
+                <%= @user.email %>
+              </div>
+            </div>
+            
+            <div>
+              <%= @user.introduction %>
+            </div>
+            
+            <div>
+              <% if @user.is_deleted == !true %>
+                <span class="text-success">有効</span>
+              <% else %>
+                <span class="text-success">退会</span>
+              <% end %>
+            </div>
+          </div>
+          
+        </div>
       
+      </div>
     </div>
 
-    
     <div class = "col-lg-7">
+      
       <div class=" d-flex justify-content-center">
         投稿一覧
       </div>
+      
       <table class="table table-hover table-inverse" style="margin-top:15px">
         <thead>
-          
+      
           <tr>
             <th scope="col"></th>
             <th scope="col">期限</th>
@@ -73,22 +70,26 @@
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
-          
+      
         </thead>
+      
         <tbody>
-            <% @subjects.each do |subject| %>
-            <tr>
-              <td><%= link_to "参加", admin_subject_path(subject.id), class: "btn btn-info" %></td>
-              <td><%= subject.time_limit %></td>
-              <td><%= image_tag subject.get_subject_image(100,100) %></td>
-              <td><%= subject.title %></td>
-              <td><%= link_to "削除", admin_subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
-            </tr>
-          <% end %>
+        
+        <% @subjects.each do |subject| %>
+          <tr>
+            <td><%= link_to "参加", admin_subject_path(subject.id), class: "btn btn-info" %></td>
+            <td><%= subject.time_limit %></td>
+            <td><%= image_tag subject.get_subject_image(100,100) %></td>
+            <td><%= subject.title %></td>
+            <td><%= link_to "削除", admin_subject_path(subject.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+        
         </tbody>
       </table>
+      
     </div>
-  
+    
   </div>
   
   <div class="row pt-4">
@@ -96,4 +97,5 @@
       <%= paginate @subjects %>
     </div>
   </div>
+  
 </div>

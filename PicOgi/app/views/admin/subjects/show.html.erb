@@ -1,50 +1,54 @@
 <div class = 'container-fluid'>
- <div class="">
-    <div class="row">
-         
-      <div class="col">
-         <div class="d-flex  justify-content-center">
-           <%= image_tag @subject.get_subject_image(360,350), class: "rounded " %>
-         </div>
-          <div class="d-flex  justify-content-center">
-            <% @subject_tags.each do |tag| %>
-              #<%= tag.name %><%= "(#{tag.subjects.count})" %>
-            <% end %>
-          </div>
-      </div>
-    </div>
-    <div class=" mb-2 row">
-      <div class="col d-flex  justify-content-center">
-        <div class =""><%= image_tag  @subject.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %></div>
-        <div class =""><%= @subject.user.nickname %></div>
-      </div>
-    </div>
-    <div class="mb-2 d-flex  justify-content-center">
-      <div class=""><i class='bx bx-time' ><%= @subject.time_limit %>まで</i></div>
-    </div>
-    
-    <div class="mb-2 d-flex  justify-content-center">
-      <div class=" text-center">
-          <i class='bx bx-paperclip'></i>
-      </div>
-      <div class=" justify-content-center">
-          <%= @subject.title %>
-      </div>
-    </div>
-    
-    <div class="mb-2 d-flex  justify-content-center">
-        <div class="subject-show-text3"><%= @subject.theme %></div>
-    </div>
-    
-</div>
-      
-<div id="subject_<%= @subject.id %>">
- <%= render "admin/answers/index", subject: @subject %>
-</div>
   
-</div>
-     
-
-  
+  <div class="row">
+    <div class="col">
+      <div class="d-flex  justify-content-center">
+        <%= image_tag @subject.get_subject_image(360,350), class: "rounded " %>
+      </div>
+      <div class="d-flex  justify-content-center">
+        <% @subject_tags.each do |tag| %>
+          <%= tag.name %><%= "(#{tag.subjects.count})" %>
+        <% end %>
+      </div>
+    </div>
   </div>
+  
+  <div class=" mb-2 row">
+    <div class="col d-flex  justify-content-center">
+      <div>
+        <%= image_tag  @subject.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %>
+      </div>
+      <div>
+        <%= @subject.user.nickname %>
+      </div>
+    </div>
+  </div>
+    
+  <div class="mb-2 d-flex  justify-content-center">
+    <div>
+      <i class='bx bx-time' >
+        <%= @subject.time_limit %>まで
+      </i>
+    </div>
+  </div>
+    
+  <div class="mb-2 d-flex  justify-content-center">
+    <div class=" text-center">
+      <i class='bx bx-paperclip'></i>
+    </div>
+    <div class=" justify-content-center">
+      <%= @subject.title %>
+    </div>
+  </div>
+    
+  <div class="mb-2 d-flex  justify-content-center">
+    <div class="subject-show-text3">
+      <%= @subject.theme %>
+    </div>
+  </div>
+    
+  <div id="subject_<%= @subject.id %>">
+    <%= render "admin/answers/index", subject: @subject %>
+  </div>
+  
 </div>

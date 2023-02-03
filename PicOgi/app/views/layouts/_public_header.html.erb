@@ -1,97 +1,112 @@
 <div class = "d-flex align-items-center">
+    
   <div class = "container-fluid header-box">
-    <div class = "row">
       
-       <div class = "col-lg-3 row align-items-center">
-         <div>
-           <div class="burger"></div>
-           
-           <div class="menu">
-             <ul class="menu-list">
-                <div class="text-center">
-                   <li>
-                       <%= link_to homes_top_path do %>
-                         <div class="row">
-                           <div class="col-lg-3 li-text">
-                             <i class='bx bx-home' ></i>
-                           </div>
-                           <div class="col-lg-6 li-text">
-                             <span>おすすめ</span>
-                           </div>
-                         </div>
-                       <% end %>
-                    </li>
-                   <li>
-                       <%= link_to  favorites_user_path(current_user.id) do %>
-                         <div class="row">
-                           <div class="col-lg-3 li-text">
-                            <i class='bx bx-like' ></i>
-                           </div>
-                           <div class="col-lg-6 li-text">
-                             <span>いいね一覧</span>
-                           </div>
-                         </div>
-                       <% end %>
-                   </li>
-                   <li>
-                       <%= link_to  user_path(current_user.id) do %>
-                         <div class="row">
-                           <div class="col-lg-3 li-text">
-                             <%= image_tag  current_user.get_profile_image(50,50), class: "img-thumbnail rounded-circle"  %>
-                           </div>
-                           <div class="col-lg-6 li-text">
-                             <span><%= current_user.nickname %></span>
-                           </div>
-                         </div>
-                       <% end %>
-                    </li>
-                   <li>
-                       <%= link_to subjects_path do %>
-                         <div class="row">
-                           <div class="col-lg-3 li-text">
-                             <i class='bx bx-book-content' ></i>
-                           </div>
-                           <div class="col-lg-6 li-text">
-                             <span>投稿一覧</span>
-                           </div>
-                         </div>
-                       <% end %>
-                   </li>
-                   <li>
-                       <%= link_to reports_path do %>
-                         <div class="row">
-                           <div class="col-lg-3 li-text">
-                             <i class='bx bx-bell' ></i>
-                           </div>
-                           <div class="col-lg-6 li-text">
-                             <span>通知一覧</span>
-                           </div>
-                         </div>
-                       <% end %>
-                   </li>
-                   <li>
-                       <%= link_to how_path do %>
-                         <div class="row">
-                           <div class="col-lg-3 li-text">
-                             <i class='bx bx-zoom-in'></i>
-                           </div>
-                           <div class="col-lg-6 li-text">
-                             <span>使い方</span>
-                           </div>
-                         </div>
-                       <% end %>
-                   </li>
-                </div>
-            </ul>
-          </div>
-          
-          <div class="menu-bgin"></div>
-          
+    <div class = "row">
+      <div class = "col-lg-3 row align-items-center">
+        <div class="burger"></div>
+        
+        <div class="menu">
+          <ul class="menu-list">
+            <div class="text-center">
+              <li>
+                <%= link_to homes_top_path do %>
+                  <div class="row">
+                    <div class="col-lg-3 li-text">
+                      <i class='bx bx-home' ></i>
+                    </div>
+                    <div class="col-lg-6 li-text">
+                      <span>
+                        おすすめ
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to  favorites_user_path(current_user.id) do %>
+                  <div class="row">
+                    <div class="col-lg-3 li-text">
+                      <i class='bx bx-like' ></i>
+                    </div>
+                    <div class="col-lg-6 li-text">
+                      <span>
+                        いいね一覧
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to  user_path(current_user.id) do %>
+                  <div class="row">
+                    <div class="col-lg-3 li-text">
+                      <%= image_tag  current_user.get_profile_image(50,50), class: "img-thumbnail rounded-circle"  %>
+                    </div>
+                    <div class="col-lg-6 li-text">
+                      <span>
+                        <%= current_user.nickname %>
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to subjects_path do %>
+                  <div class="row">
+                    <div class="col-lg-3 li-text">
+                      <i class='bx bx-book-content' ></i>
+                    </div>
+                    <div class="col-lg-6 li-text">
+                      <span>
+                        投稿一覧
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to reports_path do %>
+                  <div class="row">
+                    <div class="col-lg-3 li-text">
+                      <i class='bx bx-bell' ></i>
+                    </div>
+                    <div class="col-lg-6 li-text">
+                      <span>
+                        通知一覧
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+              
+              <li>
+                <%= link_to how_path do %>
+                  <div class="row">
+                    <div class="col-lg-3 li-text">
+                      <i class='bx bx-zoom-in'></i>
+                    </div>
+                    <div class="col-lg-6 li-text">
+                      <span>
+                        使い方
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
+              </li>
+            </div>
+          </ul>
         </div>
-        </div>  
+        
+        <div class="menu-bgin"></div>
+          
+      </div>  
           
         <div class = "col-lg-9 row justify-content-between">
-            
             <div class ="col-2 row align-items-center">
               <div class ="text-center">
                   <%= link_to homes_top_path do %>
@@ -136,7 +151,8 @@
         </div> 
         
        </div>
+       
     </div>
+    
   </div>
-</div>
 
