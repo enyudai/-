@@ -1,27 +1,26 @@
 <div class = 'container-fluid deleted-box'>
-    <div class = "row">
-      
-      <div class = "col-lg-12 d-flex align-items-center justify-content-center ">
-        
-        <div class="deleted-box-sm">
-          
-          <div class=" deleted-text text-center mb-5">
-            本当に退会しますか？
-          </div>
-        
-          <div class=" deleted-text text-center mb-5">
-             退会する場合は、「退会する」をクリックしてください。
-          </div>
-        
-         <div class=" deleted-text text-center mb-5">
-           <%= link_to '退会しない', user_path(@user), class: "px-5 mr-3 btn btn-sm btn-primary" %>
-           <%= link_to '退会する', change_path, method: :patch, data: { confirm: '本当に消しますか？' }, class: "px-5 ml-3 btn btn-sm btn-danger"%>
-         </div>
-        
-       </div>
-       
+  
+  <div class = "row">
+  
+    <div class = "col-lg-12 d-flex align-items-center justify-content-center ">
+  
+      <div class="deleted-box-sm">
+        <div class=" deleted-text text-center mb-5">
+          本当に退会しますか？
+        </div>
+  
+        <div class=" deleted-text text-center mb-5">
+          退会する場合は、「退会する」をクリックしてください。
+        </div>
+  
+        <div class=" deleted-text text-center mb-5">
+          <%= link_to '退会しない', user_path(@user), class: "px-5 mr-3 btn btn-sm btn-primary" %>
+          <%= link_to '退会する', change_path, method: :patch, data: { confirm: '本当に消しますか？' }, class: "px-5 ml-3 btn btn-sm btn-danger"%>
+        </div>
       </div>
-     
+  
     </div>
+  
+  </div>
     
 </div>

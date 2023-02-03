@@ -1,33 +1,36 @@
 <div class="row">
+  
   <ul class="mx-auto col-6" style="list-style: none;">
-  <% before_created_at = '' %>
-  <% @favorite_answers.each do |answer|%>
-    <% created_at = answer.created_at.strftime('%Y/%m/%d') %>
-    <li class="mb-5">
-      <% if before_created_at != created_at %>
-      <div class = "favorites-text text-center"><%= answer.created_at.strftime('%Y/%m/%d') %></div>
-      <% end %>
-      <div class="row">
-        <div class="col-2"><!-- image box start -->
-          <div>
-            <%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %>
+    <% before_created_at = '' %>
+    <% @favorite_answers.each do |answer|%>
+      <% created_at = answer.created_at.strftime('%Y/%m/%d') %>
+      <li class="mb-5">
+        <% if before_created_at != created_at %>
+          <div class = "favorites-text text-center"><%= answer.created_at.strftime('%Y/%m/%d') %></div>
+        <% end %>
+        <div class="row">
+          <div class="col-2"><!-- image box start -->
+            <div>
+              <%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %>
+            </div>
+            <div>
+              <%= answer.user.nickname %>
+            </div>
+          </div><!-- image box end -->
+          <div class="col-8">
+            <%= simple_format(h(answer.answer)) %>
           </div>
-          <div>
-            <%= answer.user.nickname %>
-          </div>
-        </div><!-- image box end -->
-        <div class="col-8">
-          <%= simple_format(h(answer.answer)) %>
+         <div class="col-2">
+           <%= link_to "詳細", subject_path(answer.subject), class: "btn btn-info" %>
+         </div>
         </div>
-        <div class="col-2">
-          <%= link_to "詳細", subject_path(answer.subject), class: "btn btn-info" %>
-        </div>
-      </div>
-    </li>
-    <% before_created_at = created_at %>
-  <% end %>
+      </li>
+      <% before_created_at = created_at %>
+    <% end %>
   </ul>
+  
   <div class="d-flex justify-content-center pt-4">
       <%= paginate @favorite_answers %>
   </div>
+  
 </div>

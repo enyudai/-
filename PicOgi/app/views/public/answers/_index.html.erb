@@ -8,6 +8,7 @@
   <div class="row mb-2 answer-box">
     
     <div class="col row">
+      
       <div class="col d-flex justify-content-end">
         <div class="">
           <%= image_tag  answer.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %> 
@@ -15,38 +16,35 @@
       </div>
     
       <div class="col  row d-flex align-items-center">
-       
+        
+        <div class="mb-3 answer-show-box">
           
-          <div class="mb-3 answer-show-box">
-            
-           <div class="d-flex flex-row">
-             <div class="answer-text1">
-               <%= answer.user.nickname %>
-             </div>
-             <div class="answer-text2">
-               <%= answer.created_at.strftime('%Y/%m/%d') %>
-             </div>
-           </div>
-                 
-           <div class="answer-text3">
-             <%= simple_format(h(answer.answer)) %>
-           </div>
-              
-            <div class ="answer-text2"  id="favorite-btn_<%= answer.id %>">
-              <% if current_user.nickname != "guestuser" %>
-                <%= render "public/favorites/favorite-btn", {subject: @subject, answer: answer} %>
-              <% end %>
-              
-              <% if answer.user == current_user %>
-              
-                <%= link_to subject_answer_path(subject.id, answer.id), method: :delete, remote: true  do %>
-                  <i class='bx bx-trash' ></i>
-                <% end %>
-              <% end %>
+          <div class="d-flex flex-row">
+            <div class="answer-text1">
+              <%= answer.user.nickname %>
             </div>
-               
+            <div class="answer-text2">
+              <%= answer.created_at.strftime('%Y/%m/%d') %>
+            </div>
           </div>
-             
+          
+          <div class="answer-text3">
+            <%= simple_format(h(answer.answer)) %>
+          </div>
+          
+          <div class ="answer-text2"  id="favorite-btn_<%= answer.id %>">
+            <% if current_user.nickname != "guestuser" %>
+              <%= render "public/favorites/favorite-btn", {subject: @subject, answer: answer} %>
+            <% end %>
+            
+            <% if answer.user == current_user %>
+              <%= link_to subject_answer_path(subject.id, answer.id), method: :delete, remote: true  do %>
+                <i class='bx bx-trash' ></i>
+              <% end %>
+            <% end %>
+          </div>
+          
+        </div>
         
       </div>
       

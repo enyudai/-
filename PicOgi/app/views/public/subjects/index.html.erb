@@ -3,11 +3,13 @@
   <div class="row  subjects-index">
     
     <div class="col-lg-6 d-flex  justify-content-end">
+      
       <div class="subject-index">
         <div class="subject-index-sm">
           
          <% @subjects.each do |subject| %>
           <div class ="mb-4">
+            
             <div class="subject-each">
               <div class="mb-2">
                 <div class="subject-profile_image-box text-center">
@@ -40,6 +42,7 @@
                  <%= link_to '参加', subject_path(subject.id),data: {"turbolinks"=>false} %>
               </div>
             </div>
+            
           </div>
          <% end %>
          
@@ -51,7 +54,6 @@
          <br>
          <br>
        </div>
-       
      </div>
       
    </div>
@@ -91,8 +93,6 @@
     </div>
     
   </div>
-  
-
   
 </div>
  

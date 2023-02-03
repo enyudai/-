@@ -1,5 +1,6 @@
 <div class = 'container-fluid'>
- <div class="subject-show-box">
+  
+  <div class="subject-show-box">
      <div class="row">
          
        <div class="col">
@@ -15,18 +16,27 @@
                     <% end %>
                   </span>
                 </span>
+              </div>
             </div>
-            </div>
-                  
-          </div>
+        </div>
+          
           <div class=" mb-2 row">
             <div class="col d-flex  justify-content-center">
-              <div class ="subject-show-image"><%= image_tag  @subject.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %></div>
-              <div class ="subject-show-text1"><%= @subject.user.nickname %></div>
+              <div class ="subject-show-image">
+                <%= image_tag  @subject.user.get_profile_image(80,80), class: "img-thumbnail rounded-circle"  %>
+              </div>
+              <div class ="subject-show-text1">
+                <%= @subject.user.nickname %>
+              </div>
             </div>
           </div>
+          
           <div class="mb-2 d-flex  justify-content-center">
-            <div class="time_limit-icon"><i class='bx bx-time' ><%= @subject.time_limit %>まで</i></div>
+            <div class="time_limit-icon">
+              <i class='bx bx-time' >
+                <%= @subject.time_limit %>まで
+              </i>
+            </div>
           </div>
           
           <div class="mb-2 d-flex  justify-content-center">
@@ -39,14 +49,18 @@
           </div>
           
           <div class="mb-2 d-flex  justify-content-center">
-              <div class="subject-show-text3"><%= simple_format(h(@subject.theme)) %></div>
+              <div class="subject-show-text3">
+                <%= simple_format(h(@subject.theme)) %>
+              </div>
           </div>
           
           <div class="mb-2 d-flex  justify-content-center report-box">
             <% if current_user.nickname != "guestuser" %>
               <% if @subject.user.id != current_user.id %>
               <div class="report-icon">
-                <i class='bx bxs-bell-ring' ><%= link_to "通報", new_report_path(subject_id: @subject.id) %></i>
+                <i class='bx bxs-bell-ring' >
+                  <%= link_to "通報", new_report_path(subject_id: @subject.id) %>
+                </i>
               </div>
               <% end %>
             <% end %>
@@ -66,9 +80,6 @@
         <%= render "public/answers/index", subject: @subject %> 
       </div>
         
-     </div>
-     
-
-  
   </div>
+  
 </div>

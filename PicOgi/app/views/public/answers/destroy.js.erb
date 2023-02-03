@@ -1,4 +1,2 @@
-<!--$("#subject_<%#= @subject.id %> .answers-count").html("回答数: <%#= @subject.subject.answers.count %>");-->
-<!--$(".answers").html("<%#= j(render 'public/answers/index', subject: @subject) %>");-->
 $("#subject_<%= @subject.id %>").html("<%= j(render 'public/answers/index', subject: @subject) %>");
 $("#answer_answer").val("");

@@ -1,12 +1,17 @@
 <div class ="d-flex align-items-center session-box">
+  
   <div class ="container-fluid">
     
       <div class="row">
+        
         <div class="col-lg-3 mx-auto text-center">
+          
           <div class="session-box-sm card-effect">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             
-              <div class ="session-text1">ログイン</div>
+              <div class ="session-text1">
+                ログイン
+              </div>
               <div class= "mt-4 mb-2 session-text2">
                  <%= f.label :メールアドレス %><br/>
                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -20,7 +25,9 @@
                 <%= f.label :remember_me %>
               </div>
               <div class= "mt-4 mb-2 row"> 
-                <div class="col"><%= f.submit "ログイン", class: "link-sign_up-btn" %></div>
+                <div class="col">
+                  <%= f.submit "ログイン", class: "link-sign_up-btn" %>
+                </div>
             <% end %>
                 <div class="col">
                   <div class="session-text3">
@@ -34,8 +41,11 @@
                 </div>
               </div>
           </div>
+          
         </div>
+        
       </div>
     
   </div>
+  
 </div>
