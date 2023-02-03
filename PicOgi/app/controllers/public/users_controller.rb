@@ -1,11 +1,11 @@
 class Public::UsersController < ApplicationController
    before_action :is_matching_login_user, only: [:show, :edit, :update]
    before_action :ensure_guest_user, only: [:edit, :show]
+   
   def show
     @user = User.find(params[:id])
     @subjects = @user.subjects.where(status: true).page(params[:page]).per(5)
   end
-
 
   def edit
     @user = User.find(params[:id])

@@ -1,4 +1,5 @@
 class Public::AnswersController < ApplicationController
+  
   def create
     @subject = Subject.find(params[:subject_id])
     @answer = Answer.new(answer_params)
@@ -12,7 +13,6 @@ class Public::AnswersController < ApplicationController
     answer = @subject.answers.find(params[:id])
     answer.destroy
   end
-  
   
   private
   

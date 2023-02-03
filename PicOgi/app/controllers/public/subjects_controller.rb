@@ -30,8 +30,6 @@ class Public::SubjectsController < ApplicationController
     @subject = Subject.last
     if @subject.update(subject_params)
        redirect_to user_path(@user)
-    else
-     #render :edit
     end
   end
   
@@ -44,8 +42,8 @@ class Public::SubjectsController < ApplicationController
   end
   
   def edit
-      @subject = Subject.find(params[:id])
-      @tag_list = @subject.tags.pluck(:name).join('#')
+    @subject = Subject.find(params[:id])
+    @tag_list = @subject.tags.pluck(:name).join('#')
     unless @subject.user_id == current_user.id
       redirect_to user_path(current_user.id)
     end

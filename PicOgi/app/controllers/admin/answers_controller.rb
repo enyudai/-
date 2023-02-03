@@ -3,11 +3,11 @@ class Admin::AnswersController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :authenticate_admin!
   
-    def destroy
-      subject = Subject.find(params[:subject_id])
-      answer = Answer.find(params[:id])
-      answer.destroy
-      redirect_to admin_subject_path(subject)
-    end
+  def destroy
+    subject = Subject.find(params[:subject_id])
+    answer = Answer.find(params[:id])
+    answer.destroy
+    redirect_to admin_subject_path(subject)
+  end
     
 end

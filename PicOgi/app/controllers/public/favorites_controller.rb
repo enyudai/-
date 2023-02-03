@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  
   def create
     @subject = Subject.find(params[:subject_id])
     @answer = Answer.find(params[:answer_id])
