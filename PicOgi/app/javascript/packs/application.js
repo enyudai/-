@@ -14,10 +14,17 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
-import 'packs/public_header'
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+$(document).on('turbolinks:load', function() {
+ $(function() {
+  $(".burger").click(function () {
+     $(".burger").toggleClass("active");
+     $(".menu").toggleClass("active");
+     $(".menu-bgin").toggleClass("active");
+  });
+ });
+});
 

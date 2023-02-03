@@ -19,23 +19,22 @@
 }
 
 .session-text3{
-    width: 125px;
-    height: 50px;
-    margin: 0 auto;
-    background-color: white;
+  width: 125px;
+  height: 50px;
+  margin: 0 auto;
+  background-color: white;
 }
 
 .card-effect{
-    box-shadow: 0 8px 22px rgba(0,0,0,0.2);
-    background-color: #586085;
-    padding: 25px;
-    transition: all 0.35s ease;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+  background-color: #586085;
+  padding: 25px;
+  transition: all 0.35s ease;
 }
 
-
 .card-effect:hover{
-    box-shadow: none;
-    transform: translateY(5px);
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 .link-sign_up-btn{
@@ -44,5 +43,5 @@
 }
 
 .forget-text{
- color: #CB8FE4;
+  color: #CB8FE4;
 }

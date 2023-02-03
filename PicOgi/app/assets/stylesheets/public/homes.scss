@@ -3,76 +3,76 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .about-box{
-    width: 100%;
-    height: 100vh;
-    background-color: #FEF2E8;
+  width: 100%;
+  height: 100vh;
+  background-color: #FEF2E8;
 }
 
 .about-box-sm{
-    text-align: center;
-    padding-top: 7%;
+  text-align: center;
+  padding-top: 7%;
 }
 
 .about-card-efect{
-    transition: all 0.35s ease; 
+  transition: all 0.35s ease; 
 }
 
 .about-card-efect:hover{
-    transform: translateY(5px);
+  transform: translateY(5px);
 }
 
 .about-text1{
-    font-family: 'Sacramento', cursive;
-    font-size: 150px;
-    color: #586085;
+  font-family: 'Sacramento', cursive;
+  font-size: 150px;
+  color: #586085;
 }
 
 .about-text2{
-    font-family: 'Potta One', cursive;
-    font-size: 30px;
-    color: #CB8FE4;
+  font-family: 'Potta One', cursive;
+  font-size: 30px;
+  color: #CB8FE4;
 }
 
 .about-text3{
-    font-family: 'Potta One', cursive;
-    font-size: 30px;
-    color: #586085;
+  font-family: 'Potta One', cursive;
+  font-size: 30px;
+  color: #586085;
 }
 
 .fadeIn1 {
-    animation-name: fadeInAnime1;
-    animation-fill-mode:backwards;
-    animation-duration:3s;
-    animation-timing-function:ease;
-    animation-direction:normal;
+  animation-name: fadeInAnime1;
+  animation-fill-mode:backwards;
+  animation-duration:3s;
+  animation-timing-function:ease;
+  animation-direction:normal;
 }
 
 .a1 {
-    animation-delay: 0.5s
+  animation-delay: 0.5s
 }
 
 .a2 {
-    animation-delay: 0.8s
+  animation-delay: 0.8s
 }
 
 .a3 {
-    animation-delay: 1.1s
+  animation-delay: 1.1s
 }
 
 .a4 {
-    animation-delay: 1.4s
+  animation-delay: 1.4s
 }
 
 .a5 {
-    animation-delay: 1.7s
+  animation-delay: 1.7s
 }
 
 .a6 {
-    animation-delay: 2.0s
+  animation-delay: 2.0s
 }
 
 .a7 {
-    animation-delay: 2.3s
+  animation-delay: 2.3s
 }
 
 @keyframes fadeInAnime1{
@@ -88,37 +88,36 @@
 }
 
 .fadeIn2 {
-    animation-name: fadeInAnime2;
-    animation-fill-mode:backwards;
-    animation-duration: 3s;
-    animation-timing-function:ease;
-    animation-direction:normal;
+  animation-name: fadeInAnime2;
+  animation-fill-mode:backwards;
+  animation-duration: 3s;
+  animation-timing-function:ease;
+  animation-direction:normal;
 }
 
 .b1 {
-    animation-delay: 1.0s
+  animation-delay: 1.0s
 }
 
 .b2 {
-    animation-delay: 1.3s
+  animation-delay: 1.3s
 }
 
 .b3 {
-    animation-delay: 1.6s
+  animation-delay: 1.6s
 }
 
 .b4 {
-    animation-delay: 1.9s
+  animation-delay: 1.9s
 }
 
 .b5 {
-    animation-delay: 2.2s
+  animation-delay: 2.2s
 }
 
 .b6 {
-    animation-delay: 2.5s
+  animation-delay: 2.5s
 }
-
 
 @keyframes fadeInAnime2{
   0% {
@@ -132,13 +131,12 @@
   }
 }
 
-
 .fadeIn3 {
- animation-name: fadeInAnime3;
- animation-fill-mode:backwards;
- animation-duration:3s;
- animation-timing-function:ease;
- animation-direction:normal;
+  animation-name: fadeInAnime3;
+  animation-fill-mode:backwards;
+  animation-duration:3s;
+  animation-timing-function:ease;
+  animation-direction:normal;
 }
 
 @keyframes fadeInAnime3{
@@ -155,29 +153,29 @@
 
 
 .top-box-sm{
-    padding: 24px 202px 24px;
+  padding: 24px 202px 24px;
 }
 
 .top-card-effect{
-    box-shadow: 0 8px 22px rgba(0,0,0,0.2);
-    background: rgba(79,4,194,0.6);
-    width: 360px;
-    padding: 25px;
-    transition: all 0.35s ease;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+  background: rgba(79,4,194,0.6);
+  width: 360px;
+  padding: 25px;
+  transition: all 0.35s ease;
 }
 
 .top-card-effect:hover{
-    box-shadow: none;
-    transform: translateY(5px);
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 .icon-box{
-    width: 50px;
-    height: 50px;
-    background-color: #BBECCD;
-    font-size: 29px;
-    border-radius: 100px;
-    color: #EA5F56;
+  width: 50px;
+  height: 50px;
+  background-color: #BBECCD;
+  font-size: 29px;
+  border-radius: 100px;
+  color: #EA5F56;
 }
 
 .home-image-box{
@@ -192,93 +190,93 @@
 }
 
 .servicce::after{
-   content: ""; 
-   position: absolute;
-   top: 100%;
-   left: 0;
-   background-color: #EB4B33;
-   width: 100%;
-   height: 100%;
-   opacity: 0;
-   transition: all 0.35s ease;
-   z-index: -1;
+  content: ""; 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #EB4B33;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.35s ease;
+  z-index: -1;
 }
 
 .top-text{
-   font-family: 'DotGothic16', sans-serif;
-   color: #F5CD3B;
-   padding: 15px 0;
-   font-size: 22px;
+  font-family: 'DotGothic16', sans-serif;
+  color: #F5CD3B;
+  padding: 15px 0;
+  font-size: 22px;
 }
 
 .servicce:hover .top-text{
-    color: black;
+  color: black;
 }
 
 .servicce:hover .icon-box{
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .servicce:hover .btnripple3{
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .servicce:hover:after{
-    opacity: 1;
-    top: 0;
+  opacity: 1;
+  top: 0;
 }
 
 .btnripple3{
-    width: 50px;
-    height: 80px;
-    background-color: #BBECCD;
-    font-size: 26px;
-    border-radius: 13px;
-    color: #EA5F56;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    outline: none;
+  width: 50px;
+  height: 80px;
+  background-color: #BBECCD;
+  font-size: 26px;
+  border-radius: 13px;
+  color: #EA5F56;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
 }
 
 .btnripple3:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    border: 3px solid #252447;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-	opacity: 1;
-    animation: 1s circleanime2 forwards;
+  content: '';
+  position: absolute;
+  top: 0;
+  border: 3px solid #252447;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  opacity: 1;
+  animation: 1s circleanime2 forwards;
 }
 
 @keyframes circleanime2{
-	0%{
-	  transform: scale(0);
-	}
-	100%{
-		transform: scale(2);
-		opacity: 0;
-	}
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 
 .btnripple3::after {
-    content: '';
-    position: absolute;
-    top: 30%;
-    right: -20px;
-    width: 5px;
-    height: 5px;
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
-    transform: rotate(45deg);
+  content: '';
+  position: absolute;
+  top: 30%;
+  right: -20px;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: rotate(45deg);
 }
 
 .how-text{
-    font-size: 35px;
+  font-size: 35px;
 }
 
 .how-text2{
@@ -286,9 +284,5 @@
 }
 
 .how-text3{
-    font-size: 25px;
-}
-
-.image-how1{
-    
+  font-size: 25px;
 }
