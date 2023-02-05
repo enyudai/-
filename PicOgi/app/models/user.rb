@@ -20,7 +20,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :email, presence: true
   
-  #プロフィール写真をwidth,heightで表示
   def get_profile_image(width, height)
     unless profile_image.attached?
        file_path = Rails.root.join('app/assets/images/no_image.jpg')
