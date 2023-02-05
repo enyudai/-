@@ -40,17 +40,19 @@
               </li>
               
               <li>
-                <%= link_to  user_path(current_user.id) do %>
-                  <div class="row">
-                    <div class="col-lg-3 li-text">
-                      <%= image_tag  current_user.get_profile_image(50,50), class: "img-thumbnail rounded-circle"  %>
+                <% if current_user.nickname != "guestuser" %>
+                  <%= link_to  user_path(current_user.id) do %>
+                    <div class="row">
+                      <div class="col-lg-3 li-text">
+                        <%= image_tag  current_user.get_profile_image(50,50), class: "img-thumbnail rounded-circle"  %>
+                      </div>
+                      <div class="col-lg-6 li-text">
+                        <span>
+                          <%= current_user.nickname %>
+                        </span>
+                      </div>
                     </div>
-                    <div class="col-lg-6 li-text">
-                      <span>
-                        <%= current_user.nickname %>
-                      </span>
-                    </div>
-                  </div>
+                  <% end %>
                 <% end %>
               </li>
               
