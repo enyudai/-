@@ -14,11 +14,11 @@
               </div>
               <div class= "mt-4 mb-2 session-text2">
                  <%= f.label :メールアドレス %><br/>
-                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                 <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
               </div>
               <div class= "mt-4 mb-2 session-text2">   
                  <%= f.label :パスワード %><br/>
-                <%= f.password_field :password, autocomplete: "current-password" %>
+                <%= f.password_field :password, autocomplete: "current-password", required: true %>
               </div>
               <div class= "mt-4 mb-2 session-text2">   
                 <%= f.check_box :remember_me %>

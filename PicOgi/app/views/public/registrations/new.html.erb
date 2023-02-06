@@ -13,22 +13,22 @@
             </div>
             <div class= "mt-4 mb-2 session-text2"> 
               <%= f.label :ニックネーム %><br/>
-              <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+              <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" , required: true %>
             </div>
             <div class= "mt-4 mb-2 session-text2"> 
               <%= f.label :メールアドレス %><br/>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
             </div>
             <div class= "mt-4 mb-2 session-text2">   
               <%= f.label :パスワード %>
               <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> 文字以上)</em>
               <% end %><br/>
-              <%= f.password_field :password, autocomplete: "new-password" %>
+              <%= f.password_field :password, autocomplete: "new-password", required: true %>
             </div>
             <div class= "mt-4 mb-2 session-text2">
               <%= f.label :確認 %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
             </div>
             <div class= "mt-4 mb-2 row"> 
               <div class="col">
