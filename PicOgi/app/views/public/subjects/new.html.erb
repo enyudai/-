@@ -7,7 +7,7 @@
         <div class="subject-new-box-sm">
           
           <div class=" subject-new-text1">
-           <!--エラーメッセージ-->
+           <%# エラーメッセージ %>
             <% if @subject.errors.any? %>
               <%= @subject.errors.count %>件のエラーが発生しました
               <ul>

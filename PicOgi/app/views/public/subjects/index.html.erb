@@ -65,28 +65,30 @@
             いいねランキング Top5
           </div>
          <% @all_favorites.each.with_index(1) do |answer,i| %>
-            <div class="rank-each ">
-              <div class="row">
-                <div class="col-lg-3 d-flex align-items-center justify-content-center rank-text1">
-                  <div>
-                     <%= i %>位
-                  </div>
-                </div>
-                <div class="col-lg-9 row d-flex align-items-center rank-text1">
-                  <div class="col-lg-3">
-                    <div>
-                      <%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %>
-                    </div>
-                    <div class="rank-text2">
-                      <%= answer.user.nickname %> 
-                    </div>
-                  </div>
-                  <div class="col-lg-9">
-                    <%= simple_format(h(answer.answer)) %>
-                  </div>
-                </div>
-              </div>
-            </div>
+           <%= link_to subject_path(answer.subject.id), class: "rank-link" do %>
+             <div class="rank-each ">
+               <div class="row">
+                 <div class="col-lg-3 d-flex align-items-center justify-content-center rank-text1">
+                   <div>
+                      <%= i %>位
+                   </div>
+                 </div>
+                 <div class="col-lg-9 row d-flex align-items-center rank-text1">
+                   <div class="col-lg-3">
+                     <div>
+                       <%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %>
+                     </div>
+                     <div class="rank-text2">
+                       <%= answer.user.nickname %> 
+                     </div>
+                   </div>
+                   <div class="col-lg-9">
+                     <%= simple_format(h(answer.answer)) %>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           <% end %>
          <% end %>
         </div>
       </div>

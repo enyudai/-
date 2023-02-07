@@ -9,14 +9,14 @@
           <div class = "favorites-text text-center"><%= answer.created_at.strftime('%Y/%m/%d') %></div>
         <% end %>
         <div class="row">
-          <div class="col-2"><!-- image box start -->
+          <div class="col-2"><%#  image box start %>
             <div>
               <%= image_tag  answer.user.get_profile_image(70,70), class: "img-thumbnail rounded-circle"  %>
             </div>
             <div>
               <%= answer.user.nickname %>
             </div>
-          </div><!-- image box end -->
+          </div><%# image box end %>
           <div class="col-8">
             <%= simple_format(h(answer.answer)) %>
           </div>

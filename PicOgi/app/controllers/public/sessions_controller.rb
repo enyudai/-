@@ -54,7 +54,7 @@ class Public::SessionsController < Devise::SessionsController
     
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @user.valid_password?(params[:user][:password]) && @user.is_deleted
-      #flash[:notice] = "既に退会されています。再度ご登録を行ってください。"
+      flash[:notice] = "既に退会されています。再度ご登録を行ってください。"
       redirect_to "/users/sign_up"
     end
   end

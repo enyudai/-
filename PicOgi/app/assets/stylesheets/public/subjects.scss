@@ -108,20 +108,23 @@
   width: 500px; 
 }
 
-.rank-text{
+.rank-link{
   font-family: 'Potta One', cursive; 
+  color: #263165;
+}
+
+.rank-text{
   font-size: 40px;
+  font-family: 'Potta One', cursive;
 }
 
 .rank-text1{
   font-size: 30px;  
   border: 0.5rem outset #E21924;
-  font-family: 'Potta One', cursive;
 }
 
 .rank-text2{
-  font-size: 12px;    
-  font-family: 'Potta One', cursive;
+  font-size: 12px;
 }
 
 .rank-each{
