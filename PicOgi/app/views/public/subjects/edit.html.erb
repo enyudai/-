@@ -5,7 +5,19 @@
       <div class = "col-lg-12 d-flex align-items-center justify-content-center ">
         
         <div class="edit-box-sm">
-          
+            
+          <%#エラーメッセージ %>
+          <% if @subject.errors.any? %>
+            <%= @subject.errors.count %>件のエラーが発生しました
+            <ul>
+              <% @subject.errors.full_messages.each do |message| %>
+                <li>
+                  <%= message %>
+                </li>
+              <% end %>
+             </ul>
+          <% end %>    
+            
           <%= form_with model: @subject, local:true do |f| %>
             <div class="form-group pt-4 edit-text2">
              <%= f.file_field :subject_image, accept: "image/*" %>

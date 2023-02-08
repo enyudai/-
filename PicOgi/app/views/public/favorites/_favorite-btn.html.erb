@@ -1,19 +1,23 @@
-<% if current_user != answer.user %>
+<% if @time_limit > Date.today %>
 
-  <% if answer.favorited_by?(current_user) %>
+  <% if current_user != answer.user %>
   
-    <%= link_to subject_answer_favorites_path(subject, answer), method: :delete, remote: true, class: "glyphicon glyphicon-heart" do %>
-      <i class='bx bx-like' ></i>
-    <% end %>
-    <%= answer.favorites.count%>
+    <% if answer.favorited_by?(current_user) %>
     
-  <% else %>
-  
-    <%= link_to subject_answer_favorites_path(subject, answer), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" do %>
-      <i class='bx bx-like' ></i>
+      <%= link_to subject_answer_favorites_path(subject, answer), method: :delete, remote: true, class: "glyphicon glyphicon-heart" do %>
+        <i class='bx bx-like' ></i>
+      <% end %>
+      <%= answer.favorites.count%>
+      
+    <% else %>
+    
+      <%= link_to subject_answer_favorites_path(subject, answer), method: :post, remote: true, class: "glyphicon glyphicon-heart-empty" do %>
+        <i class='bx bx-like' ></i>
+      <% end %>
+      <%= answer.favorites.count%>
+    
     <% end %>
-    <%= answer.favorites.count%>
-  
+    
   <% end %>
   
 <% end %>

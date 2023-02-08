@@ -33,7 +33,7 @@ class Subject < ApplicationRecord
     new_tags = sent_tags
 
     # 古いタグを消す
-     self.tags.destroy_all
+    self.tags.destroy_all
 
     # 新しいタグを保存
     new_tags.each do |new|

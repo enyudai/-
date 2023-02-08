@@ -5,18 +5,19 @@
       <div class = "col-lg-12 d-flex align-items-center justify-content-center ">
         
         <div class="edit-box-sm">
-          <div class=" edit-text1">
-            <%#エラーメッセージ >
-             <% if @user.errors.any? %>
-               <%= @user.errors.count %>件のエラーが発生しました
-               <ul>
-                 <% @user.errors.full_messages.each do |message| %>
-                   <li><%= message %></li>
-                 <% end %>
-               </ul>
-             <% end %>
-          </div>
           
+           <%#エラーメッセージ %>
+           <% if @user.errors.any? %>
+             <%= @user.errors.count %>件のエラーが発生しました
+             <ul>
+               <% @user.errors.full_messages.each do |message| %>
+                 <li>
+                   <%= message %>
+                 </li>
+               <% end %>
+             </ul>
+           <% end %>
+       
           <%= form_with model: @user, local:true do |f| %>
             <div class="form-group pt-4 edit-text1">
               <%= f.label :ニックネーム, class: 'form-label' %>
