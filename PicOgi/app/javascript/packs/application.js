@@ -19,12 +19,12 @@ Turbolinks.start()
 ActiveStorage.start()
 
 $(document).on('turbolinks:load', function() {
- $(function() {
-  $(".burger").click(function () {
-     $(".burger").toggleClass("active");
-     $(".menu").toggleClass("active");
-     $(".menu-bgin").toggleClass("active");
+  $(function() {
+    $(".burger").click(function () {
+      $(".burger").toggleClass("active");
+      $(".menu").toggleClass("active");
+      $(".menu-bgin").toggleClass("active");
+    });
   });
- });
 });
 
